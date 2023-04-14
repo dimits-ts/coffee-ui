@@ -158,6 +158,30 @@ addressed, while others, such as the images, would be corrected in the next deve
 to missing assets.
 
 
+#### Mock-ups
+
+This section includes all the final mock-up screens developed during the 1st development cycle.
+
+![](images/mockups/Main_New.png)
+<br>*Main Menu*
+
+![](images/mockups/French_New.png)
+<br>*French coffee creation screen*
+
+![](images/mockups/Espresso_New.png)
+<br>*Espresso creation screen*
+
+![](images/mockups/Tea_New.png)
+<br>*Tea creation screen*
+
+![](images/mockups/Chocolate_New.png)
+<br>*Hot chocolate creation screen*
+
+![](images/mockups/Schedule_New.png)
+<br>*Schedule screen*
+
+![](images/mockups/Saved_Schedules_New.png)
+<br>*Schedule management screen*
 
 
 

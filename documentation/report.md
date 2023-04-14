@@ -98,14 +98,27 @@ more general suggestions since the design was still in its early stages.
 The project was presented to an audience of 15-20 people where many design aspects were discussed.
 The original presentation can be found [here](presentations/cycle1_presentation_gr.pptx).
 
-<!--- maybe add results for some questionnaire answers here --> 
 
 ### Results
 
-<!---  TODO: Include main menu, schedule menu and one drink config screen with short descriptions-->
-<!---  TODO: Include images for discarded ideas (old warning screen, custom preset menu) and why we 
-dropped them-->
+Besides adapting our functional requirements, the feedback we received helped us adapt the general
+design of our application. Below are two before-and-after pictures demonstrating the changes we made.
+A full list of our final designs can be found in [Addendum#Mock-ups](#mock-ups).
 
+#### Before
+
+![](images/mockups/old_main.PNG)
+<br>*Old main menu*
+
+![](images/mockups/old_espresso.PNG)
+<br>*Old drink creation screen*
+
+#### After
+![](images/mockups/Main_New.png)
+<br>*New main menu*
+
+![](images/mockups/Espresso_New.png)
+<br>*New drink creation screen*
 
 ## Addendum
 
@@ -153,12 +166,10 @@ We can now start asking about the qualitative characteristics of our app:
 
 Our findings indicate that our responders feel that our main screens are well understood, but there
 are complaints about our general design. These (according to open answers given at the end of the
-questionnaire), concerned the font, images and background color used. Many of these complaints were 
-addressed, while others, such as the images, would be corrected in the next development cycle due
-to missing assets.
+questionnaire), concerned the font, images and background color used.
 
 
-#### Mock-ups
+### Mock-ups
 
 This section includes all the final mock-up screens developed during the 1st development cycle.
 

@@ -116,7 +116,7 @@ presented below are not a comprehensive list of all the questions.
 
 We should first verify that the responders belong in our target audience;
 
-![](images/quest_age.PNG)
+![](images/quest/quest_age.PNG)
 <br>*The age of the responders*
 
 We must now check our assumptions that our users;
@@ -124,31 +124,31 @@ We must now check our assumptions that our users;
 2. Want a graphical UI for their coffee machine
 3. Want a programmable schedule for making drinks 
 
-![](images/quest_drink_regular.PNG)
+![](images/quest/quest_drink_regular.PNG)
 *How often our responders drink drinks*
 
 We can see that more than 50% of our users drink some sort of drink on a daily basis, with only 27%
 declaring rare/no use of drinks.
 
-![](images/quest_useful.PNG)
+![](images/quest/quest_useful.PNG)
 <br>*How many responders would find a GUI coffee machine useful*
 
 While not essential to them, most responders would find a GUI somewhat useful.
 
-![](images/quest_program.PNG)
+![](images/quest/quest_program.PNG)
 <br>*How many responders would find a scheduling feature useful*
 
 We can see that a clear majority believe such a feature would be useful.
 
 We can now start asking about the qualitative characteristics of our app:
 
-![](images/quest_creation_hist.PNG)
+![](images/quest/quest_creation_hist.PNG)
 <br>*Ease-of-use of the drink creation screen*
 
-![](images/quest_programing_hist.PNG)
+![](images/quest/quest_programing_hist.PNG)
 <br>*Ease-of-use of the drink scheduling screen*
 
-![](images/quest_colors.PNG)
+![](images/quest/quest_colors.PNG)
 <br>*General app design*
 
 Our findings indicate that our responders feel that our main screens are well understood, but there
@@ -157,8 +157,6 @@ questionnaire), concerned the font, images and background color used. Many of th
 addressed, while others, such as the images, would be corrected in the next development cycle due
 to missing assets.
 
-<!---  TODO: Include link to powerpoint presentation-->
-<!---  TODO: Include the rest of the screens-->
 
 
 

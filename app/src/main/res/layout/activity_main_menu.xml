@@ -70,7 +70,45 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/off_button_icon" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:text="@string/label_warnings"
+            android:textColor="#A1887F"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/waterWarningIcon"
+            app:layout_constraintEnd_toEndOf="@+id/ingredientWarningIcon"
+            app:layout_constraintStart_toStartOf="@+id/filterWarningIcon"
+            app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+        <ImageView
+            android:id="@+id/filterWarningIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="152dp"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/languageButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/filter_icon"
+            android:contentDescription="TODO" />
+
+        <ImageView
+            android:id="@+id/waterWarningIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="@+id/filterWarningIcon"
+            app:layout_constraintStart_toEndOf="@+id/filterWarningIcon"
+            app:layout_constraintTop_toTopOf="@+id/filterWarningIcon"
+            app:layout_constraintVertical_bias="0.181"
+            app:srcCompat="@drawable/drop_icon" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="198dp"
             android:layout_height="51dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -108,6 +146,19 @@
                 app:srcCompat="@drawable/status_light_ok" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ImageView
+            android:id="@+id/ingredientWarningIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="@+id/waterWarningIcon"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintStart_toEndOf="@+id/waterWarningIcon"
+            app:layout_constraintTop_toTopOf="@+id/waterWarningIcon"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/mug_icon" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -142,7 +193,7 @@
             app:layout_constraintVertical_bias="0.121" />
 
         <Button
-            android:id="@+id/espressoButton2"
+            android:id="@+id/frenchButton"
             android:layout_width="511dp"
             android:layout_height="216dp"
             android:backgroundTint="@color/primary1"
@@ -161,7 +212,7 @@
             app:layout_constraintVertical_bias="0.104" />
 
         <Button
-            android:id="@+id/espressoButton3"
+            android:id="@+id/teaButton"
             android:layout_width="511dp"
             android:layout_height="216dp"
             android:layout_marginStart="76dp"
@@ -174,14 +225,14 @@
             android:textSize="45sp"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/espressoButton4"
+            app:layout_constraintEnd_toStartOf="@+id/chocolateButton"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/espressoButton"
             app:layout_constraintVertical_bias="0.421" />
 
         <Button
-            android:id="@+id/espressoButton4"
+            android:id="@+id/chocolateButton"
             android:layout_width="511dp"
             android:layout_height="216dp"
             android:backgroundTint="@color/primary1"
@@ -196,7 +247,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.893"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/espressoButton2"
+            app:layout_constraintTop_toBottomOf="@+id/frenchButton"
             app:layout_constraintVertical_bias="0.421" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -209,6 +260,57 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="175dp"
+            android:layout_height="41dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.985" />
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="174dp"
+            android:layout_height="46dp"
+            android:text="@string/placeholder_date"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/textClock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.016"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.09" />
+
+        <Button
+            android:id="@+id/schedulesButton"
+            android:layout_width="266dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/primary1"
+            android:drawableLeft="@drawable/timer_icon"
+            android:drawableTint="@color/black"
+            android:text="@string/to_schedules"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintStart_toEndOf="@+id/textDate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.514" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

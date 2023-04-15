@@ -18,4 +18,7 @@
     <string name="drink_french">French (Americano)</string>
     <string name="drink_tea">Tea</string>
     <string name="drink_chocolate">Chocolate</string>
+    <string name="placeholder_date">Feb 30th</string>
+    <string name="to_schedules">Schedules</string>
+    <string name="label_warnings">Warnings</string>
 </resources>

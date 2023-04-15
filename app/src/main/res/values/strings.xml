@@ -14,4 +14,8 @@
     <string name="button_off">Shut off the device</string>
     <string name="status_string_ready">Ready</string>
     <string name="status_machine_ready">Machine ready</string>
+    <string name="drink_espresso">Espresso</string>
+    <string name="drink_french">French (Americano)</string>
+    <string name="drink_tea">Tea</string>
+    <string name="drink_chocolate">Chocolate</string>
 </resources>

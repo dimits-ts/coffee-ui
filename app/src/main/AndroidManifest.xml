@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CoffeUI"
         tools:targetApi="31">
         <activity
+            android:name=".CreateScheduleActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainMenuActivity"
             android:exported="true"
             android:label="@string/title_activity_main_menu"

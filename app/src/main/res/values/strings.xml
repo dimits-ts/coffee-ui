@@ -7,8 +7,6 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="help_button">\"Help\"</string>
     <string name="button_language">Select language</string>
     <string name="button_off">Shut off the device</string>
@@ -21,4 +19,25 @@
     <string name="placeholder_date">Feb 30th</string>
     <string name="to_schedules">Schedules</string>
     <string name="label_warnings">Warnings</string>
+    <string name="back_button">Go to main menu</string>
+    <string name="new_schedule_label">New Schedule</string>
+    <string name="schedule_icon">schedule icon</string>
+    <string name="default_schedule_name">Schedule Name</string>
+    <string name="select_drink_prompt">Select drink…</string>
+
+    <string name="repeat_once">Once</string>
+    <string name="repeat_daily">Daily</string>
+    <string name="repeat_weekday">Monday-Friday</string>
+    <string name="repeat_weekend">Weekend</string>
+    <string name="repeat_custom">Custom</string>
+
+    <string name="monday">MON</string>
+    <string name="tuesday">TUE</string>
+    <string name="wednesday">WED</string>
+    <string name="thursday">THU</string>
+    <string name="friday">FRI</string>
+    <string name="saturday">SAT</string>
+    <string name="sunday">SUN</string>
+    <string name="save_button">Save</string>
+
 </resources>

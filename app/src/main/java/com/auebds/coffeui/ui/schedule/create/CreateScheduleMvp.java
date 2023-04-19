@@ -31,6 +31,24 @@ interface CreateScheduleMvp {
         void daySelected(Day day);
 
         /**
+         * Display an error message to the user in case of a name conflict.
+         * @param name the name that caused the conflict
+         */
+        void displayNameConflictError(String name);
+
+        /**
+         * Display an error message to the user.
+         * @param message the message to be displayed
+         */
+        void displayError(String message);
+
+        /**
+         * Display a success message to the user.
+         * @param message the message to be displayed
+         */
+        void displaySuccess(String message);
+
+        /**
          * Close the create schedule screen and go back to the main menu.
          */
         void toMenu();
@@ -74,10 +92,8 @@ interface CreateScheduleMvp {
 
         /**
          * Save the current schedule.
-         * @throws ScheduleNameException in the case of a name conflict
-         * @throws Exception if an error occurs while saving to permanent storage
          */
-        void save() throws ScheduleNameException, Exception;
+        void save();
 
         /**
          * Notify the presenter that a repetition group was selected.

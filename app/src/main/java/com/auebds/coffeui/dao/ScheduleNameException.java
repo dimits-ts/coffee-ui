@@ -1,10 +1,10 @@
-package com.auebds.coffeui.ui.schedule.create;
+package com.auebds.coffeui.dao;
 
 /**
  * A custom exception used to indicate an already used schedule name.
  * @author Dimitris Tsirmpas
  */
-class ScheduleNameException extends Exception {
+public class ScheduleNameException extends Exception {
 
     public ScheduleNameException() {
         super();

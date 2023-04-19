@@ -1,14 +1,12 @@
 package com.auebds.coffeui.ui.schedule.create;
 
-import android.app.AlertDialog;
-
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.time.OffsetTime;
+import java.time.LocalTime;
 
 /**
  * The concrete implementation of the schedule creation MVP View.
@@ -64,7 +62,7 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public OffsetTime getTime() {
+    public LocalTime getTime() {
         return null;
     }
 

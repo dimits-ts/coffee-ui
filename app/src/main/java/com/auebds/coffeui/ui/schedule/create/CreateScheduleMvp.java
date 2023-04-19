@@ -3,7 +3,7 @@ package com.auebds.coffeui.ui.schedule.create;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 
-import java.time.OffsetTime;
+import java.time.LocalTime;
 
 /**
  * The MVP contract between the view and presenter for creating schedules.
@@ -63,7 +63,7 @@ interface CreateScheduleMvp {
          * Get the time (hour, minutes) when the schedule is scheduled to start.
          * @return the time (with timezone information)
          */
-        OffsetTime getTime();
+        LocalTime getTime();
 
         /**
          * Get the user-defined name of the schedule.

@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,7 +22,9 @@ import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -50,6 +53,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         this.attachRadioButtonListeners();
         this.assignDayButtonListeners();
         this.assignBackButtonListener();
+        this.setUpSpinner();
 
         Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(view -> this.presenter.save());
@@ -61,8 +65,29 @@ public class CreateScheduleActivity extends AppCompatActivity {
         return nameTextArea.getText().toString();
     }
 
-    DrinkType getSelectedDrink() {
-        return (DrinkType) drinkTypeSpinner.getSelectedItem();
+    /**
+     * Get the drink selected by the user.
+     * @return the selected DrinkType
+     * @throws IllegalArgumentException if the id used in the spinner does not correspond to
+     * any drink type.
+     * @implNote The id is selected from the first character of the spinner. This means that
+     * any translation must include it as a first character, in the 1-4 range.
+     */
+    DrinkType getSelectedDrink() throws IllegalArgumentException {
+        String drinkName = (String) drinkTypeSpinner.getSelectedItem();
+        int drinkId = Character.getNumericValue(drinkName.trim().charAt(0));
+
+        if(drinkId < 0) {
+            throw new IllegalArgumentException(String.format(Locale.getDefault(),
+                    "No id for drink type found in spinner value %s. See @implNote", drinkName));
+        }
+
+        return Arrays.stream(DrinkType.values())
+                .filter(drinkType -> drinkType.getId() == drinkId)
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(String.format(Locale.getDefault(),
+                        "Id %d not valid for any drink type. See @implNote", drinkId)));
+                // we don't care about app locale since this is a programming error
     }
 
     /**
@@ -125,6 +150,17 @@ public class CreateScheduleActivity extends AppCompatActivity {
     void toMenu() {
         Intent menuIntent = new Intent(CreateScheduleActivity.this, MainMenuActivity.class);
         startActivity(menuIntent);
+    }
+
+    private void setUpSpinner() {
+        Spinner spinner = (Spinner) findViewById(R.id.selectDrinkSpinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.drinks_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setSelection(0);
     }
 
     /**

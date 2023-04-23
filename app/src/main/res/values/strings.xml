@@ -43,4 +43,12 @@
     <string name="water_warning">device low on water</string>
     <string name="ingredients_warning">device low on some ingredients</string>
 
+    <!-- Arbitrary IDs for conversion of string to DrinkType-->
+    <string-array name="drinks_array">
+        <item>1. Espresso</item>
+        <item>2. French Coffee</item>
+        <item>3. Tea</item>
+        <item>4. Hot Chocolate</item>
+    </string-array>
+
 </resources>

@@ -3,6 +3,7 @@ package com.auebds.coffeui.ui.schedule.create;
 import com.auebds.coffeui.dao.ScheduleDao;
 import com.auebds.coffeui.dao.ScheduleNameException;
 import com.auebds.coffeui.entity.Day;
+import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.entity.Schedule;
 
 import java.io.IOException;
@@ -33,6 +34,8 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
         Iterable<Day> days = view.getDays();
         boolean isRepeatable = view.isRepeatable();
         LocalTime time = view.getTime();
+        DrinkType type = this.view.getSelectedDrink();
+
 
         if(name.trim().isEmpty()) {
             view.displayError("Please select a non-empty schedule name.");
@@ -49,8 +52,13 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
             return;
         }
 
-        Schedule schedule = new Schedule(name,isRepeatable, days, time);
+        if(type == null) {
+            view.displayError("An internal error has occurred. Please restart the app and inform " +
+                    "the developers");
+            return;
+        }
 
+        Schedule schedule = new Schedule(name,isRepeatable, days, time, type);
         try {
             scheduleDao.save(schedule);
             view.displaySuccess("Schedule saved successfully");

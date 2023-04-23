@@ -79,7 +79,7 @@ interface CreateScheduleMvp {
 
         /**
          * Get the schedule's selected drink type.
-         * @return the selected drink type
+         * @return the selected drink type, null if invalid
          */
         DrinkType getSelectedDrink();
     }

@@ -12,34 +12,40 @@ public class Schedule {
     private final boolean isRepeatable;
     private final Iterable<Day> days;
     private final LocalTime time;
+    private final DrinkType type;
 
     /**
      * Create a new schedule.
      * @param name the name of the schedule
      * @param isRepeatable whether the schedule must repeat more than once
      * @param days the days on which the schedule will be active
-     * @param time the time (+ timezone information) when the schedule will activate
+     * @param time the time when the schedule will activate
+     * @param drinkType the type of drink that will be dispensed when the schedule is activated
      */
-    public Schedule(String name, boolean isRepeatable, Iterable<Day> days, LocalTime time) {
+    public Schedule(String name, boolean isRepeatable, Iterable<Day> days, LocalTime time,
+                    DrinkType drinkType) {
         this.name = name;
         this.isRepeatable = isRepeatable;
         this.days = days;
         this.time = time;
+        this.type = drinkType;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public boolean isRepeatable() {
-        return isRepeatable;
+        return this.isRepeatable;
     }
 
     public Iterable<Day> getDays() {
-        return days;
+        return this.days;
     }
 
     public LocalTime getTime() {
-        return time;
+        return this.time;
     }
+
+    public DrinkType getType() {return this.type;}
 }

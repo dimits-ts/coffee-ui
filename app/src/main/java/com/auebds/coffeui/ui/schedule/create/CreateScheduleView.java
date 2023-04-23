@@ -1,5 +1,7 @@
 package com.auebds.coffeui.ui.schedule.create;
 
+import android.util.Log;
+
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
@@ -121,7 +123,12 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
 
     @Override
     public DrinkType getSelectedDrink() {
-        return activity.getSelectedDrink();
+        try {
+            return activity.getSelectedDrink();
+        } catch (IllegalArgumentException iae) {
+            Log.e("CREATE_SCHEDULE", String.valueOf(iae));
+            return null;
+        }
     }
 
     private void markSelected(Day day) {

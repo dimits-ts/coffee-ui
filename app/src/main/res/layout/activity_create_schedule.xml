@@ -161,79 +161,69 @@
             android:layout_width="998dp"
             android:layout_height="54dp"
             android:layout_marginTop="280dp"
+            android:layoutDirection="ltr"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.377"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <RadioButton
+                android:id="@+id/buttonRepeatOnce"
+                android:layout_width="114dp"
+                android:layout_height="52dp"
+                android:background="@drawable/radio_button_background"
+                android:checked="true"
+                android:text="@string/repeat_once" />
 
-                <RadioButton
-                    android:id="@+id/buttonRepeatWeekday"
-                    android:layout_width="164dp"
-                    android:layout_height="58dp"
-                    android:background="@drawable/radio_button_background"
-                    android:text="@string/repeat_weekday"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.205"
-                    app:layout_constraintStart_toEndOf="@+id/buttonRepeatDaily"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                <RadioButton
-                    android:id="@+id/buttonRepeatWeekend"
-                    android:layout_width="130dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/radio_button_background"
-                    android:text="@string/repeat_weekend"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.303"
-                    app:layout_constraintStart_toEndOf="@+id/buttonRepeatWeekday"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+            <RadioButton
+                android:id="@+id/buttonRepeatDaily"
+                android:layout_width="114dp"
+                android:layout_height="52dp"
+                android:background="@drawable/radio_button_background"
+                android:text="@string/repeat_daily" />
 
-                <RadioButton
-                    android:id="@+id/buttonRepeatCustom"
-                    android:layout_width="123dp"
-                    android:layout_height="53dp"
-                    android:background="@drawable/radio_button_background"
-                    android:text="@string/repeat_custom"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.968"
-                    app:layout_constraintStart_toEndOf="@+id/buttonRepeatWeekend"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                <RadioButton
-                    android:id="@+id/buttonRepeatOnce"
-                    android:layout_width="114dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/radio_button_background"
-                    android:text="@string/repeat_once"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <RadioButton
+                android:id="@+id/buttonRepeatWeekday"
+                android:layout_width="164dp"
+                android:layout_height="58dp"
+                android:background="@drawable/radio_button_background"
+                android:text="@string/repeat_weekday" />
 
-                <RadioButton
-                    android:id="@+id/buttonRepeatDaily"
-                    android:layout_width="114dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/radio_button_background"
-                    android:text="@string/repeat_daily"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.134"
-                    app:layout_constraintStart_toEndOf="@+id/buttonRepeatOnce"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/buttonRepeatWeekend"
+                android:layout_width="130dp"
+                android:layout_height="52dp"
+                android:background="@drawable/radio_button_background"
+                android:text="@string/repeat_weekend" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/buttonRepeatCustom"
+                android:layout_width="123dp"
+                android:layout_height="53dp"
+                android:background="@drawable/radio_button_background"
+                android:text="@string/repeat_custom" />
+
         </RadioGroup>
 
         <androidx.constraintlayout.widget.ConstraintLayout

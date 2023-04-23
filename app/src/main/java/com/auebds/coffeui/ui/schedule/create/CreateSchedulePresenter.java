@@ -6,6 +6,7 @@ import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.Schedule;
 
 import java.io.IOException;
+import java.time.LocalTime;
 import java.time.OffsetTime;
 
 /**
@@ -31,7 +32,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
         String name = view.getName();
         Iterable<Day> days = view.getDays();
         boolean isRepeatable = view.isRepeatable();
-        OffsetTime time = view.getTime();
+        LocalTime time = view.getTime();
 
         Schedule schedule = new Schedule(name,isRepeatable, days, time);
 

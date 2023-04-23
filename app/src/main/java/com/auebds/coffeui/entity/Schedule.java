@@ -1,6 +1,6 @@
 package com.auebds.coffeui.entity;
 
-import java.time.OffsetTime;
+import java.time.LocalTime;
 
 /**
  * A record class representing a saved schedule.
@@ -11,7 +11,7 @@ public class Schedule {
     private final String name;
     private final boolean isRepeatable;
     private final Iterable<Day> days;
-    private final OffsetTime time;
+    private final LocalTime time;
 
     /**
      * Create a new schedule.
@@ -20,7 +20,7 @@ public class Schedule {
      * @param days the days on which the schedule will be active
      * @param time the time (+ timezone information) when the schedule will activate
      */
-    public Schedule(String name, boolean isRepeatable, Iterable<Day> days, OffsetTime time) {
+    public Schedule(String name, boolean isRepeatable, Iterable<Day> days, LocalTime time) {
         this.name = name;
         this.isRepeatable = isRepeatable;
         this.days = days;
@@ -39,7 +39,7 @@ public class Schedule {
         return days;
     }
 
-    public OffsetTime getTime() {
+    public LocalTime getTime() {
         return time;
     }
 }

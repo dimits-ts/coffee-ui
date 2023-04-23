@@ -3,8 +3,12 @@ package com.auebds.coffeui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 
 import java.time.LocalDate;
 import java.util.Locale;
@@ -20,6 +24,13 @@ public class MainMenuActivity extends AppCompatActivity {
         String month = capitalize(today.getMonth().toString());
         TextView dateView = findViewById(R.id.textDate);
         dateView.setText(String.format(Locale.ROOT, "%s %d", month, today.getDayOfMonth()));
+
+        Button scheduleButton = (Button) findViewById(R.id.schedulesButton);
+        scheduleButton.setOnClickListener(view -> {
+            // later switch this for schedule management activity
+            Intent intent = new Intent(MainMenuActivity.this, CreateScheduleActivity.class);
+            startActivity(intent);
+        });
     }
 
     private String capitalize(String str){

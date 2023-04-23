@@ -72,22 +72,20 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
 
     @Override
     public void displayNameConflictError(String name) {
-        //TODO: placeholder error
-        String message = String.format("The name %s is already used for another schedule. " +
-                "Please select a different name", name);
+        String message = this.activity.getStringRes(R.string.schedule_name_error_message, name);
         Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
     }
 
     @Override
     public void displayError(String message) {
-        //TODO: placeholder error
-        Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
+        String completeMessage = this.activity.getStringRes(R.string.schedule_error_message, message);
+        Snackbar.make(this.activity.getRootView(), completeMessage, SNACKBAR_DURATION).show();
     }
 
     @Override
-    public void displaySuccess(String message) {
-        //TODO: Replace string value
-        Snackbar.make(this.activity.getRootView(), R.string.app_name, SNACKBAR_DURATION).show();
+    public void displaySuccess(String name) {
+        String message = this.activity.getStringRes(R.string.schedule_success_message, name);
+        Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
     }
 
     @Override

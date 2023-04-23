@@ -1,12 +1,12 @@
 package com.auebds.coffeui.ui.schedule.create;
 
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -152,6 +152,10 @@ public class CreateScheduleActivity extends AppCompatActivity {
     void toMenu() {
         Intent menuIntent = new Intent(CreateScheduleActivity.this, MainMenuActivity.class);
         startActivity(menuIntent);
+    }
+
+    String getStringRes(@StringRes int stringId, String... args) {
+        return getString(stringId, (Object []) args);
     }
 
     private void setUpSpinner() {

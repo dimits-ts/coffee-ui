@@ -43,7 +43,11 @@
     <string name="water_warning">device low on water</string>
     <string name="ingredients_warning">device low on some ingredients</string>
 
-    <!-- Arbitrary IDs for conversion of string to DrinkType-->
+    <string name="schedule_success_message">Schedule %1$s created successfully</string>
+    <string name="schedule_name_error_message">Error: Name %1$s is already used for a schedule</string>
+    <string name="schedule_error_message">Error: %1$s</string>
+
+    <!-- IDs from DrinkType.java for conversion from string to DrinkType-->
     <string-array name="drinks_array">
         <item>1. Espresso</item>
         <item>2. French Coffee</item>

@@ -64,9 +64,9 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     @Override
     public void daySelected(Day day) {
         if(Boolean.TRUE.equals(this.selectedDaysMap.get(day))) {
-            markSelected(day);
-        } else {
             markUnselected(day);
+        } else {
+            markSelected(day);
         }
     }
 

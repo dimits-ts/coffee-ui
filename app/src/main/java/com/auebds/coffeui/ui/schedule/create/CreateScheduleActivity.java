@@ -6,6 +6,8 @@ import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -185,8 +187,10 @@ public class CreateScheduleActivity extends AppCompatActivity {
     private void assignDayButtonListeners() {
         for(Map.Entry<Day, Button> entry: this.dayButtonHashMap.entrySet()){
             entry.getValue().setOnTouchListener((view, event) -> {
-                view.performClick();
-                this.presenter.daySelected(entry.getKey());
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    //view.performClick();
+                    this.presenter.daySelected(entry.getKey());
+                }
                 return false; // don't need this event for anything else
             });
         }

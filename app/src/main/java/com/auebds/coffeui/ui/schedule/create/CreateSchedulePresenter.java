@@ -34,6 +34,21 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
         boolean isRepeatable = view.isRepeatable();
         LocalTime time = view.getTime();
 
+        if(name.trim().isEmpty()) {
+            view.displayError("Please select a non-empty schedule name.");
+            return;
+        }
+
+        if(days.spliterator().getExactSizeIfKnown() == 0){
+            view.displayError("Please select one or more days.");
+            return;
+        }
+
+        if(time == null) {
+            view.displayError("Please select a valid time for your schedule.");
+            return;
+        }
+
         Schedule schedule = new Schedule(name,isRepeatable, days, time);
 
         try {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary2"
+    android:background="@color/primary_grey"
     tools:context=".MainMenuActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:id="@+id/toolbar"
             android:layout_width="1289dp"
             android:layout_height="182dp"
-            android:background="@color/primary1"
+            android:background="@color/primary_white"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +93,7 @@
             app:layout_constraintStart_toEndOf="@+id/languageButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/filter_icon"
-            android:contentDescription="TODO" />
+            android:contentDescription="@string/filter_warning" />
 
         <ImageView
             android:id="@+id/waterWarningIcon"
@@ -105,7 +105,8 @@
             app:layout_constraintStart_toEndOf="@+id/filterWarningIcon"
             app:layout_constraintTop_toTopOf="@+id/filterWarningIcon"
             app:layout_constraintVertical_bias="0.181"
-            app:srcCompat="@drawable/drop_icon" />
+            app:srcCompat="@drawable/drop_icon"
+            android:contentDescription="@string/water_warning"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
@@ -157,7 +158,8 @@
             app:layout_constraintStart_toEndOf="@+id/waterWarningIcon"
             app:layout_constraintTop_toTopOf="@+id/waterWarningIcon"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/mug_icon" />
+            app:srcCompat="@drawable/mug_icon"
+            android:contentDescription="@string/ingredients_warning"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -165,7 +167,7 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="1275dp"
         android:layout_height="465dp"
-        android:background="@color/primary2"
+        android:background="@color/primary_grey"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.304"
@@ -177,7 +179,7 @@
             android:id="@+id/espressoButton"
             android:layout_width="511dp"
             android:layout_height="216dp"
-            android:backgroundTint="@color/primary1"
+            android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/espresso_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_espresso"
@@ -196,7 +198,7 @@
             android:id="@+id/frenchButton"
             android:layout_width="511dp"
             android:layout_height="216dp"
-            android:backgroundTint="@color/primary1"
+            android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/french_coffee_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_french"
@@ -216,7 +218,7 @@
             android:layout_width="511dp"
             android:layout_height="216dp"
             android:layout_marginStart="76dp"
-            android:backgroundTint="@color/primary1"
+            android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/tea_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_tea"
@@ -235,7 +237,7 @@
             android:id="@+id/chocolateButton"
             android:layout_width="511dp"
             android:layout_height="216dp"
-            android:backgroundTint="@color/primary1"
+            android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/chocolate_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_chocolate"
@@ -300,7 +302,7 @@
             android:id="@+id/schedulesButton"
             android:layout_width="266dp"
             android:layout_height="77dp"
-            android:backgroundTint="@color/primary1"
+            android:backgroundTint="@color/primary_white"
             android:drawableLeft="@drawable/timer_icon"
             android:drawableTint="@color/black"
             android:text="@string/to_schedules"

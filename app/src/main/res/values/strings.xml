@@ -39,5 +39,8 @@
     <string name="saturday">SAT</string>
     <string name="sunday">SUN</string>
     <string name="save_button">Save</string>
+    <string name="filter_warning">device low on filters</string>
+    <string name="water_warning">device low on water</string>
+    <string name="ingredients_warning">device low on some ingredients</string>
 
 </resources>

@@ -134,7 +134,6 @@
             android:hint="@string/default_schedule_name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/default_schedule_name"
             android:textSize="48sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

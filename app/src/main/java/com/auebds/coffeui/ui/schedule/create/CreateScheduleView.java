@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.time.LocalTime;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -96,7 +97,7 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public Iterable<Day> getDays() {
+    public Collection<Day> getDays() {
         LinkedList<Day> ls = new LinkedList<>();
         for(Map.Entry<Day, Boolean> entry: this.selectedDaysMap.entrySet()){
             if(entry.getValue()) {

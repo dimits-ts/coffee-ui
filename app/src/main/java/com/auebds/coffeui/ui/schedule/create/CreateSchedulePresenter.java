@@ -8,7 +8,7 @@ import com.auebds.coffeui.entity.Schedule;
 
 import java.io.IOException;
 import java.time.LocalTime;
-import java.time.OffsetTime;
+import java.util.Collection;
 
 /**
  * The concrete implementation of the schedule creation MVP Presenter.
@@ -31,7 +31,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
     @Override
     public void save() {
         String name = view.getName();
-        Iterable<Day> days = view.getDays();
+        Collection<Day> days = view.getDays();
         boolean isRepeatable = view.isRepeatable();
         LocalTime time = view.getTime();
         DrinkType type = this.view.getSelectedDrink();
@@ -42,7 +42,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
             return;
         }
 
-        if(days.spliterator().getExactSizeIfKnown() == 0){
+        if(days.size() == 0){
             view.displayError("Please select one or more days.");
             return;
         }
@@ -61,7 +61,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
         Schedule schedule = new Schedule(name,isRepeatable, days, time, type);
         try {
             scheduleDao.save(schedule);
-            view.displaySuccess("Schedule saved successfully");
+            view.displaySuccess(schedule.getName());
             // should we return automatically to the menu or would it be annoying?
             //view.toMenu();
         } catch (ScheduleNameException se) {

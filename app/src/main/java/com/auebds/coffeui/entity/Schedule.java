@@ -1,6 +1,7 @@
 package com.auebds.coffeui.entity;
 
 import java.time.LocalTime;
+import java.util.Collection;
 
 /**
  * A record class representing a saved schedule.
@@ -10,7 +11,7 @@ public class Schedule {
 
     private final String name;
     private final boolean isRepeatable;
-    private final Iterable<Day> days;
+    private final Collection<Day> days;
     private final LocalTime time;
     private final DrinkType type;
 
@@ -22,7 +23,7 @@ public class Schedule {
      * @param time the time when the schedule will activate
      * @param drinkType the type of drink that will be dispensed when the schedule is activated
      */
-    public Schedule(String name, boolean isRepeatable, Iterable<Day> days, LocalTime time,
+    public Schedule(String name, boolean isRepeatable, Collection<Day> days, LocalTime time,
                     DrinkType drinkType) {
         this.name = name;
         this.isRepeatable = isRepeatable;

@@ -4,6 +4,7 @@ import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 
 import java.time.LocalTime;
+import java.util.Collection;
 
 /**
  * The MVP contract between the view and presenter for creating schedules.
@@ -57,7 +58,7 @@ interface CreateScheduleMvp {
          * Get the selected schedule days from the UI.
          * @return an iterable containing the selected days
          */
-        Iterable<Day> getDays();
+        Collection<Day> getDays();
 
         /**
          * Get the time (hour, minutes) when the schedule is scheduled to start.

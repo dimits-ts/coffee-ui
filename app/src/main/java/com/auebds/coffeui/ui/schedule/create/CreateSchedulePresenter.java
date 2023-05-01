@@ -61,7 +61,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
         Schedule schedule = new Schedule(name,isRepeatable, days, time, type);
         try {
             scheduleDao.save(schedule);
-            view.displaySuccess(schedule.getName());
+            view.displaySuccess(schedule);
             // should we return automatically to the menu or would it be annoying?
             //view.toMenu();
         } catch (ScheduleNameException se) {

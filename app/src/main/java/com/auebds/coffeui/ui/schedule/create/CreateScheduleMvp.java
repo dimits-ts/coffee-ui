@@ -2,6 +2,7 @@ package com.auebds.coffeui.ui.schedule.create;
 
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
+import com.auebds.coffeui.entity.Schedule;
 
 import java.time.LocalTime;
 import java.util.Collection;
@@ -45,9 +46,9 @@ interface CreateScheduleMvp {
 
         /**
          * Display a success message to the user.
-         * @param message the message to be displayed
+         * @param schedule the created schedule
          */
-        void displaySuccess(String message);
+        void displaySuccess(Schedule schedule);
 
         /**
          * Close the create schedule screen and go back to the main menu.

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
+import com.auebds.coffeui.entity.Schedule;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -86,8 +87,8 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public void displaySuccess(String name) {
-        String message = this.activity.getStringRes(R.string.schedule_success_message, name);
+    public void displaySuccess(Schedule schedule) {
+        String message = this.activity.getStringRes(R.string.schedule_success_message, schedule.getName());
         Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
     }
 

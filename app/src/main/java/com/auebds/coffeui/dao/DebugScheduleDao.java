@@ -2,6 +2,7 @@ package com.auebds.coffeui.dao;
 import com.auebds.coffeui.entity.Schedule;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashSet;
 
 /**
@@ -28,7 +29,7 @@ public class DebugScheduleDao implements ScheduleDao {
     }
 
     @Override
-    public Iterable<Schedule> loadAllSchedules() throws IOException {
+    public Collection<Schedule> loadAllSchedules() throws IOException {
         return new HashSet<>();
     }
 }

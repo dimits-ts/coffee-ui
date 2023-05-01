@@ -3,6 +3,7 @@ package com.auebds.coffeui.dao;
 import com.auebds.coffeui.entity.Schedule;
 
 import java.io.IOException;
+import java.util.Collection;
 
 /**
  * The interface for a DAO that manages the permanent storage of Schedule objects.
@@ -37,5 +38,5 @@ public interface ScheduleDao {
      * @return an iterable containing all the saved schedules, empty if none
      * @throws IOException if the loading operation failed
      */
-    Iterable<Schedule> loadAllSchedules() throws IOException;
+    Collection<Schedule> loadAllSchedules() throws IOException;
 }

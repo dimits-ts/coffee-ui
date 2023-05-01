@@ -2,6 +2,8 @@ package com.auebds.coffeui.ui.schedule.create;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
@@ -34,7 +36,7 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public void groupSelected(RepetitionPeriod repetitionPeriod) {
+    public void groupSelected(@NonNull RepetitionPeriod repetitionPeriod) {
         switch(repetitionPeriod) {
             case ONCE:
             case CUSTOM:

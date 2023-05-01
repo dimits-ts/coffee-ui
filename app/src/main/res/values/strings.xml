@@ -55,4 +55,14 @@
         <item>4. Hot Chocolate</item>
     </string-array>
 
+    <string name="label_drink">Drink:</string>
+    <string name="label_frequency">Frequency:</string>
+    <string name="label_time">Time:</string>
+    <string name="label_status">Status:</string>
+    <string name="label_edit_schedule">Edit Schedule</string>
+    <string name="label_delete_schedule">Delete Schedule</string>
+    <string name="label_default"><![CDATA[<default>]]></string>
+    <string name="manage_schedule_title">Schedules</string>
+    <string name="manage_schedules_on_button_description">Activate \ Deactivate schedule</string>
+
 </resources>

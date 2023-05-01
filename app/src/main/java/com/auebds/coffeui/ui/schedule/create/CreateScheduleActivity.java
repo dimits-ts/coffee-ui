@@ -57,7 +57,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         this.assignBackButtonListener();
         this.setUpSpinner();
 
-        Button saveButton = (Button) findViewById(R.id.saveButton);
+        Button saveButton = (Button) findViewById(R.id.editScheduleButton);
         saveButton.setOnClickListener(view -> this.presenter.save());
 
         timePicker.setIs24HourView(true); // because of user feedback

@@ -329,7 +329,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/editScheduleButton"
         android:layout_width="248dp"
         android:layout_height="67dp"
         android:text="@string/save_button"

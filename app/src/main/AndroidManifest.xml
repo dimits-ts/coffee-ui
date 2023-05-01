@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CoffeUI"
         tools:targetApi="31">
         <activity
+            android:name=".ui.schedule.manage.ManageScheduleActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.schedule.create.CreateScheduleActivity"
             android:exported="false" />
         <activity

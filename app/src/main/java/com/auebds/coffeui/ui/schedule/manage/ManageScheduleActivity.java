@@ -4,11 +4,13 @@ import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.entity.Schedule;
 
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 /**
  * The Activity managing already-defined schedules.
@@ -28,12 +30,20 @@ public class ManageScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_schedule);
 
-        RecyclerView scheduleListView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView scheduleListView = findViewById(R.id.recyclerView);
         scheduleListView.setAdapter(new ScheduleAdapter(presenter.getUserSchedules().toArray(new Schedule[0])));
     }
 
     void toCreateScheduleActivity() {
         Intent createIntent = new Intent(ManageScheduleActivity.this, MainMenuActivity.class);
         startActivity(createIntent);
+    }
+
+    String getStringRes(@StringRes int stringId, String... args) {
+        return getString(stringId, (Object []) args);
+    }
+
+    View getRootView() {
+        return getWindow().getDecorView().getRootView();
     }
 }

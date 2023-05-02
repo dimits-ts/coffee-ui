@@ -3,7 +3,6 @@ package com.auebds.coffeui.ui.schedule.manage;
 import com.auebds.coffeui.entity.Schedule;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * The MVP interface for the ManageSchedule Activity.

@@ -65,4 +65,6 @@
     <string name="manage_schedule_title">Schedules</string>
     <string name="manage_schedules_on_button_description">Activate \ Deactivate schedule</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

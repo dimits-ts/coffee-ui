@@ -58,7 +58,8 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
             return;
         }
 
-        Schedule schedule = new Schedule(name,isRepeatable, days, time, type);
+        //TODO: make isActive dynamic
+        Schedule schedule = new Schedule(name,isRepeatable, days, time, type, true);
         try {
             scheduleDao.save(schedule);
             view.displaySuccess(schedule);

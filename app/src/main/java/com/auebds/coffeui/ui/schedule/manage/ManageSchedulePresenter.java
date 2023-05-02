@@ -6,7 +6,11 @@ import com.auebds.coffeui.entity.Schedule;
 import java.util.Collection;
 import java.util.LinkedList;
 
-
+/**
+ * The concrete implementation of the Presenter for the ManageSchedule MVP contract.
+ *
+ * @author Dimitris Tsirmpas
+ */
 class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresenter {
     private final ManageScheduleMvp.ManageScheduleView view;
     private final ScheduleDao dao;

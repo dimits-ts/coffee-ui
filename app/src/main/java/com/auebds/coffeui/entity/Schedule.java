@@ -1,5 +1,6 @@
 package com.auebds.coffeui.entity;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Collection;
 
@@ -7,13 +8,14 @@ import java.util.Collection;
  * A record class representing a saved schedule.
  * @author Dimitris Tsirmpas
  */
-public class Schedule {
+public class Schedule implements Serializable {
 
     private final String name;
     private final boolean isRepeatable;
     private final Collection<Day> days;
     private final LocalTime time;
     private final DrinkType type;
+    private boolean isActive;
 
     /**
      * Create a new schedule.
@@ -24,12 +26,13 @@ public class Schedule {
      * @param drinkType the type of drink that will be dispensed when the schedule is activated
      */
     public Schedule(String name, boolean isRepeatable, Collection<Day> days, LocalTime time,
-                    DrinkType drinkType) {
+                    DrinkType drinkType, boolean isActive) {
         this.name = name;
         this.isRepeatable = isRepeatable;
         this.days = days;
         this.time = time;
         this.type = drinkType;
+        this.isActive = isActive;
     }
 
     public String getName() {
@@ -40,7 +43,7 @@ public class Schedule {
         return this.isRepeatable;
     }
 
-    public Iterable<Day> getDays() {
+    public Collection<Day> getDays() {
         return this.days;
     }
 
@@ -49,4 +52,10 @@ public class Schedule {
     }
 
     public DrinkType getType() {return this.type;}
+
+    public boolean isActive() {return this.isActive;}
+
+    public void activate() {this.isActive = true;}
+
+    public void disactivate() {this.isActive = false;}
 }

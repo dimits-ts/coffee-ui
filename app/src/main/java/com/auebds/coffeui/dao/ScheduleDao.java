@@ -22,16 +22,10 @@ public interface ScheduleDao {
     /**
      * Delete an existing schedule from permanent storage.
      * @param schedule the schedule to be deleted
-     * @throws IOException if the schedule doesn't exist or if the deletion failed
+     * @throws IOException if the deletion failed
+     * @throws Exception if the schedule doesn't exist
      */
-    void delete(Schedule schedule) throws IOException;
-
-    /**
-     * Edit the contents of an existing schedule.
-     * @param schedule the schedule to be edited
-     * @throws IOException if the schedule doesn't exist or if the edit operation failed
-     */
-    void edit(Schedule schedule) throws IOException;
+    void delete(Schedule schedule) throws Exception, IOException;
 
     /**
      * Return all the current saved schedules.

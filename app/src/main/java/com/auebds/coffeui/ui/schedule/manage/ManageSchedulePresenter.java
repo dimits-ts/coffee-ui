@@ -1,5 +1,7 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
+import android.util.Log;
+
 import com.auebds.coffeui.dao.ScheduleDao;
 import com.auebds.coffeui.entity.Schedule;
 
@@ -42,5 +44,26 @@ class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresent
     @Override
     public void toCreateScheduleActivity() {
         view.toCreateScheduleActivity();
+    }
+
+    @Override
+    public void initializeDisplaySchedule() {
+        try{
+            Collection<Schedule> schedules = dao.loadAllSchedules();
+            if(schedules.isEmpty()) {
+                this.view.setUpNoSchedulesFragment();
+            } else {
+                this.view.switchDisplayedSchedule(schedules.iterator().next());
+            }
+        } catch (Exception ioe) {
+            Log.e("MANAGE_SCHEDULES", ioe.toString());
+            this.view.setUpNoSchedulesFragment();
+        }
+    }
+
+    @Override
+    public void switchDisplayedSchedule(Schedule schedule) {
+        assert schedule != null;
+        this.view.switchDisplayedSchedule(schedule);
     }
 }

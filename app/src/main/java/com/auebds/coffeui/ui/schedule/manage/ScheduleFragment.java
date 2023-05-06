@@ -2,6 +2,8 @@ package com.auebds.coffeui.ui.schedule.manage;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -26,6 +28,7 @@ public class ScheduleFragment extends Fragment {
 
     // the fragment initialization parameters
     private static final String ARG_SCHEDULE = "schedule";
+    private Schedule schedule;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -51,10 +54,9 @@ public class ScheduleFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            Schedule schedule = getArguments().getParcelable(ARG_SCHEDULE);
-            this.displayInfo(schedule);
+            this.schedule = (Schedule) getArguments().getSerializable(ARG_SCHEDULE);
         } else {
-            Log.e("SCHEDULE_FRAGMENT", "null schedule passed to new fragment");
+            Log.e("SCHEDULE_FRAGMENT", "null bundle passed to new fragment");
         }
     }
 
@@ -63,6 +65,19 @@ public class ScheduleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_schedule, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if(getArguments() != null){
+            Schedule schedule = (Schedule) getArguments().getSerializable(ARG_SCHEDULE);
+            this.displayInfo(schedule);
+        } else {
+            Log.e("SCHEDULE_FRAGMENT", "null schedule passed to new fragment");
+        }
+
     }
 
     private void displayInfo(Schedule schedule) {
@@ -76,7 +91,7 @@ public class ScheduleFragment extends Fragment {
         timeView.setText(schedule.getTime().format(DateTimeFormatter.ofPattern("H : m")));
 
         TextView activatedView = requireView().findViewById(R.id.scheduleLabelStatus);
-        int resCode =  schedule.isActive() ? R.string.yes: R.string.no;
+        int resCode =  schedule.isActive() ? R.string.status_active: R.string.status_not_active;
         activatedView.setText(getString(resCode));
     }
 

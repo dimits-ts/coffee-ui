@@ -32,6 +32,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
         RecyclerView scheduleListView = findViewById(R.id.recyclerView);
         scheduleListView.setAdapter(new ScheduleAdapter(presenter.getUserSchedules().toArray(new Schedule[0])));
+        this.presenter.initializeDisplaySchedule();
     }
 
     void toCreateScheduleActivity() {

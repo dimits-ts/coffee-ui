@@ -1,6 +1,10 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.auebds.coffeui.R;
+import com.auebds.coffeui.entity.Schedule;
 import com.google.android.material.snackbar.Snackbar;
 
 /**
@@ -30,5 +34,25 @@ class ManageScheduleView implements ManageScheduleMvp.ManageScheduleView {
     @Override
     public void displaySuccess(String message) {
         Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
+    }
+
+    @Override
+    public void setUpNoSchedulesFragment() {
+        Fragment newFragment = NoSchedulesFragment.newInstance();
+        FragmentTransaction transaction = this.activity.getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.scheduleFragmentContainer, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    @Override
+    public void switchDisplayedSchedule(Schedule schedule) {
+        Fragment newFragment = ScheduleFragment.newInstance(schedule);
+        FragmentTransaction transaction = this.activity.getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.scheduleFragmentContainer, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

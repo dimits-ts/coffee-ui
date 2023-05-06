@@ -34,6 +34,17 @@ interface ManageScheduleMvp {
          * @param message the message to be displayed
          */
         void displaySuccess(String message);
+
+        /**
+         * Set the activity's schedule fragment to a {@link NoSchedulesFragment}.
+         */
+        void setUpNoSchedulesFragment();
+
+        /**
+         * Set the activity's schedule fragment to a new schedule.
+         * @param schedule the schedule to be display
+         */
+        void switchDisplayedSchedule(Schedule schedule);
     }
 
     /**
@@ -59,5 +70,16 @@ interface ManageScheduleMvp {
          * CreateScheduleActivity}.
          */
         void toCreateScheduleActivity();
+
+        /**
+         * Initialize the display schedule screen.
+         */
+        void initializeDisplaySchedule();
+
+        /**
+         * Set the activity's schedule fragment to a new schedule.
+         * @param schedule the schedule to be display
+         */
+        void switchDisplayedSchedule(Schedule schedule);
     }
 }

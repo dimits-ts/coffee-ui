@@ -20,7 +20,7 @@ class ScheduleViewHolder extends RecyclerView.ViewHolder {
     public ScheduleViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        textView = (TextView) itemView.findViewById(R.id.textView);
+        textView = itemView.findViewById(R.id.textView);
 
         // TODO: Define click listener for the ViewHolder's View
         itemView.setOnClickListener(view -> System.out.println("pressed"));

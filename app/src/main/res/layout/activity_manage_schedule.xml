@@ -106,6 +106,7 @@
         android:layout_height="510dp"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"

@@ -6,9 +6,11 @@ import com.auebds.coffeui.entity.Schedule;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,10 +30,14 @@ public class ManageScheduleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_schedule);
+        this.setContentView(R.layout.activity_manage_schedule);
 
         RecyclerView scheduleListView = findViewById(R.id.recyclerView);
-        scheduleListView.setAdapter(new ScheduleAdapter(presenter.getUserSchedules().toArray(new Schedule[0])));
+        scheduleListView.setAdapter(new ScheduleAdapter(
+                presenter.getUserSchedules(),
+                ContextCompat.getColor(getBaseContext(), R.color.button_selected),
+                ContextCompat.getColor(getBaseContext(), R.color.primary_grey)));
+
         this.presenter.initializeDisplaySchedule();
     }
 

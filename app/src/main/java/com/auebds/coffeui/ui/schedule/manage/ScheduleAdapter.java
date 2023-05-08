@@ -1,6 +1,5 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
-import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Schedule;
 
-import java.util.Collection;
-
 
 /**
  * A list adapter for displaying schedules.
@@ -21,8 +18,8 @@ import java.util.Collection;
  * @author Dimitris Tsirmpas
  */
 class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
-    private static final int MAX_NAME_SIZE = 20;
 
+    private final ManageScheduleMvp.ManageSchedulePresenter presenter;
     private final Schedule[] schedules;
     private final int selectedColorId;
     private final int defaultColorId;
@@ -30,13 +27,14 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
 
     /**
      * Create a new list adapter containing the user-defined schedules.
-     * @param schedules the saved schedules
+     * @param presenter the presenter responsible for managing schedules
      * @param selectedColorId the color id in which the selected button will be painted
      * @param defaultColorId the color id in which the rest of the buttons will be painted
      */
-    public ScheduleAdapter(Collection<Schedule> schedules,
+    public ScheduleAdapter(ManageScheduleMvp.ManageSchedulePresenter presenter,
                            @ColorInt int selectedColorId, @ColorInt int defaultColorId) {
-        this.schedules = schedules.toArray(new Schedule[0]);
+        this.presenter = presenter;
+        this.schedules = presenter.getUserSchedules().toArray(new Schedule[0]);
         this.selectedColorId = selectedColorId;
         this.defaultColorId = defaultColorId;
     }
@@ -48,13 +46,19 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
                 .inflate(R.layout.view_schedule, parent, false);
         final ScheduleViewHolder viewHolder = new ScheduleViewHolder(view);
 
-        // change the selected schedule button's color,
-        // and make the previously selected button's color the default
-        viewHolder.getTextView().setOnClickListener(v -> {
+
+        viewHolder.setOnClickListener(v -> {
             if(viewHolder != this.selectedViewHolder) {
+
+                // notify the presenter the selected schedule has been changed
+                presenter.switchDisplayedSchedule(viewHolder.getSchedule());
+
+                // change the selected schedule button's color,
+                // and make the previously selected button's color the default
                 displayNonSelectedView(this.selectedViewHolder);
                 displaySelectedView(viewHolder);
 
+                // update pointer to selected view holder
                 this.selectedViewHolder = viewHolder;
             }
         });
@@ -70,12 +74,7 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
-        String name = schedules[position].getName();
-        if(name.length() > MAX_NAME_SIZE) {
-            name = name.substring(0, MAX_NAME_SIZE) + "...";
-        }
-
-        holder.getTextView().setText(name);
+        holder.setSchedule(schedules[position]);
     }
 
     @Override
@@ -84,11 +83,11 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
     }
 
     private void displaySelectedView(ScheduleViewHolder viewHolder) {
-        viewHolder.getTextView().setBackgroundTintList(ColorStateList.valueOf(this.selectedColorId));
+        viewHolder.setColor(this.selectedColorId);
     }
 
     private void displayNonSelectedView(ScheduleViewHolder viewHolder) {
-        viewHolder.getTextView().setBackgroundTintList(ColorStateList.valueOf(this.defaultColorId));
+        viewHolder.setColor(this.defaultColorId);
     }
 
 }

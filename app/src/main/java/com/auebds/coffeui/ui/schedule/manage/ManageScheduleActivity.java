@@ -1,18 +1,17 @@
 package com.auebds.coffeui.ui.schedule.manage;
-import com.auebds.coffeui.MainMenuActivity;
-import com.auebds.coffeui.R;
-import com.auebds.coffeui.dao.DebugScheduleDao;
-import com.auebds.coffeui.entity.Schedule;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.os.Bundle;
-import android.view.View;
+import com.auebds.coffeui.MainMenuActivity;
+import com.auebds.coffeui.R;
+import com.auebds.coffeui.dao.DebugScheduleDao;
 
 /**
  * The Activity managing already-defined schedules.
@@ -34,7 +33,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
         RecyclerView scheduleListView = findViewById(R.id.recyclerView);
         scheduleListView.setAdapter(new ScheduleAdapter(
-                presenter.getUserSchedules(),
+                presenter,
                 ContextCompat.getColor(getBaseContext(), R.color.button_selected),
                 ContextCompat.getColor(getBaseContext(), R.color.primary_grey)));
 

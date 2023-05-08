@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="@+id/recyclerView">
 
         <TextView
-            android:id="@+id/labelNameSchedule"
+            android:id="@+id/scheduleNameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_outline"
@@ -46,10 +46,10 @@
             android:textColor="@color/black"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/labelNameSchedule"
+            app:layout_constraintEnd_toEndOf="@+id/scheduleNameLabel"
             app:layout_constraintHorizontal_bias="0.02"
-            app:layout_constraintStart_toStartOf="@+id/labelNameSchedule"
-            app:layout_constraintTop_toBottomOf="@+id/labelNameSchedule" />
+            app:layout_constraintStart_toStartOf="@+id/scheduleNameLabel"
+            app:layout_constraintTop_toBottomOf="@+id/scheduleNameLabel" />
 
         <TextView
             android:id="@+id/textView10"
@@ -59,7 +59,7 @@
             android:textColor="@color/black"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/labelNameSchedule"
+            app:layout_constraintEnd_toEndOf="@+id/scheduleNameLabel"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9"
@@ -73,7 +73,7 @@
             android:textColor="@color/black"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/labelNameSchedule"
+            app:layout_constraintEnd_toEndOf="@+id/scheduleNameLabel"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/textView10"

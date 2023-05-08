@@ -81,6 +81,9 @@ public class ScheduleFragment extends Fragment {
      * @param schedule the schedule to be displayed
      */
     private void displayInfo(Schedule schedule) {
+        TextView nameView = requireView().findViewById(R.id.scheduleNameLabel);
+        nameView.setText(schedule.getName());
+
         TextView typeView = requireView().findViewById(R.id.scheduleDrinkTypeLabel);
         typeView.setText(getLocalizedTypeString(schedule.getType()));
 

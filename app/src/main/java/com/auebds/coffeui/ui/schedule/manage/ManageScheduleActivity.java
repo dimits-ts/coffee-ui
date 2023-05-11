@@ -3,6 +3,7 @@ package com.auebds.coffeui.ui.schedule.manage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,12 +36,15 @@ public class ManageScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_manage_schedule);
 
+        Button toNewScheduleButton = findViewById(R.id.listNewScheduleButton);
+        toNewScheduleButton.setOnClickListener(v -> this.toCreateScheduleActivity());
+
         this.scheduleListView = findViewById(R.id.recyclerView);
         this.adapter = new ScheduleAdapter(
                                 presenter,
                                 ContextCompat.getColor(getBaseContext(), R.color.button_selected),
                                 ContextCompat.getColor(getBaseContext(), R.color.primary_grey));
-        scheduleListView.setAdapter(this.adapter);
+        this.scheduleListView.setAdapter(this.adapter);
 
         this.presenter.displayFirstSchedule();
     }

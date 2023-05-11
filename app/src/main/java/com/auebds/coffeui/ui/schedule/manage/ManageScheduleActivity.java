@@ -13,6 +13,7 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.entity.Schedule;
+import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 
 /**
  * The Activity managing already-defined schedules.
@@ -45,6 +46,11 @@ public class ManageScheduleActivity extends AppCompatActivity {
     }
 
     void toCreateScheduleActivity() {
+        Intent createIntent = new Intent(ManageScheduleActivity.this, CreateScheduleActivity.class);
+        startActivity(createIntent);
+    }
+
+    void toMenuActivity() {
         Intent createIntent = new Intent(ManageScheduleActivity.this, MainMenuActivity.class);
         startActivity(createIntent);
     }

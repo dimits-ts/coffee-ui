@@ -8,7 +8,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_outline"
+        android:backgroundTint="@color/primary_white">
 
         <TextView
             android:id="@+id/textView3"

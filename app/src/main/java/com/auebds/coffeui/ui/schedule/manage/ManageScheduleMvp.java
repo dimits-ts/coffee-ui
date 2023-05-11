@@ -1,5 +1,7 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
+import androidx.annotation.NonNull;
+
 import com.auebds.coffeui.entity.Schedule;
 
 import java.util.Collection;
@@ -30,10 +32,10 @@ interface ManageScheduleMvp {
         void displayError(String message);
 
         /**
-         * Display a success message to the user.
-         * @param message the message to be displayed
+         * Inform the user of a successful deletion.
+         * @param deletedName the name of the deleted schedule.
          */
-        void displaySuccess(String message);
+        void displayDeletionSuccess(String deletedName);
 
         /**
          * Set the activity's schedule fragment to a {@link NoSchedulesFragment}.
@@ -42,9 +44,9 @@ interface ManageScheduleMvp {
 
         /**
          * Set the activity's schedule fragment to a new schedule.
-         * @param schedule the schedule to be display
+         * @param schedule the schedule to be displayed.
          */
-        void switchDisplayedSchedule(Schedule schedule);
+        void switchDisplayedSchedule(@NonNull Schedule schedule);
     }
 
     /**
@@ -72,9 +74,10 @@ interface ManageScheduleMvp {
         void toCreateScheduleActivity();
 
         /**
-         * Initialize the display schedule screen.
+         * The default method to initializing the activity's schedule fragment.
+         * Attempts to display the first schedule, displays a default fragment otherwise.
          */
-        void initializeDisplaySchedule();
+        void displayFirstSchedule();
 
         /**
          * Set the activity's schedule fragment to a new schedule.

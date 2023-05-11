@@ -1,5 +1,6 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -32,7 +33,8 @@ class ManageScheduleView implements ManageScheduleMvp.ManageScheduleView {
     }
 
     @Override
-    public void displaySuccess(String message) {
+    public void displayDeletionSuccess(String deletedName) {
+        String message = this.activity.getStringRes(R.string.schedule_delete_success_message, deletedName);
         Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
     }
 
@@ -47,7 +49,7 @@ class ManageScheduleView implements ManageScheduleMvp.ManageScheduleView {
     }
 
     @Override
-    public void switchDisplayedSchedule(Schedule schedule) {
+    public void switchDisplayedSchedule(@NonNull Schedule schedule) {
         Fragment newFragment = ScheduleFragment.newInstance(schedule);
         FragmentTransaction transaction = this.activity.getSupportFragmentManager().beginTransaction();
 

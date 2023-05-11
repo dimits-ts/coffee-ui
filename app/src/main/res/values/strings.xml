@@ -65,6 +65,7 @@
     <string name="manage_schedule_title">Schedules</string>
     <string name="manage_schedules_on_button_description">Activate \ Deactivate schedule</string>
 
+
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
@@ -72,6 +73,8 @@
     <string name="status_not_active">Disabled</string>
 
     <string name="no_schedules_message">There seem to be no schedules yet!</string>
+    <string name="schedule_delete_success_message">Schedule %1$s deleted successfully</string>
+
     <string name="new_schedule_button_prompt">Create a new schedule</string>
     <string name="to_menu_button_prompt">Back to main menu</string>
 </resources>

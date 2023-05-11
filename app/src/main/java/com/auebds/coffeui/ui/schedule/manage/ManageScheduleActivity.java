@@ -41,7 +41,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
                                 ContextCompat.getColor(getBaseContext(), R.color.primary_grey));
         scheduleListView.setAdapter(this.adapter);
 
-        this.presenter.initializeDisplaySchedule();
+        this.presenter.displayFirstSchedule();
     }
 
     void toCreateScheduleActivity() {

@@ -27,7 +27,7 @@ class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresent
         try {
             return dao.loadAllSchedules();
         } catch(Exception exc) {
-            view.displayError(exc.getLocalizedMessage());
+            this.view.displayError(exc.getLocalizedMessage());
             return new LinkedList<>();
         }
     }
@@ -35,10 +35,11 @@ class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresent
     @Override
     public void deleteSchedule(Schedule schedule) {
         try {
-            dao.delete(schedule);
-            this.initializeDisplaySchedule();
+            this.dao.delete(schedule);
+            this.displayFirstSchedule();
+            this.view.displayDeletionSuccess(schedule.getName());
         } catch(Exception exc) {
-            view.displayError(exc.getLocalizedMessage());
+            this.view.displayError(exc.getLocalizedMessage());
         }
     }
 
@@ -48,9 +49,9 @@ class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresent
     }
 
     @Override
-    public void initializeDisplaySchedule() {
+    public void displayFirstSchedule() {
         try{
-            Collection<Schedule> schedules = dao.loadAllSchedules();
+            Collection<Schedule> schedules = this.dao.loadAllSchedules();
             if(schedules.isEmpty()) {
                 this.view.setUpNoSchedulesFragment();
             } else {

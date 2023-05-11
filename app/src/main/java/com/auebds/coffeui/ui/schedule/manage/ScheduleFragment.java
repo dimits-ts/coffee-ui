@@ -1,5 +1,6 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.auebds.coffeui.R;
@@ -31,6 +33,7 @@ public class ScheduleFragment extends Fragment {
 
     // the fragment initialization parameters
     private static final String ARG_SCHEDULE = "schedule";
+    private ManageScheduleMvp.ManageSchedulePresenter presenter;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -69,18 +72,28 @@ public class ScheduleFragment extends Fragment {
 
         if(getArguments() != null){
             Schedule schedule = (Schedule) getArguments().getSerializable(ARG_SCHEDULE);
-            this.displayInfo(schedule);
+            this.initialize(schedule);
         } else {
             Log.e("SCHEDULE_FRAGMENT", "null schedule passed to new fragment");
         }
 
     }
 
+    private void deleteSchedule(Schedule schedule) {
+        Activity activity = getActivity();
+
+        // This is extremely bad architecture but it saves us from either specifying the presenter
+        // type (singleton) or going into some real Java-esque enterprise BS
+        if(activity instanceof  ManageScheduleActivity) {
+             ((ManageScheduleActivity) activity).deleteSchedule(schedule);
+        }
+    }
+
     /**
      * Display the information of a schedule on the created fragment.
      * @param schedule the schedule to be displayed
      */
-    private void displayInfo(Schedule schedule) {
+    private void initialize(Schedule schedule) {
         TextView nameView = requireView().findViewById(R.id.scheduleNameLabel);
         nameView.setText(schedule.getName());
 
@@ -96,6 +109,9 @@ public class ScheduleFragment extends Fragment {
         TextView activatedView = requireView().findViewById(R.id.scheduleLabelStatus);
         int resCode =  schedule.isActive() ? R.string.status_active: R.string.status_not_active;
         activatedView.setText(getString(resCode));
+
+        Button deleteButton = requireView().findViewById(R.id.deleteScheduleButton);
+        deleteButton.setOnClickListener(v -> this.deleteSchedule(schedule));
     }
 
     /**

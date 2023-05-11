@@ -36,6 +36,7 @@ class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresent
     public void deleteSchedule(Schedule schedule) {
         try {
             dao.delete(schedule);
+            this.initializeDisplaySchedule();
         } catch(Exception exc) {
             view.displayError(exc.getLocalizedMessage());
         }
@@ -53,7 +54,7 @@ class ManageSchedulePresenter implements ManageScheduleMvp.ManageSchedulePresent
             if(schedules.isEmpty()) {
                 this.view.setUpNoSchedulesFragment();
             } else {
-                this.view.switchDisplayedSchedule(schedules.iterator().next());
+                this.view.switchDisplayedSchedule(schedules.stream().findFirst().get());
             }
         } catch (Exception ioe) {
             Log.e("MANAGE_SCHEDULES", ioe.toString());

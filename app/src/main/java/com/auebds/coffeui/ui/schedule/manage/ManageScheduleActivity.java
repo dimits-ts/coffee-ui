@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.entity.Schedule;
 
 /**
  * The Activity managing already-defined schedules.
@@ -20,6 +21,8 @@ import com.auebds.coffeui.dao.DebugScheduleDao;
  */
 public class ManageScheduleActivity extends AppCompatActivity {
     private final ManageScheduleMvp.ManageSchedulePresenter presenter;
+    private RecyclerView scheduleListView;
+    private ScheduleAdapter adapter;
 
     public ManageScheduleActivity() {
         this.presenter = new ManageSchedulePresenter(
@@ -31,11 +34,12 @@ public class ManageScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_manage_schedule);
 
-        RecyclerView scheduleListView = findViewById(R.id.recyclerView);
-        scheduleListView.setAdapter(new ScheduleAdapter(
-                presenter,
-                ContextCompat.getColor(getBaseContext(), R.color.button_selected),
-                ContextCompat.getColor(getBaseContext(), R.color.primary_grey)));
+        this.scheduleListView = findViewById(R.id.recyclerView);
+        this.adapter = new ScheduleAdapter(
+                                presenter,
+                                ContextCompat.getColor(getBaseContext(), R.color.button_selected),
+                                ContextCompat.getColor(getBaseContext(), R.color.primary_grey));
+        scheduleListView.setAdapter(this.adapter);
 
         this.presenter.initializeDisplaySchedule();
     }
@@ -51,5 +55,12 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
     View getRootView() {
         return getWindow().getDecorView().getRootView();
+    }
+
+    void deleteSchedule(Schedule schedule) {
+        this.presenter.deleteSchedule(schedule);
+        // set first element as new selected
+        this.adapter.updateSchedules(
+                (ScheduleViewHolder) this.scheduleListView.findViewHolderForAdapterPosition(0));
     }
 }

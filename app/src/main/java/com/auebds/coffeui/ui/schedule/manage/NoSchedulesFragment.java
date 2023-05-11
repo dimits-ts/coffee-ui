@@ -14,7 +14,7 @@ import com.auebds.coffeui.R;
  * A {@link Fragment} subclass to be shown when no schedules have been set by the user.
  * @author Dimitris Tsirmpas
  */
-class NoSchedulesFragment extends Fragment {
+public class NoSchedulesFragment extends Fragment {
 
     public NoSchedulesFragment() {
         // Required empty public constructor

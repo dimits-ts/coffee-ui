@@ -45,8 +45,6 @@ class ScheduleViewHolder extends RecyclerView.ViewHolder {
         // assertions should always be checked, even if the IDE does not like it
         if(schedule == null) {
             throw new NullPointerException("Provided a null schedule for Schedule View Holder");
-        } else if (this.schedule != null) {
-            throw new IllegalStateException("Schedule View Holder already holds a schedule");
         } else {
             this.schedule = schedule;
             this.textView.setText(schedule.getName());

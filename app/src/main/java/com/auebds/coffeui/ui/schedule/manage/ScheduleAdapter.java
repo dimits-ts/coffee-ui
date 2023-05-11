@@ -1,5 +1,6 @@
 package com.auebds.coffeui.ui.schedule.manage;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Schedule;
 
+import java.util.Collection;
+
 
 /**
  * A list adapter for displaying schedules.
@@ -20,10 +23,10 @@ import com.auebds.coffeui.entity.Schedule;
 class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
 
     private final ManageScheduleMvp.ManageSchedulePresenter presenter;
-    private final Schedule[] schedules;
     private final int selectedColorId;
     private final int defaultColorId;
     private ScheduleViewHolder selectedViewHolder;
+    private Schedule[] schedules;
 
     /**
      * Create a new list adapter containing the user-defined schedules.
@@ -34,9 +37,9 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
     public ScheduleAdapter(ManageScheduleMvp.ManageSchedulePresenter presenter,
                            @ColorInt int selectedColorId, @ColorInt int defaultColorId) {
         this.presenter = presenter;
-        this.schedules = presenter.getUserSchedules().toArray(new Schedule[0]);
         this.selectedColorId = selectedColorId;
         this.defaultColorId = defaultColorId;
+        setSchedules(presenter.getUserSchedules());
     }
 
     @NonNull
@@ -82,11 +85,27 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
         return schedules.length;
     }
 
-    private void displaySelectedView(ScheduleViewHolder viewHolder) {
+    /**
+     * Update the displayed schedules by querying the presenter.
+     * @param newSelected the new View Holder to be set as "selected"
+     */
+    @SuppressLint("NotifyDataSetChanged") // not a problem because of very small number of schedules
+    public void updateSchedules(ScheduleViewHolder newSelected) {
+        setSchedules(this.presenter.getUserSchedules());
+        this.notifyDataSetChanged();
+        this.displaySelectedView(newSelected);
+    }
+
+    private void setSchedules(@NonNull Collection<Schedule> newSchedules) {
+        this.schedules = newSchedules.toArray(new Schedule[0]);
+    }
+
+
+    private void displaySelectedView(@NonNull ScheduleViewHolder viewHolder) {
         viewHolder.setColor(this.selectedColorId);
     }
 
-    private void displayNonSelectedView(ScheduleViewHolder viewHolder) {
+    private void displayNonSelectedView(@NonNull ScheduleViewHolder viewHolder) {
         viewHolder.setColor(this.defaultColorId);
     }
 

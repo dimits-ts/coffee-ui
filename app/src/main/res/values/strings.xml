@@ -24,7 +24,22 @@
     <string name="schedule_icon">schedule icon</string>
     <string name="default_schedule_name">Schedule Name</string>
     <string name="select_drink_prompt">Select drink…</string>
-
+    <string name="attr_cups"> Cups </string>
+    <string name="attr_milk"> Milk </string>
+    <string name="attr_sugar"> Sugar </string>
+    <string name="attr_coffee"> Coffee </string>
+    <string name="default_attr_value"> -1 </string>
+    <string name="attr_hot"> Hot </string>
+    <string name="attr_cold"> Cold </string>
+    <string name="attr_latte"> Latte </string>
+    <string name="go"> GO </string>
+    <string name="amount_small"> sex1 </string>
+    <string name="amount_olga"> sex2 </string>
+    <string name="amount_big"> sex3 </string>
+    <string name="amount_gkiwnhs"> sex4</string>
+    <string name="attr_frothed"> Frothed </string>
+    <string name="minus_sign"> - </string>
+    <string name="attr_chocolate"> Chocolate </string>
     <string name="repeat_once">Once</string>
     <string name="repeat_daily">Daily</string>
     <string name="repeat_weekday">Monday-Friday</string>

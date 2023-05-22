@@ -1,13 +1,49 @@
 package com.auebds.coffeui.entity;
 
 public class Espresso {
-    private final int cups;
-    private final int milk;
-    private final int sugar;
-    private final int coffee;
-    private final boolean temp;
+    private int cups;
+    private int milk;
+    private  int sugar;
+    private int coffee;
+    private boolean temp;
 
-    private final boolean milkType;
+    private boolean milkType;
+
+    public void plusSugar() {
+        this.sugar += 1;
+    }
+
+    public void minusSugar(){
+        this.sugar -= 1;
+    }
+
+    public void plusCups() {
+        this.cups +=1;
+    }
+
+    public void minusCups(){
+        this.cups -=1;
+    }
+
+    public void plusMilk() {
+        this.milk += 1;
+    }
+
+    public void minusMilk(){
+        this.milk -= 1;
+    }
+
+    public void setCoffee(int coffee) {
+        this.coffee = coffee;
+    }
+
+    public void setTemp(boolean temp) {
+        this.temp = temp;
+    }
+
+    public void setMilkType(boolean milkType) {
+        this.milkType = milkType;
+    }
 
     public Espresso(int cups, int milk, int sugar, int coffee, boolean temp, boolean milkType){
         this.cups=cups;

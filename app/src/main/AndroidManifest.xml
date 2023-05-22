@@ -16,6 +16,8 @@
         <activity
             android:name=".ui.schedule.manage.ManageScheduleActivity"
             android:exported="false" />
+        <activity android:name=".ui.drinks.CreateChocolateActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.schedule.create.CreateScheduleActivity"
             android:exported="false" />

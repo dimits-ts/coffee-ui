@@ -361,6 +361,7 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="50dp"
                 android:background="@drawable/radio_button_background"
+                android:checked="false"
                 android:text="@string/amount_big"
                 android:textAllCaps="false"
                 android:textSize="25sp" />

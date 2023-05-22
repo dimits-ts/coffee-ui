@@ -98,13 +98,14 @@
         app:layout_constraintVertical_bias="0.271">
 
         <RadioGroup
+            android:id="@+id/MilkRadioGroup"
             android:layout_width="442dp"
             android:layout_height="96dp"
             android:layout_marginTop="144dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
+            app:layout_constraintEnd_toEndOf="@+id/TempRadioGroup"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/radioGroup2"
+            app:layout_constraintStart_toStartOf="@+id/TempRadioGroup"
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
@@ -123,13 +124,14 @@
                 android:layout_height="84dp"
                 android:layout_marginStart="60dp"
                 android:background="@drawable/radio_button_background"
+                android:checked="true"
                 android:text="@string/attr_latte"
                 android:textAllCaps="false"
                 android:textSize="25sp" />
         </RadioGroup>
 
         <RadioGroup
-            android:id="@+id/radioGroup2"
+            android:id="@+id/TempRadioGroup"
             android:layout_width="442dp"
             android:layout_height="93dp"
             android:layout_marginTop="24dp"
@@ -145,6 +147,7 @@
                 android:layout_height="84dp"
                 android:layout_marginStart="60dp"
                 android:background="@drawable/radio_button_background"
+                android:checked="true"
                 android:text="@string/attr_cold"
                 android:textAllCaps="false"
                 android:textSize="25sp" />

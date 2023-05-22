@@ -99,6 +99,7 @@
         app:layout_constraintVertical_bias="0.271">
 
         <RadioGroup
+            android:id="@+id/TempRadioGroup"
             android:layout_width="442dp"
             android:layout_height="93dp"
             android:layout_marginTop="24dp"
@@ -106,7 +107,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
                 android:id="@+id/buttoncold"

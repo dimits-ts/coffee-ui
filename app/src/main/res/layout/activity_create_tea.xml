@@ -99,6 +99,21 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.271">
 
+        <TextView
+            android:id="@+id/sugarAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/default_attr_value"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView22"
+            app:layout_constraintEnd_toEndOf="@+id/milkAmount"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/milkAmount"
+            app:layout_constraintTop_toTopOf="@+id/textView22"
+            app:layout_constraintVertical_bias="0.0" />
+
         <RadioGroup
             android:layout_width="442dp"
             android:layout_height="93dp"
@@ -138,11 +153,11 @@
             android:text="@string/minus_sign"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
-            app:layout_constraintBottom_toBottomOf="@+id/textView24"
+            app:layout_constraintBottom_toBottomOf="@+id/cupsAmount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.327"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/cupsAmount"
             app:layout_constraintVertical_bias="0.101" />
 
         <Button
@@ -176,7 +191,7 @@
             app:layout_constraintVertical_bias="0.106" />
 
         <TextView
-            android:id="@+id/textView24"
+            android:id="@+id/cupsAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
@@ -198,11 +213,11 @@
             android:text="@string/minus_sign"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
-            app:layout_constraintBottom_toBottomOf="@+id/textView25"
+            app:layout_constraintBottom_toBottomOf="@+id/milkAmount"
             app:layout_constraintEnd_toEndOf="@+id/minusbuttoncups"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/minusbuttoncups"
-            app:layout_constraintTop_toTopOf="@+id/textView25"
+            app:layout_constraintTop_toTopOf="@+id/milkAmount"
             app:layout_constraintVertical_bias="0.166" />
 
         <TextView
@@ -221,7 +236,7 @@
             app:layout_constraintVertical_bias="0.316" />
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/milkAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
@@ -229,9 +244,9 @@
             android:textColor="@color/black"
             android:textSize="50sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView21"
-            app:layout_constraintEnd_toEndOf="@+id/textView24"
+            app:layout_constraintEnd_toEndOf="@+id/cupsAmount"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintStart_toStartOf="@+id/cupsAmount"
             app:layout_constraintTop_toTopOf="@+id/textView21"
             app:layout_constraintVertical_bias="0.151" />
 
@@ -265,21 +280,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView21"
             app:layout_constraintVertical_bias="0.624" />
 
-        <TextView
-            android:id="@+id/textView26"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/default_attr_value"
-            android:textColor="@color/black"
-            android:textSize="50sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView22"
-            app:layout_constraintEnd_toEndOf="@+id/textView25"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView25"
-            app:layout_constraintTop_toTopOf="@+id/textView22"
-            app:layout_constraintVertical_bias="0.286" />
-
         <Button
             android:id="@+id/minusbuttonsugar"
             android:layout_width="61dp"
@@ -288,12 +288,11 @@
             android:text="@string/minus_sign"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
-            app:layout_constraintBottom_toBottomOf="@+id/textView26"
+            app:layout_constraintBottom_toBottomOf="@+id/sugarAmount"
             app:layout_constraintEnd_toEndOf="@+id/minusbuttonmilk"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/minusbuttonmilk"
-            app:layout_constraintTop_toTopOf="@+id/textView26"
-            app:layout_constraintVertical_bias="0.253" />
+            app:layout_constraintTop_toTopOf="@+id/sugarAmount" />
 
         <Button
             android:id="@+id/plusbuttonsugar"
@@ -323,7 +322,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/goButton4"
         android:layout_width="153dp"
         android:layout_height="91dp"
         android:background="@drawable/rounded_outline"
@@ -332,6 +331,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

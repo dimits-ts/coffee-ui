@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.auebds.coffeui.ui.drinks.CreateChocolateActivity;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 
@@ -30,6 +31,13 @@ public class MainMenuActivity extends AppCompatActivity {
         scheduleButton.setOnClickListener(view -> {
             // later switch this for schedule management activity
             Intent intent = new Intent(MainMenuActivity.this, ManageScheduleActivity.class);
+            startActivity(intent);
+        });
+
+        Button chocolateButton = findViewById(R.id.chocolateButton);
+        chocolateButton.setOnClickListener(view -> {
+            //gay sex
+            Intent intent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
             startActivity(intent);
         });
     }

@@ -18,6 +18,13 @@ public class DrinkDao {
         this.espresso=espresso;
     }
 
+    public DrinkDao(){
+        this.chocolate=null;
+        this.tea=null;
+        this.french=null;
+        this.espresso=null;
+    }
+
     public Chocolate getChocolate(){
         return this.chocolate;
     }

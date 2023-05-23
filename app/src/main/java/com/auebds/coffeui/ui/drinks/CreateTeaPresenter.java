@@ -60,6 +60,7 @@ public class CreateTeaPresenter {
     }
 
     public void changeTemperature(boolean temp){
+        this.defaultTea.setTemp(temp);
         this.view.setTemperature(temp);
     }
 

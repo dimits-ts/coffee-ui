@@ -60,14 +60,19 @@ public class CreateFrenchPresenter {
     }
 
     public void changeCoffee(int amount){
+        this.defaultFrench.setCoffee(amount);
         this.view.setCoffee(amount);
     }
 
     public void changeTemperature(boolean temp){
+        this.defaultFrench.setTemp(temp);
         this.view.setTemperature(temp);
     }
 
-    public void changeMilkType(boolean type){this.view.setMilkType(type);}
+    public void changeMilkType(boolean type){
+        this.defaultFrench.setMilkType(type);
+        this.view.setMilkType(type);
+    }
 
     public void save(){
         dao.setFrench(this.defaultFrench);

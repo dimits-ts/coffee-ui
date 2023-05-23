@@ -60,10 +60,12 @@ public class CreateChocolatePresenter {
     }
 
     public void changeChocolate(int amount){
+        this.defaultChocolate.setChocolate(amount);
         this.view.setChocolate(amount);
     }
 
     public void changeTemperature(boolean temp){
+        this.defaultChocolate.setTemp(temp);
         this.view.setTemperature(temp);
     }
 

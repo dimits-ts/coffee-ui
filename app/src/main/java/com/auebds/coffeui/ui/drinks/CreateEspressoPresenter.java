@@ -60,14 +60,19 @@ public class CreateEspressoPresenter {
     }
 
     public void changeCoffee(int amount){
+        this.defaultEspresso.setCoffee(amount);
         this.view.setCoffee(amount);
     }
 
     public void changeTemperature(boolean temp){
+        this.defaultEspresso.setTemp(temp);
         this.view.setTemperature(temp);
     }
 
-    public void changeMilkType(boolean type){this.view.setMilkType(type);}
+    public void changeMilkType(boolean type){
+        this.defaultEspresso.setMilkType(type);
+        this.view.setMilkType(type);
+    }
 
     public void save(){
         dao.setEspresso(this.defaultEspresso);

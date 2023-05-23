@@ -1,7 +1,6 @@
 package com.auebds.coffeui.ui.drinks;
 
 import com.auebds.coffeui.dao.DrinkDao;
-import com.auebds.coffeui.entity.Chocolate;
 import com.auebds.coffeui.entity.Espresso;
 
 

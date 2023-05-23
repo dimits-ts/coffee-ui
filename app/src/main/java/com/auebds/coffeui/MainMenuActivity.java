@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.auebds.coffeui.ui.drinks.CreateChocolateActivity;
+import com.auebds.coffeui.ui.drinks.CreateEspressoActivity;
+import com.auebds.coffeui.ui.drinks.CreateFrenchActivity;
+import com.auebds.coffeui.ui.drinks.CreateTeaActivity;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 
@@ -36,8 +39,25 @@ public class MainMenuActivity extends AppCompatActivity {
 
         Button chocolateButton = findViewById(R.id.chocolateButton);
         chocolateButton.setOnClickListener(view -> {
-            //gay sex
             Intent intent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
+            startActivity(intent);
+        });
+
+        Button marineButton = findViewById(R.id.frenchButton);
+        marineButton.setOnClickListener(view ->{
+            Intent intent = new Intent(MainMenuActivity.this, CreateFrenchActivity.class);
+            startActivity(intent);
+        });
+
+        Button teaButton = findViewById(R.id.teaButton);
+        teaButton.setOnClickListener(view ->{
+            Intent intent = new Intent(MainMenuActivity.this, CreateTeaActivity.class);
+            startActivity(intent);
+        });
+
+        Button espressoButton = findViewById(R.id.espressoButton);
+        espressoButton.setOnClickListener(view ->{
+            Intent intent = new Intent(MainMenuActivity.this, CreateEspressoActivity.class);
             startActivity(intent);
         });
     }

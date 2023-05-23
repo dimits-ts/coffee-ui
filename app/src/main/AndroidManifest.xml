@@ -21,6 +21,12 @@
         <activity
             android:name=".ui.schedule.create.CreateScheduleActivity"
             android:exported="false" />
+        <activity android:name=".ui.drinks.CreateEspressoActivity"
+            android:exported="false" />
+        <activity android:name=".ui.drinks.CreateFrenchActivity"
+            android:exported="false" />
+        <activity android:name=".ui.drinks.CreateTeaActivity"
+            android:exported="false" />
         <activity
             android:name=".MainMenuActivity"
             android:exported="true"

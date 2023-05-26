@@ -150,22 +150,6 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/editScheduleButton"
-            android:layout_width="160dp"
-            android:layout_height="62dp"
-            android:backgroundTint="@color/primary_grey"
-            android:text="@string/label_edit_schedule"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:cornerRadius="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.846"
-            app:layout_constraintStart_toEndOf="@+id/scheduleTimeLabel"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.409" />
-
-        <Button
             android:id="@+id/deleteScheduleButton"
             android:layout_width="160dp"
             android:layout_height="62dp"
@@ -175,11 +159,11 @@
             android:textSize="16sp"
             app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editScheduleButton"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/editScheduleButton"
-            app:layout_constraintTop_toBottomOf="@+id/editScheduleButton"
-            app:layout_constraintVertical_bias="0.289"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.909"
             tools:ignore="TextContrastCheck" />
 
         <ImageButton

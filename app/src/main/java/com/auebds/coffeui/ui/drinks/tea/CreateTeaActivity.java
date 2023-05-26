@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.util.Util;
+
+import java.util.Locale;
 
 public class CreateTeaActivity extends AppCompatActivity {
 
@@ -78,17 +81,17 @@ public class CreateTeaActivity extends AppCompatActivity {
 
     public void setSugar(int amount){
         TextView tv = (TextView) findViewById(R.id.sugarAmount);
-        tv.setText(Integer.toString(amount));
+        tv.setText(Util.localizedToString(amount));
     }
 
     public void setMilk(int amount){
         TextView tv = (TextView) findViewById(R.id.milkAmount);
-        tv.setText(Integer.toString(amount));
+        tv.setText(Util.localizedToString(amount));
     }
 
     public void setCups(int amount){
         TextView tv = (TextView) findViewById(R.id.cupsAmount);
-        tv.setText(Integer.toString(amount));
+        tv.setText(Util.localizedToString(amount));
     }
 
     public void setChocolate(int amount) {

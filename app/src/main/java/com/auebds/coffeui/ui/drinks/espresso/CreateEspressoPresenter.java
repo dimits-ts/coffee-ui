@@ -29,34 +29,31 @@ public class CreateEspressoPresenter {
     public void changeSugar(boolean increment){
         if (increment){
             this.defaultEspresso.plusSugar();
-            this.view.setSugar(this.defaultEspresso.getSugar());
         }
         else{
             this.defaultEspresso.minusSugar();
-            this.view.setSugar(this.defaultEspresso.getSugar());
         }
+        this.view.setSugar(this.defaultEspresso.getSugar());
     }
 
     public void changeMilk(boolean increment){
         if (increment){
             this.defaultEspresso.plusMilk();
-            this.view.setMilk(this.defaultEspresso.getMilk());
         }
         else{
             this.defaultEspresso.minusMilk();
-            this.view.setMilk(this.defaultEspresso.getMilk());
         }
+        this.view.setMilk(this.defaultEspresso.getMilk());
     }
 
     public void changeCups(boolean increment){
         if (increment){
             this.defaultEspresso.plusCups();
-            this.view.setCups(this.defaultEspresso.getCups());
         }
         else{
             this.defaultEspresso.minusCups();
-            this.view.setCups(this.defaultEspresso.getCups());
         }
+        this.view.setCups(this.defaultEspresso.getCups());
     }
 
     public void changeCoffee(int amount){

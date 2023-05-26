@@ -29,34 +29,28 @@ public class CreateChocolatePresenter {
     public void changeSugar(boolean increment){
         if (increment){
             this.defaultChocolate.plusSugar();
-            this.view.setSugar(this.defaultChocolate.getSugar());
-        }
-        else{
+        } else {
             this.defaultChocolate.minusSugar();
-            this.view.setSugar(this.defaultChocolate.getSugar());
         }
+        this.view.setSugar(this.defaultChocolate.getSugar());
     }
 
     public void changeMilk(boolean increment){
         if (increment){
             this.defaultChocolate.plusMilk();
-            this.view.setMilk(this.defaultChocolate.getMilk());
-        }
-        else{
+        } else{
             this.defaultChocolate.minusMilk();
-            this.view.setMilk(this.defaultChocolate.getMilk());
         }
+        this.view.setMilk(this.defaultChocolate.getMilk());
     }
 
     public void changeCups(boolean increment){
         if (increment){
             this.defaultChocolate.plusCups();
-            this.view.setCups(this.defaultChocolate.getCups());
-        }
-        else{
+        } else{
             this.defaultChocolate.minusCups();
-            this.view.setCups(this.defaultChocolate.getCups());
         }
+        this.view.setCups(this.defaultChocolate.getCups());
     }
 
     public void changeChocolate(int amount){

@@ -29,34 +29,31 @@ public class CreateTeaPresenter {
     public void changeSugar(boolean increment){
         if (increment){
             this.defaultTea.plusSugar();
-            this.view.setSugar(this.defaultTea.getSugar());
         }
         else{
             this.defaultTea.minusSugar();
-            this.view.setSugar(this.defaultTea.getSugar());
         }
+        this.view.setSugar(this.defaultTea.getSugar());
     }
 
     public void changeMilk(boolean increment){
         if (increment){
             this.defaultTea.plusMilk();
-            this.view.setMilk(this.defaultTea.getMilk());
         }
         else{
             this.defaultTea.minusMilk();
-            this.view.setMilk(this.defaultTea.getMilk());
         }
+        this.view.setMilk(this.defaultTea.getMilk());
     }
 
     public void changeCups(boolean increment){
         if (increment){
             this.defaultTea.plusCups();
-            this.view.setCups(this.defaultTea.getCups());
         }
         else{
             this.defaultTea.minusCups();
-            this.view.setCups(this.defaultTea.getCups());
         }
+        this.view.setCups(this.defaultTea.getCups());
     }
 
     public void changeTemperature(boolean temp){

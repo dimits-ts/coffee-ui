@@ -29,34 +29,31 @@ public class CreateFrenchPresenter {
     public void changeSugar(boolean increment){
         if (increment){
             this.defaultFrench.plusSugar();
-            this.view.setSugar(this.defaultFrench.getSugar());
         }
         else{
             this.defaultFrench.minusSugar();
-            this.view.setSugar(this.defaultFrench.getSugar());
         }
+        this.view.setSugar(this.defaultFrench.getSugar());
     }
 
     public void changeMilk(boolean increment){
         if (increment){
             this.defaultFrench.plusMilk();
-            this.view.setMilk(this.defaultFrench.getMilk());
         }
         else{
             this.defaultFrench.minusMilk();
-            this.view.setMilk(this.defaultFrench.getMilk());
         }
+        this.view.setMilk(this.defaultFrench.getMilk());
     }
 
     public void changeCups(boolean increment){
         if (increment){
             this.defaultFrench.plusCups();
-            this.view.setCups(this.defaultFrench.getCups());
         }
         else{
             this.defaultFrench.minusCups();
-            this.view.setCups(this.defaultFrench.getCups());
         }
+        this.view.setCups(this.defaultFrench.getCups());
     }
 
     public void changeCoffee(int amount){

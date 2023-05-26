@@ -16,16 +16,16 @@
         <activity
             android:name=".ui.schedule.manage.ManageScheduleActivity"
             android:exported="false" />
-        <activity android:name=".ui.drinks.CreateChocolateActivity"
+        <activity android:name=".ui.drinks.chocolate.CreateChocolateActivity"
             android:exported="false" />
         <activity
             android:name=".ui.schedule.create.CreateScheduleActivity"
             android:exported="false" />
-        <activity android:name=".ui.drinks.CreateEspressoActivity"
+        <activity android:name=".ui.drinks.espresso.CreateEspressoActivity"
             android:exported="false" />
-        <activity android:name=".ui.drinks.CreateFrenchActivity"
+        <activity android:name=".ui.drinks.french.CreateFrenchActivity"
             android:exported="false" />
-        <activity android:name=".ui.drinks.CreateTeaActivity"
+        <activity android:name=".ui.drinks.tea.CreateTeaActivity"
             android:exported="false" />
         <activity
             android:name=".MainMenuActivity"

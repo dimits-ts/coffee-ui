@@ -2,17 +2,15 @@ package com.auebds.coffeui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.auebds.coffeui.ui.drinks.CreateChocolateActivity;
-import com.auebds.coffeui.ui.drinks.CreateEspressoActivity;
-import com.auebds.coffeui.ui.drinks.CreateFrenchActivity;
-import com.auebds.coffeui.ui.drinks.CreateTeaActivity;
-import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
+import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
+import com.auebds.coffeui.ui.drinks.espresso.CreateEspressoActivity;
+import com.auebds.coffeui.ui.drinks.french.CreateFrenchActivity;
+import com.auebds.coffeui.ui.drinks.tea.CreateTeaActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 
 import java.time.LocalDate;

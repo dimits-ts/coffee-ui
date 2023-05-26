@@ -1,20 +1,20 @@
-package com.auebds.coffeui.ui.drinks;
+package com.auebds.coffeui.ui.drinks.espresso;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-public class CreateFrenchView {
+public class CreateEspressoView {
 
-    private final CreateFrenchActivity activity;
+    private final CreateEspressoActivity activity;
 
     private final static int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
 
-    public CreateFrenchView(CreateFrenchActivity activity) {
+    public CreateEspressoView(CreateEspressoActivity activity) {
         this.activity = activity;
     }
 
     public void displaySuccess() {
-        Snackbar.make(this.activity.getRootView(), "Americano Template Successfully Saved", SNACKBAR_DURATION).show();
+        Snackbar.make(this.activity.getRootView(), "Espresso Template Successfully Saved", SNACKBAR_DURATION).show();
     }
 
     public void toMenu() {

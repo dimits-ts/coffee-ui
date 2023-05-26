@@ -1,4 +1,4 @@
-package com.auebds.coffeui.ui.drinks;
+package com.auebds.coffeui.ui.drinks.french;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,21 +15,21 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 
-public class CreateTeaActivity extends AppCompatActivity {
+public class CreateFrenchActivity extends AppCompatActivity {
 
-    private final CreateTeaPresenter presenter =
-            new CreateTeaPresenter(new CreateTeaView(this), new DrinkDao());
+    private final CreateFrenchPresenter presenter =
+            new CreateFrenchPresenter(new CreateFrenchView(this), new DrinkDao());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_tea);
+        setContentView(R.layout.activity_create_fr_coffee);
 
         this.assignBackButtonListener();
         this.attachListeners();
         this.attachRadioButtonListeners();
 
-        Button saveButton = findViewById(R.id.goButton4);
+        Button saveButton = findViewById(R.id.goButton2);
         saveButton.setOnClickListener(view -> this.presenter.save());
     }
 
@@ -47,7 +47,7 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     void toMenu() {
-        Intent menuIntent = new Intent(CreateTeaActivity.this, MainMenuActivity.class);
+        Intent menuIntent = new Intent(CreateFrenchActivity.this, MainMenuActivity.class);
         startActivity(menuIntent);
     }
 
@@ -70,10 +70,32 @@ public class CreateTeaActivity extends AppCompatActivity {
     private void attachRadioButtonListeners() {
         RadioButton hotButton = findViewById(R.id.hotbutton);
         RadioButton coldButton = findViewById(R.id.buttoncold);
+        RadioButton frothedButton = findViewById(R.id.buttonfrothed);
+        RadioButton latteButton = findViewById(R.id.buttonlatte);
+        RadioButton amount1Button = findViewById(R.id.amount1);
+        RadioButton amount2Button = findViewById(R.id.amount2);
+        RadioButton amount3Button = findViewById(R.id.amount3);
+        RadioButton amount4Button = findViewById(R.id.amount4);
 
 
         hotButton.setOnClickListener(view -> presenter.changeTemperature(true));
         coldButton.setOnClickListener(view -> presenter.changeTemperature(false));
+        frothedButton.setOnClickListener(view -> presenter.changeMilkType(true));
+        latteButton.setOnClickListener(view -> presenter.changeMilkType(false));
+        amount1Button.setOnClickListener(view -> presenter.changeCoffee(1));
+        amount2Button.setOnClickListener(view -> presenter.changeCoffee(2));
+        amount3Button.setOnClickListener(view -> presenter.changeCoffee(3));
+        amount4Button.setOnClickListener(view -> presenter.changeCoffee(4));
+    }
+
+
+    public int getCoffee() {
+        Button button;
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+        button = findViewById(selectedRadioButtonId);
+        String text = button.getText().toString();
+        return Integer.parseInt(text);
     }
 
     public void setSugar(int amount){
@@ -91,7 +113,7 @@ public class CreateTeaActivity extends AppCompatActivity {
         tv.setText(Integer.toString(amount));
     }
 
-    public void setChocolate(int amount) {
+    public void setCoffee(int amount) {
         switch(amount){
             case 1:
                 findViewById(R.id.amount1).setEnabled(true);
@@ -111,6 +133,11 @@ public class CreateTeaActivity extends AppCompatActivity {
     public void setTemperature(boolean temp) {
         if(temp){findViewById(R.id.hotbutton).setEnabled(true);}
         else    {findViewById(R.id.buttoncold).setEnabled(true);}
+    }
+
+    public void setMilkType(boolean type){
+        if (type) {findViewById(R.id.buttonfrothed).setEnabled(true);}
+        else      {findViewById(R.id.buttonlatte).setEnabled(true);}
     }
 
     public int getSugar() {

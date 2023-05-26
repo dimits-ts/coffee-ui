@@ -1,4 +1,4 @@
-package com.auebds.coffeui.ui.drinks;
+package com.auebds.coffeui.ui.drinks.french;
 
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.entity.French;

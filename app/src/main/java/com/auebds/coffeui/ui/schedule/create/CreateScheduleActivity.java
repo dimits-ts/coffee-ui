@@ -7,10 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,9 +39,6 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
     private ActivityCreateScheduleBinding binding;
     private Map<Day, Button> dayButtonHashMap;
-    private EditText nameTextArea;
-    private Spinner drinkTypeSpinner;
-    private TimePicker timePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +48,6 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         this.dayButtonHashMap = this.createDayButtonMap();
 
-        this.assignComponents();
         this.attachRadioButtonListeners();
         this.assignDayButtonListeners();
         this.assignBackButtonListener();
@@ -62,11 +56,11 @@ public class CreateScheduleActivity extends AppCompatActivity {
         Button saveButton = binding.editScheduleButton;
         saveButton.setOnClickListener(view -> this.presenter.save());
 
-        timePicker.setIs24HourView(true); // because of user feedback
+        binding.timePicker.setIs24HourView(true); // because of user feedback
     }
 
     String getName() {
-        return nameTextArea.getText().toString();
+        return binding.scheduleNameField.getText().toString();
     }
 
     /**
@@ -78,7 +72,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
      * any translation must include it as a first character, in the 1-4 range.
      */
     DrinkType getSelectedDrink() throws IllegalArgumentException {
-        String drinkName = (String) drinkTypeSpinner.getSelectedItem();
+        String drinkName = (String) binding.selectDrinkSpinner.getSelectedItem();
         int drinkId = Character.getNumericValue(drinkName.trim().charAt(0));
 
         if(drinkId < 0) {
@@ -99,8 +93,8 @@ public class CreateScheduleActivity extends AppCompatActivity {
      * @return a LocalTime object containing the time or null if the time is invalid
      */
     LocalTime getTime() {
-        if(timePicker.validateInput())
-            return LocalTime.of(timePicker.getHour(), timePicker.getMinute());
+        if(binding.timePicker.validateInput())
+            return LocalTime.of(binding.timePicker.getHour(), binding.timePicker.getMinute());
         else
             return null;
     }
@@ -177,15 +171,6 @@ public class CreateScheduleActivity extends AppCompatActivity {
     private void assignBackButtonListener() {
         ImageView backButton = binding.buttonBack;
         backButton.setOnClickListener(view -> toMenu());
-    }
-
-    /**
-     * Assign values to the internal fields after the layout has been inflated.
-     */
-    private void assignComponents() {
-        this.nameTextArea = binding.scheduleNameField;
-        this.drinkTypeSpinner = binding.selectDrinkSpinner;
-        this.timePicker = binding.timePicker;
     }
 
 

@@ -139,7 +139,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
         button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                R.color.primary_white));
+                R.color.primary_grey));
     }
 
     View getRootView() {

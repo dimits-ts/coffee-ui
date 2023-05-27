@@ -3,6 +3,7 @@ package com.auebds.coffeui.ui.schedule.create;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -106,7 +107,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
     void makeClickable(Day day) {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
-        button.setClickable(true);
+        button.setEnabled(true);
     }
 
     /**
@@ -116,7 +117,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
     void makeUnclickable(Day day) {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
-        button.setClickable(false);
+        button.setEnabled(false);
     }
 
     /**

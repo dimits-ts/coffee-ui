@@ -3,16 +3,15 @@ package com.auebds.coffeui.ui.schedule.manage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.databinding.ActivityManageScheduleBinding;
 import com.auebds.coffeui.entity.Schedule;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 
@@ -23,7 +22,8 @@ import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
  */
 public class ManageScheduleActivity extends AppCompatActivity {
     private final ManageScheduleMvp.ManageSchedulePresenter presenter;
-    private RecyclerView scheduleListView;
+
+    private ActivityManageScheduleBinding binding;
     private ScheduleAdapter adapter;
 
     public ManageScheduleActivity() {
@@ -34,17 +34,16 @@ public class ManageScheduleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_manage_schedule);
+        this.binding = ActivityManageScheduleBinding.inflate(getLayoutInflater());
+        this.setContentView(binding.getRoot());
 
-        Button toNewScheduleButton = findViewById(R.id.listNewScheduleButton);
-        toNewScheduleButton.setOnClickListener(v -> this.toCreateScheduleActivity());
+        binding.listNewScheduleButton.setOnClickListener(v -> this.toCreateScheduleActivity());
 
-        this.scheduleListView = findViewById(R.id.recyclerView);
         this.adapter = new ScheduleAdapter(
                                 presenter,
                                 ContextCompat.getColor(getBaseContext(), R.color.button_selected),
                                 ContextCompat.getColor(getBaseContext(), R.color.primary_grey));
-        this.scheduleListView.setAdapter(this.adapter);
+        binding.recyclerView.setAdapter(this.adapter);
 
         this.presenter.displayFirstSchedule();
     }
@@ -71,6 +70,6 @@ public class ManageScheduleActivity extends AppCompatActivity {
         this.presenter.deleteSchedule(schedule);
         // set first element as new selected
         this.adapter.updateSchedules(
-                (ScheduleViewHolder) this.scheduleListView.findViewHolderForAdapterPosition(0));
+                (ScheduleViewHolder) binding.recyclerView.findViewHolderForAdapterPosition(0));
     }
 }

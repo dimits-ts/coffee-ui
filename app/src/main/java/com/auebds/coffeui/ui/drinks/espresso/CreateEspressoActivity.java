@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.databinding.ActivityCreateEspressoBinding;
 import com.auebds.coffeui.util.Util;
 
 public class CreateEspressoActivity extends AppCompatActivity {
@@ -21,16 +20,19 @@ public class CreateEspressoActivity extends AppCompatActivity {
     private final CreateEspressoPresenter presenter =
             new CreateEspressoPresenter(new CreateEspressoView(this), new DrinkDao());
 
+    private ActivityCreateEspressoBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityCreateEspressoBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_create_espresso);
 
         this.assignBackButtonListener();
         this.attachListeners();
         this.attachRadioButtonListeners();
 
-        Button saveButton = findViewById(R.id.goButton3);
+        Button saveButton = binding.goButton3;
         saveButton.setOnClickListener(view -> this.presenter.save());
     }
 
@@ -43,7 +45,7 @@ public class CreateEspressoActivity extends AppCompatActivity {
      * Make the back button go to the main menu when pressed.
      */
     private void assignBackButtonListener() {
-        ImageView backButton = findViewById(R.id.buttonBack);
+        ImageView backButton = binding.buttonBack;
         backButton.setOnClickListener(view -> toMenu());
     }
 
@@ -53,40 +55,23 @@ public class CreateEspressoActivity extends AppCompatActivity {
     }
 
     private void attachListeners() {
-        Button cupsPlus = findViewById(R.id.plusbuttoncups);
-        Button cupsMinus = findViewById(R.id.minusbuttoncups);
-        Button sugarPlus = findViewById(R.id.plusbuttonsugar);
-        Button sugarMinus = findViewById(R.id.minusbuttonsugar);
-        Button milkPlus = findViewById(R.id.plusbuttonmilk);
-        Button milkMinus = findViewById(R.id.minusbuttonmilk);
-
-        cupsPlus.setOnClickListener(view -> presenter.changeCups(true));
-        cupsMinus.setOnClickListener(view -> presenter.changeCups(false));
-        sugarPlus.setOnClickListener(view -> presenter.changeSugar(true));
-        sugarMinus.setOnClickListener(view -> presenter.changeSugar(false));
-        milkPlus.setOnClickListener(view -> presenter.changeMilk(true));
-        milkMinus.setOnClickListener(view -> presenter.changeMilk(false));
+        binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
+        binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));
+        binding.plusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(true));
+        binding.minusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(false));
+        binding.plusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(true));
+        binding.minusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(false));
     }
 
     private void attachRadioButtonListeners() {
-        RadioButton hotButton = findViewById(R.id.hotbutton);
-        RadioButton coldButton = findViewById(R.id.buttoncold);
-        RadioButton frothedButton = findViewById(R.id.buttonfrothed);
-        RadioButton latteButton = findViewById(R.id.buttonlatte);
-        RadioButton amount1Button = findViewById(R.id.amount1);
-        RadioButton amount2Button = findViewById(R.id.amount2);
-        RadioButton amount3Button = findViewById(R.id.amount3);
-        RadioButton amount4Button = findViewById(R.id.amount4);
-
-
-        hotButton.setOnClickListener(view -> presenter.changeTemperature(true));
-        coldButton.setOnClickListener(view -> presenter.changeTemperature(false));
-        frothedButton.setOnClickListener(view -> presenter.changeMilkType(true));
-        latteButton.setOnClickListener(view -> presenter.changeMilkType(false));
-        amount1Button.setOnClickListener(view -> presenter.changeCoffee(1));
-        amount2Button.setOnClickListener(view -> presenter.changeCoffee(2));
-        amount3Button.setOnClickListener(view -> presenter.changeCoffee(3));
-        amount4Button.setOnClickListener(view -> presenter.changeCoffee(4));
+        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
+        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
+        binding.buttonfrothed.setOnClickListener(view -> presenter.changeMilkType(true));
+        binding.buttonlatte.setOnClickListener(view -> presenter.changeMilkType(false));
+        binding.amount1.setOnClickListener(view -> presenter.changeCoffee(1));
+        binding.amount2.setOnClickListener(view -> presenter.changeCoffee(2));
+        binding.amount3.setOnClickListener(view -> presenter.changeCoffee(3));
+        binding.amount4.setOnClickListener(view -> presenter.changeCoffee(4));
     }
 
 
@@ -100,60 +85,54 @@ public class CreateEspressoActivity extends AppCompatActivity {
     }
 
     public void setSugar(int amount){
-        TextView tv = (TextView) findViewById(R.id.sugarAmount);
-        tv.setText(Util.localizedToString(amount));
+        binding.sugarAmount.setText(Util.localizedToString(amount));
     }
 
     public void setMilk(int amount){
-        TextView tv = (TextView) findViewById(R.id.milkAmount);
-        tv.setText(Util.localizedToString(amount));
+        binding.milkAmount.setText(Util.localizedToString(amount));
     }
 
     public void setCups(int amount){
-        TextView tv = (TextView) findViewById(R.id.cupsAmount);
-        tv.setText(Util.localizedToString(amount));
+        binding.cupsAmount.setText(Util.localizedToString(amount));
     }
 
     public void setCoffee(int amount) {
         switch(amount){
             case 1:
-                findViewById(R.id.amount1).setEnabled(true);
+                binding.amount1.setEnabled(true);
                 break;
             case 2:
-                findViewById(R.id.amount2).setEnabled(true);
+                binding.amount2.setEnabled(true);
                 break;
             case 3:
-                findViewById(R.id.amount3).setEnabled(true);
+                binding.amount3.setEnabled(true);
                 break;
             case 4:
-                findViewById(R.id.amount4).setEnabled(true);
+                binding.amount4.setEnabled(true);
                 break;
         }
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){findViewById(R.id.hotbutton).setEnabled(true);}
-        else    {findViewById(R.id.buttoncold).setEnabled(true);}
+        if(temp){binding.hotbutton.setEnabled(true);}
+        else    {binding.buttoncold.setEnabled(true);}
     }
 
     public void setMilkType(boolean type){
-        if (type) {findViewById(R.id.buttonfrothed).setEnabled(true);}
-        else      {findViewById(R.id.buttonlatte).setEnabled(true);}
+        if (type) {binding.buttonfrothed.setEnabled(true);}
+        else      {binding.buttonlatte.setEnabled(true);}
     }
 
     public int getSugar() {
-        TextView tv = (TextView) findViewById(R.id.sugarAmount);
-        return Integer.parseInt(tv.getText().toString());
+        return Integer.parseInt(binding.sugarAmount.getText().toString());
     }
 
     public int getMilk() {
-        TextView tv = (TextView) findViewById(R.id.milkAmount);
-        return Integer.parseInt(tv.getText().toString());
+        return Integer.parseInt(binding.milkAmount.getText().toString());
     }
 
     public int getCups() {
-        TextView tv = (TextView) findViewById(R.id.cupsAmount);
-        return Integer.parseInt(tv.getText().toString());
+        return Integer.parseInt(binding.cupsAmount.getText().toString());
     }
 
     public boolean getTemp() {

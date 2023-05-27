@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.auebds.coffeui.R;
+import com.auebds.coffeui.databinding.FragmentScheduleBinding;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.entity.Schedule;
@@ -33,7 +34,8 @@ public class ScheduleFragment extends Fragment {
 
     // the fragment initialization parameters
     private static final String ARG_SCHEDULE = "schedule";
-    private ManageScheduleMvp.ManageSchedulePresenter presenter;
+
+    private FragmentScheduleBinding binding;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -60,10 +62,10 @@ public class ScheduleFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false);
+        binding = FragmentScheduleBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
@@ -94,23 +96,23 @@ public class ScheduleFragment extends Fragment {
      * @param schedule the schedule to be displayed
      */
     private void initialize(Schedule schedule) {
-        TextView nameView = requireView().findViewById(R.id.scheduleNameLabel);
+        TextView nameView = binding.scheduleNameLabel;
         nameView.setText(schedule.getName());
 
-        TextView typeView = requireView().findViewById(R.id.scheduleDrinkTypeLabel);
+        TextView typeView = binding.scheduleDrinkTypeLabel;
         typeView.setText(getLocalizedTypeString(schedule.getType()));
 
-        TextView frequencyView = requireView().findViewById(R.id.scheduleFrequencyLabel);
+        TextView frequencyView = binding.scheduleFrequencyLabel;
         frequencyView.setText(formatFrequency(schedule.getDays()));
 
-        TextView timeView = requireView().findViewById(R.id.scheduleTimeLabel);
+        TextView timeView = binding.scheduleTimeLabel;
         timeView.setText(schedule.getTime().format(DateTimeFormatter.ofPattern("HH : mm")));
 
-        TextView activatedView = requireView().findViewById(R.id.scheduleLabelStatus);
+        TextView activatedView = binding.scheduleLabelStatus;
         int resCode =  schedule.isActive() ? R.string.status_active: R.string.status_not_active;
         activatedView.setText(getString(resCode));
 
-        Button deleteButton = requireView().findViewById(R.id.deleteScheduleButton);
+        Button deleteButton = binding.deleteScheduleButton;
         deleteButton.setOnClickListener(v -> this.deleteSchedule(schedule));
     }
 

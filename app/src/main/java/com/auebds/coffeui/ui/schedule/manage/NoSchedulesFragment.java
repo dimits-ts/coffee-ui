@@ -13,12 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.auebds.coffeui.R;
+import com.auebds.coffeui.databinding.FragmentNoSchedulesBinding;
 
 /**
  * A {@link Fragment} subclass to be shown when no schedules have been set by the user.
  * @author Dimitris Tsirmpas
  */
 public class NoSchedulesFragment extends Fragment {
+    private FragmentNoSchedulesBinding binding;
 
     public NoSchedulesFragment() {
         // Required empty public constructor
@@ -34,23 +36,23 @@ public class NoSchedulesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_no_schedules, container, false);
+        binding = FragmentNoSchedulesBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button toMenuButton = requireView().findViewById(R.id.toMenuButton);
+        Button toMenuButton = binding.toMenuButton;
         toMenuButton.setOnClickListener(v -> toMenu());
 
-        Button toNewScheduleButton = requireView().findViewById(R.id.toNewScheduleButton);
+        Button toNewScheduleButton = binding.toNewScheduleButton;
         toNewScheduleButton.setOnClickListener(v -> toNewSchedule());
     }
 

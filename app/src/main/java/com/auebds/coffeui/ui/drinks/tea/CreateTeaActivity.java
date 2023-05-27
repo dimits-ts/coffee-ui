@@ -4,35 +4,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.databinding.ActivityCreateTeaBinding;
 import com.auebds.coffeui.util.Util;
-
-import java.util.Locale;
 
 public class CreateTeaActivity extends AppCompatActivity {
 
     private final CreateTeaPresenter presenter =
             new CreateTeaPresenter(new CreateTeaView(this), new DrinkDao());
 
+    private ActivityCreateTeaBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_tea);
+        binding = ActivityCreateTeaBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         this.assignBackButtonListener();
         this.attachListeners();
         this.attachRadioButtonListeners();
 
-        Button saveButton = findViewById(R.id.goButton4);
+        Button saveButton = binding.goButton4;
         saveButton.setOnClickListener(view -> this.presenter.save());
     }
 
@@ -45,8 +44,7 @@ public class CreateTeaActivity extends AppCompatActivity {
      * Make the back button go to the main menu when pressed.
      */
     private void assignBackButtonListener() {
-        ImageView backButton = findViewById(R.id.buttonBack);
-        backButton.setOnClickListener(view -> toMenu());
+        binding.buttonBack.setOnClickListener(view -> toMenu());
     }
 
     void toMenu() {
@@ -55,80 +53,46 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     private void attachListeners() {
-        Button cupsPlus = findViewById(R.id.plusbuttoncups);
-        Button cupsMinus = findViewById(R.id.minusbuttoncups);
-        Button sugarPlus = findViewById(R.id.plusbuttonsugar);
-        Button sugarMinus = findViewById(R.id.minusbuttonsugar);
-        Button milkPlus = findViewById(R.id.plusbuttonmilk);
-        Button milkMinus = findViewById(R.id.minusbuttonmilk);
-
-        cupsPlus.setOnClickListener(view -> presenter.changeCups(true));
-        cupsMinus.setOnClickListener(view -> presenter.changeCups(false));
-        sugarPlus.setOnClickListener(view -> presenter.changeSugar(true));
-        sugarMinus.setOnClickListener(view -> presenter.changeSugar(false));
-        milkPlus.setOnClickListener(view -> presenter.changeMilk(true));
-        milkMinus.setOnClickListener(view -> presenter.changeMilk(false));
+        binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
+        binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));
+        binding.plusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(true));
+        binding.minusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(false));
+        binding.plusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(true));
+        binding.minusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(false));
     }
 
     private void attachRadioButtonListeners() {
-        RadioButton hotButton = findViewById(R.id.hotbutton);
-        RadioButton coldButton = findViewById(R.id.buttoncold);
-
-
-        hotButton.setOnClickListener(view -> presenter.changeTemperature(true));
-        coldButton.setOnClickListener(view -> presenter.changeTemperature(false));
+        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
+        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
     }
 
     public void setSugar(int amount){
-        TextView tv = (TextView) findViewById(R.id.sugarAmount);
-        tv.setText(Util.localizedToString(amount));
+        binding.sugarAmount.setText(Util.localizedToString(amount));
     }
 
     public void setMilk(int amount){
-        TextView tv = (TextView) findViewById(R.id.milkAmount);
-        tv.setText(Util.localizedToString(amount));
+        binding.milkAmount.setText(Util.localizedToString(amount));
     }
 
     public void setCups(int amount){
-        TextView tv = (TextView) findViewById(R.id.cupsAmount);
-        tv.setText(Util.localizedToString(amount));
-    }
-
-    public void setChocolate(int amount) {
-        switch(amount){
-            case 1:
-                findViewById(R.id.amount1).setEnabled(true);
-                break;
-            case 2:
-                findViewById(R.id.amount2).setEnabled(true);
-                break;
-            case 3:
-                findViewById(R.id.amount3).setEnabled(true);
-                break;
-            case 4:
-                findViewById(R.id.amount4).setEnabled(true);
-                break;
-        }
+        binding.cupsAmount.setText(Util.localizedToString(amount));
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){findViewById(R.id.hotbutton).setEnabled(true);}
-        else    {findViewById(R.id.buttoncold).setEnabled(true);}
+        if(temp){binding.hotbutton.setEnabled(true);}
+        else    {binding.buttoncold.setEnabled(true);}
     }
 
     public int getSugar() {
-        TextView tv = (TextView) findViewById(R.id.sugarAmount);
-        return Integer.parseInt(tv.getText().toString());
+        return Integer.parseInt(binding.sugarAmount.getText().toString());
     }
 
     public int getMilk() {
-        TextView tv = (TextView) findViewById(R.id.milkAmount);
-        return Integer.parseInt(tv.getText().toString());
+        return Integer.parseInt(binding.milkAmount.getText().toString());
     }
 
     public int getCups() {
-        TextView tv = (TextView) findViewById(R.id.cupsAmount);
-        return Integer.parseInt(tv.getText().toString());
+        return Integer.parseInt(binding.cupsAmount.getText().toString());
     }
 
     public boolean getTemp() {

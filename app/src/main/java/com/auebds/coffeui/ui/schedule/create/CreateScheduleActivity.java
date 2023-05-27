@@ -1,9 +1,5 @@
 package com.auebds.coffeui.ui.schedule.create;
 
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +9,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 
@@ -39,6 +39,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
             new CreateSchedulePresenter(new CreateScheduleView(this), new DebugScheduleDao());
 
+    private ActivityCreateScheduleBinding binding;
     private Map<Day, Button> dayButtonHashMap;
     private EditText nameTextArea;
     private Spinner drinkTypeSpinner;
@@ -47,7 +48,8 @@ public class CreateScheduleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_schedule);
+        binding = ActivityCreateScheduleBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         this.dayButtonHashMap = this.createDayButtonMap();
 
@@ -57,7 +59,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         this.assignBackButtonListener();
         this.setUpSpinner();
 
-        Button saveButton = findViewById(R.id.editScheduleButton);
+        Button saveButton = binding.editScheduleButton;
         saveButton.setOnClickListener(view -> this.presenter.save());
 
         timePicker.setIs24HourView(true); // because of user feedback
@@ -159,7 +161,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
     }
 
     private void setUpSpinner() {
-        Spinner spinner = findViewById(R.id.selectDrinkSpinner);
+        Spinner spinner = binding.selectDrinkSpinner;
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.drinks_array, android.R.layout.simple_spinner_item);
@@ -173,7 +175,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
      * Make the back button go to the main menu when pressed.
      */
     private void assignBackButtonListener() {
-        ImageView backButton = findViewById(R.id.buttonBack);
+        ImageView backButton = binding.buttonBack;
         backButton.setOnClickListener(view -> toMenu());
     }
 
@@ -181,9 +183,9 @@ public class CreateScheduleActivity extends AppCompatActivity {
      * Assign values to the internal fields after the layout has been inflated.
      */
     private void assignComponents() {
-        this.nameTextArea = findViewById(R.id.scheduleNameField);
-        this.drinkTypeSpinner = findViewById(R.id.selectDrinkSpinner);
-        this.timePicker = findViewById(R.id.timePicker);
+        this.nameTextArea = binding.scheduleNameField;
+        this.drinkTypeSpinner = binding.selectDrinkSpinner;
+        this.timePicker = binding.timePicker;
     }
 
 
@@ -204,17 +206,16 @@ public class CreateScheduleActivity extends AppCompatActivity {
      * Notify the presenter if any of the choices are selected.
      */
     private void attachRadioButtonListeners() {
-        RadioButton onceButton = findViewById(R.id.buttonRepeatOnce);
-        RadioButton dailyButton = findViewById(R.id.buttonRepeatDaily);
-        RadioButton weekdayButton = findViewById(R.id.buttonRepeatWeekday);
-        RadioButton weekendButton = findViewById(R.id.buttonRepeatWeekend);
-        RadioButton customButton = findViewById(R.id.buttonRepeatCustom);
-
-        onceButton.setOnClickListener(view -> presenter.groupSelected(RepetitionPeriod.ONCE));
-        dailyButton.setOnClickListener(view -> presenter.groupSelected(RepetitionPeriod.DAILY));
-        weekdayButton.setOnClickListener(view -> presenter.groupSelected(RepetitionPeriod.WEEKDAY));
-        weekendButton.setOnClickListener(view -> presenter.groupSelected(RepetitionPeriod.WEEKEND));
-        customButton.setOnClickListener(view -> presenter.groupSelected(RepetitionPeriod.CUSTOM));
+        binding.buttonRepeatOnce.setOnClickListener(view ->
+                presenter.groupSelected(RepetitionPeriod.ONCE));
+        binding.buttonRepeatDaily.setOnClickListener(view ->
+                presenter.groupSelected(RepetitionPeriod.DAILY));
+        binding.buttonRepeatWeekday.setOnClickListener(view ->
+                presenter.groupSelected(RepetitionPeriod.WEEKDAY));
+        binding.buttonRepeatWeekend.setOnClickListener(view ->
+                presenter.groupSelected(RepetitionPeriod.WEEKEND));
+        binding.buttonRepeatCustom.setOnClickListener(view ->
+                presenter.groupSelected(RepetitionPeriod.CUSTOM));
     }
 
     /**
@@ -224,14 +225,13 @@ public class CreateScheduleActivity extends AppCompatActivity {
     private Map<Day, Button> createDayButtonMap() {
         HashMap<Day, Button> map = new HashMap<>();
 
-        // explicit casts needed here because of Java 1.8 compat
-        map.put(Day.MONDAY, (Button) findViewById(R.id.buttonMonday));
-        map.put(Day.TUESDAY, (Button) findViewById(R.id.buttonTuesday));
-        map.put(Day.WEDNESDAY, (Button) findViewById(R.id.buttonWendensday));
-        map.put(Day.THURSDAY, (Button) findViewById(R.id.buttonThursday));
-        map.put(Day.FRIDAY, (Button) findViewById(R.id.buttonFriday));
-        map.put(Day.SATURDAY, (Button) findViewById(R.id.buttonSaturday));
-        map.put(Day.SUNDAY, (Button) findViewById(R.id.buttonSunday));
+        map.put(Day.MONDAY, binding.buttonMonday);
+        map.put(Day.TUESDAY, binding.buttonTuesday);
+        map.put(Day.WEDNESDAY, binding.buttonWendensday);
+        map.put(Day.THURSDAY, binding.buttonThursday);
+        map.put(Day.FRIDAY, binding.buttonFriday);
+        map.put(Day.SATURDAY, binding.buttonSaturday);
+        map.put(Day.SUNDAY, binding.buttonSunday);
 
         // check if accessed before initialization
         assert map.get(Day.MONDAY) != null;

@@ -26,7 +26,7 @@ public class CreateEspressoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateEspressoBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_create_espresso);
+        setContentView(binding.getRoot());
 
         this.assignBackButtonListener();
         this.attachListeners();
@@ -34,6 +34,8 @@ public class CreateEspressoActivity extends AppCompatActivity {
 
         Button saveButton = binding.goButton3;
         saveButton.setOnClickListener(view -> this.presenter.save());
+
+        presenter.loadLastPreset();
     }
 
     View getRootView() {

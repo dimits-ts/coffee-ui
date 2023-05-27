@@ -20,10 +20,12 @@ public class CreateEspressoPresenter {
         else{
             this.defaultEspresso = new Espresso(1,2,2,2,true, true);
         }
-        //TODO: figure out what the fuck to do with this
-        /*this.view.setMilk(this.defaultChocolate.getMilk());
-        this.view.setSugar(this.defaultChocolate.getSugar());
-        this.view.setCups(this.defaultChocolate.getCups());*/
+    }
+
+    public void loadLastPreset() {
+        this.view.setMilk(this.defaultEspresso.getMilk());
+        this.view.setSugar(this.defaultEspresso.getSugar());
+        this.view.setCups(this.defaultEspresso.getCups());
     }
 
     public void changeSugar(boolean increment){

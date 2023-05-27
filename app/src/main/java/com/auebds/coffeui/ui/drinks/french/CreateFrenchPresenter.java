@@ -20,10 +20,12 @@ public class CreateFrenchPresenter {
         else{
             this.defaultFrench = new French(1,2,2,2,true, true);
         }
-        //TODO: figure out what the fuck to do with this
-        /*this.view.setMilk(this.defaultChocolate.getMilk());
-        this.view.setSugar(this.defaultChocolate.getSugar());
-        this.view.setCups(this.defaultChocolate.getCups());*/
+    }
+
+    public void loadLastPreset() {
+        this.view.setMilk(this.defaultFrench.getMilk());
+        this.view.setSugar(this.defaultFrench.getSugar());
+        this.view.setCups(this.defaultFrench.getCups());
     }
 
     public void changeSugar(boolean increment){

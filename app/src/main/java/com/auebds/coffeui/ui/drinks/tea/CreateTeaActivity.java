@@ -24,6 +24,7 @@ public class CreateTeaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityCreateTeaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -33,6 +34,8 @@ public class CreateTeaActivity extends AppCompatActivity {
 
         Button saveButton = binding.goButton4;
         saveButton.setOnClickListener(view -> this.presenter.save());
+
+        presenter.loadLastPreset();
     }
 
     View getRootView() {

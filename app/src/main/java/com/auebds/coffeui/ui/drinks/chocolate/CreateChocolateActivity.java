@@ -33,6 +33,8 @@ public class CreateChocolateActivity extends AppCompatActivity {
 
         Button saveButton = binding.goButton2;
         saveButton.setOnClickListener(view -> this.presenter.save());
+
+        presenter.loadLastPreset();
     }
 
     View getRootView() {

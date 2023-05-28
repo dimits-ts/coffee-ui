@@ -82,8 +82,8 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setEnabled(true);}
-        else    {binding.buttoncold.setEnabled(true);}
+        if(temp){binding.hotbutton.setChecked(true);}
+        else    {binding.buttoncold.setChecked(true);}
     }
 
     public int getSugar() {

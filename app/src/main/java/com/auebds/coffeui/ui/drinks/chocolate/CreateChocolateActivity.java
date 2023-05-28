@@ -98,23 +98,23 @@ public class CreateChocolateActivity extends AppCompatActivity {
     public void setChocolate(int amount) {
         switch(amount){
             case 1:
-                binding.amount1.setEnabled(true);
+                binding.amount1.setChecked(true);
                 break;
             case 2:
-                binding.amount2.setEnabled(true);
+                binding.amount2.setChecked(true);
                 break;
             case 3:
-                binding.amount3.setEnabled(true);
+                binding.amount3.setChecked(true);
                 break;
             case 4:
-                binding.amount4.setEnabled(true);
+                binding.amount4.setChecked(true);
                 break;
         }
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setEnabled(true);}
-        else    {binding.buttoncold.setEnabled(true);}
+        if(temp){binding.hotbutton.setChecked(true);}
+        else    {binding.buttoncold.setChecked(true);}
     }
 
     public int getSugar() {

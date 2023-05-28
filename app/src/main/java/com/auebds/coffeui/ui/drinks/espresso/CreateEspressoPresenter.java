@@ -26,6 +26,9 @@ public class CreateEspressoPresenter {
         this.view.setMilk(this.defaultEspresso.getMilk());
         this.view.setSugar(this.defaultEspresso.getSugar());
         this.view.setCups(this.defaultEspresso.getCups());
+        this.view.setCoffee(this.defaultEspresso.getCoffee());
+        this.view.setTemperature(this.defaultEspresso.getTemp());
+        this.view.setMilkType(this.defaultEspresso.getMilkType());
     }
 
     public void changeSugar(boolean increment){

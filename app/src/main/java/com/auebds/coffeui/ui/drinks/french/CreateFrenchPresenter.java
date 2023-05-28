@@ -26,6 +26,9 @@ public class CreateFrenchPresenter {
         this.view.setMilk(this.defaultFrench.getMilk());
         this.view.setSugar(this.defaultFrench.getSugar());
         this.view.setCups(this.defaultFrench.getCups());
+        this.view.setCoffee(this.defaultFrench.getCoffee());
+        this.view.setTemperature(this.defaultFrench.getTemp());
+        this.view.setMilkType(this.defaultFrench.getMilkType());
     }
 
     public void changeSugar(boolean increment){

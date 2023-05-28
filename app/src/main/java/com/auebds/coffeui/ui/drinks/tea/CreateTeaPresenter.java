@@ -26,6 +26,7 @@ public class CreateTeaPresenter {
         this.view.setMilk(this.defaultTea.getMilk());
         this.view.setSugar(this.defaultTea.getSugar());
         this.view.setCups(this.defaultTea.getCups());
+        this.view.setTemperature(this.defaultTea.getTemp());
     }
 
 

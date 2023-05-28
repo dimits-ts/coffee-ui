@@ -343,7 +343,7 @@
                 android:background="@drawable/radio_button_background"
                 android:textAllCaps="false"
                 android:textSize="25sp"
-                tools:text="@string/amount_small" />
+                android:text="@string/amount_small" />
 
             <RadioButton
                 android:id="@+id/amount2"

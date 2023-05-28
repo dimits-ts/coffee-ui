@@ -26,6 +26,8 @@ public class CreateChocolatePresenter {
         this.view.setMilk(this.defaultChocolate.getMilk());
         this.view.setSugar(this.defaultChocolate.getSugar());
         this.view.setCups(this.defaultChocolate.getCups());
+        this.view.setChocolate(this.defaultChocolate.getChocolate());
+        this.view.setCups(this.defaultChocolate.getCups());
     }
 
     public void changeSugar(boolean increment){

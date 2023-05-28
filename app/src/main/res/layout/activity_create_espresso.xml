@@ -124,7 +124,7 @@
                 android:layout_height="84dp"
                 android:layout_marginStart="60dp"
                 android:background="@drawable/radio_button_background"
-                android:checked="true"
+                android:checked="false"
                 android:text="@string/attr_latte"
                 android:textAllCaps="false"
                 android:textSize="25sp" />
@@ -147,7 +147,7 @@
                 android:layout_height="84dp"
                 android:layout_marginStart="60dp"
                 android:background="@drawable/radio_button_background"
-                android:checked="true"
+                android:checked="false"
                 android:text="@string/attr_cold"
                 android:textAllCaps="false"
                 android:textSize="25sp" />
@@ -175,13 +175,13 @@
 
             <RadioButton
                 android:id="@+id/amount1"
-                tools:text="@string/amount_small"
                 android:layout_width="105dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="50dp"
                 android:background="@drawable/radio_button_background"
                 android:textAllCaps="false"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:text="@string/amount_small" />
 
             <RadioButton
                 android:id="@+id/amount2"

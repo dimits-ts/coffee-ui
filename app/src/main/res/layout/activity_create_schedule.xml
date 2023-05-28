@@ -117,6 +117,8 @@
             android:id="@+id/timePicker"
             android:layout_width="283dp"
             android:layout_height="229dp"
+            android:background="@drawable/rounded_outline"
+            android:backgroundTint="@color/light_gray"
             android:timePickerMode="spinner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,6 +132,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="@string/default_schedule_name"
+            android:background="@drawable/rounded_outline"
+            android:backgroundTint="@color/light_gray"
             android:ems="10"
             android:hint="@string/default_schedule_name"
             android:inputType="textPersonName"
@@ -146,6 +150,8 @@
             android:id="@+id/selectDrinkSpinner"
             android:layout_width="399dp"
             android:layout_height="88dp"
+            android:background="@drawable/rounded_outline"
+            android:backgroundTint="@color/light_gray"
             android:contentDescription="@string/select_drink_prompt"
             android:prompt="@string/select_drink_prompt"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -172,6 +178,7 @@
                 android:layout_width="114dp"
                 android:layout_height="52dp"
                 android:background="@drawable/radio_button_background"
+                android:backgroundTint="@color/primary_grey"
                 android:checked="true"
                 android:text="@string/repeat_once" />
 
@@ -185,6 +192,7 @@
                 android:layout_width="114dp"
                 android:layout_height="52dp"
                 android:background="@drawable/radio_button_background"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_daily" />
 
             <Space
@@ -197,6 +205,7 @@
                 android:layout_width="164dp"
                 android:layout_height="58dp"
                 android:background="@drawable/radio_button_background"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_weekday" />
 
             <Space
@@ -209,6 +218,7 @@
                 android:layout_width="130dp"
                 android:layout_height="52dp"
                 android:background="@drawable/radio_button_background"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_weekend" />
 
             <Space
@@ -221,6 +231,7 @@
                 android:layout_width="123dp"
                 android:layout_height="53dp"
                 android:background="@drawable/radio_button_background"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_custom" />
 
         </RadioGroup>
@@ -238,7 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="128dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/tuesday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -252,7 +263,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="544dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/friday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -265,7 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="676dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/saturday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -277,7 +288,7 @@
                 android:id="@+id/buttonSunday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/sunday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -291,7 +302,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="256dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/wednesday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -304,7 +315,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="404dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/thursday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -316,7 +327,7 @@
                 android:id="@+id/buttonMonday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/primary_grey"
                 android:text="@string/monday"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"

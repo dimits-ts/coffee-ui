@@ -165,10 +165,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="1275dp"
-        android:layout_height="465dp"
+        android:layout_width="1280dp"
+        android:layout_height="429dp"
         android:background="@color/primary_grey"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
@@ -177,34 +177,34 @@
 
         <Button
             android:id="@+id/espressoButton"
-            android:layout_width="511dp"
-            android:layout_height="216dp"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
             android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/espresso_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_espresso"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="45sp"
+            android:textSize="@dimen/main_menu_text_size"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
+            app:layout_constraintHorizontal_bias="0.054"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.121" />
+            app:layout_constraintVertical_bias="0.103" />
 
         <Button
             android:id="@+id/frenchButton"
-            android:layout_width="511dp"
-            android:layout_height="216dp"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
             android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/french_coffee_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_french"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="45sp"
+            android:textSize="@dimen/main_menu_text_size"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -215,41 +215,40 @@
 
         <Button
             android:id="@+id/teaButton"
-            android:layout_width="511dp"
-            android:layout_height="216dp"
-            android:layout_marginStart="76dp"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
             android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/tea_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_tea"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="45sp"
+            android:textSize="@dimen/main_menu_text_size"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/chocolateButton"
+            app:layout_constraintEnd_toEndOf="@+id/espressoButton"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/espressoButton"
             app:layout_constraintTop_toBottomOf="@+id/espressoButton"
-            app:layout_constraintVertical_bias="0.421" />
+            app:layout_constraintVertical_bias="0.415" />
 
         <Button
             android:id="@+id/chocolateButton"
-            android:layout_width="511dp"
-            android:layout_height="216dp"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
             android:backgroundTint="@color/primary_white"
             android:drawableTop="@drawable/chocolate_icon"
             android:fontFamily="sans-serif-medium"
             android:text="@string/drink_chocolate"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="45sp"
+            android:textSize="@dimen/main_menu_text_size"
             app:cornerRadius="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/teaButton"
+            app:layout_constraintEnd_toEndOf="@+id/frenchButton"
             app:layout_constraintHorizontal_bias="0.893"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frenchButton"
+            app:layout_constraintStart_toStartOf="@+id/frenchButton"
+            app:layout_constraintTop_toTopOf="@+id/teaButton"
             app:layout_constraintVertical_bias="0.421" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -258,12 +257,13 @@
         android:id="@+id/constraintLayout4"
         android:layout_width="1277dp"
         android:layout_height="129dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextClock
             android:id="@+id/textClock"
@@ -300,22 +300,22 @@
 
         <Button
             android:id="@+id/schedulesButton"
-            android:layout_width="266dp"
-            android:layout_height="77dp"
+            android:layout_width="469dp"
+            android:layout_height="78dp"
             android:backgroundTint="@color/primary_white"
             android:drawableLeft="@drawable/timer_icon"
             android:drawableTint="@color/black"
             android:text="@string/to_schedules"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="@dimen/main_menu_text_size"
             app:cornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.92"
             app:layout_constraintStart_toEndOf="@+id/textDate"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.307" />
+            app:layout_constraintVertical_bias="0.156" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

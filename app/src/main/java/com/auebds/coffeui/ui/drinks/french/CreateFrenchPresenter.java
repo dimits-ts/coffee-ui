@@ -1,6 +1,7 @@
 package com.auebds.coffeui.ui.drinks.french;
 
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.entity.DrinkLimits;
 import com.auebds.coffeui.entity.French;
 
 
@@ -32,30 +33,30 @@ public class CreateFrenchPresenter {
     }
 
     public void changeSugar(boolean increment){
-        if (increment){
+        if (increment && this.defaultFrench.getSugar() < DrinkLimits.MAX_SUGAR){
             this.defaultFrench.plusSugar();
         }
-        else{
+        else if (!increment && this.defaultFrench.getSugar() > DrinkLimits.MIN_SUGAR) {
             this.defaultFrench.minusSugar();
         }
         this.view.setSugar(this.defaultFrench.getSugar());
     }
 
     public void changeMilk(boolean increment){
-        if (increment){
+        if (increment && this.defaultFrench.getMilk() < DrinkLimits.MAX_MILK){
             this.defaultFrench.plusMilk();
         }
-        else{
+        else if (!increment && this.defaultFrench.getMilk() > DrinkLimits.MIN_MILK) {
             this.defaultFrench.minusMilk();
         }
         this.view.setMilk(this.defaultFrench.getMilk());
     }
 
     public void changeCups(boolean increment){
-        if (increment){
+        if (increment && this.defaultFrench.getCups() < DrinkLimits.MAX_CUPS){
             this.defaultFrench.plusCups();
         }
-        else{
+        else if (!increment && this.defaultFrench.getCups() > DrinkLimits.MIN_CUPS){
             this.defaultFrench.minusCups();
         }
         this.view.setCups(this.defaultFrench.getCups());

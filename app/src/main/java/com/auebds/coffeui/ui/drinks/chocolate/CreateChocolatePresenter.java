@@ -2,6 +2,7 @@ package com.auebds.coffeui.ui.drinks.chocolate;
 
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.entity.Chocolate;
+import com.auebds.coffeui.entity.DrinkLimits;
 
 
 public class CreateChocolatePresenter {
@@ -31,27 +32,30 @@ public class CreateChocolatePresenter {
     }
 
     public void changeSugar(boolean increment){
-        if (increment){
+        if (increment && this.defaultChocolate.getSugar() < DrinkLimits.MAX_SUGAR){
             this.defaultChocolate.plusSugar();
-        } else {
+        }
+        else if (!increment && this.defaultChocolate.getSugar() > DrinkLimits.MIN_SUGAR) {
             this.defaultChocolate.minusSugar();
         }
         this.view.setSugar(this.defaultChocolate.getSugar());
     }
 
     public void changeMilk(boolean increment){
-        if (increment){
+        if (increment && this.defaultChocolate.getMilk() < DrinkLimits.MAX_MILK){
             this.defaultChocolate.plusMilk();
-        } else{
+        }
+        else if (!increment && this.defaultChocolate.getMilk() > DrinkLimits.MIN_MILK) {
             this.defaultChocolate.minusMilk();
         }
         this.view.setMilk(this.defaultChocolate.getMilk());
     }
 
     public void changeCups(boolean increment){
-        if (increment){
+        if (increment && this.defaultChocolate.getCups() < DrinkLimits.MAX_CUPS){
             this.defaultChocolate.plusCups();
-        } else{
+        }
+        else if (!increment && this.defaultChocolate.getCups() > DrinkLimits.MIN_CUPS){
             this.defaultChocolate.minusCups();
         }
         this.view.setCups(this.defaultChocolate.getCups());

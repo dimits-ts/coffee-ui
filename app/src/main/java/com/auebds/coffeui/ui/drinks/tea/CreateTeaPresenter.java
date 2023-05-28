@@ -1,6 +1,7 @@
 package com.auebds.coffeui.ui.drinks.tea;
 
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.entity.DrinkLimits;
 import com.auebds.coffeui.entity.Tea;
 
 
@@ -31,30 +32,30 @@ public class CreateTeaPresenter {
 
 
     public void changeSugar(boolean increment){
-        if (increment){
+        if (increment && this.defaultTea.getSugar() < DrinkLimits.MAX_SUGAR){
             this.defaultTea.plusSugar();
         }
-        else{
+        else if (!increment && this.defaultTea.getSugar() > DrinkLimits.MIN_SUGAR) {
             this.defaultTea.minusSugar();
         }
         this.view.setSugar(this.defaultTea.getSugar());
     }
 
     public void changeMilk(boolean increment){
-        if (increment){
+        if (increment && this.defaultTea.getMilk() < DrinkLimits.MAX_MILK){
             this.defaultTea.plusMilk();
         }
-        else{
+        else if (!increment && this.defaultTea.getMilk() > DrinkLimits.MIN_MILK) {
             this.defaultTea.minusMilk();
         }
         this.view.setMilk(this.defaultTea.getMilk());
     }
 
     public void changeCups(boolean increment){
-        if (increment){
+        if (increment && this.defaultTea.getCups() < DrinkLimits.MAX_CUPS){
             this.defaultTea.plusCups();
         }
-        else{
+        else if (!increment && this.defaultTea.getCups() > DrinkLimits.MIN_CUPS){
             this.defaultTea.minusCups();
         }
         this.view.setCups(this.defaultTea.getCups());

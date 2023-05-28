@@ -1,6 +1,7 @@
 package com.auebds.coffeui.ui.drinks.espresso;
 
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.entity.DrinkLimits;
 import com.auebds.coffeui.entity.Espresso;
 
 
@@ -32,30 +33,30 @@ public class CreateEspressoPresenter {
     }
 
     public void changeSugar(boolean increment){
-        if (increment){
+        if (increment && this.defaultEspresso.getSugar() < DrinkLimits.MAX_SUGAR){
             this.defaultEspresso.plusSugar();
         }
-        else{
+        else if (!increment && this.defaultEspresso.getSugar() > DrinkLimits.MIN_SUGAR) {
             this.defaultEspresso.minusSugar();
         }
         this.view.setSugar(this.defaultEspresso.getSugar());
     }
 
     public void changeMilk(boolean increment){
-        if (increment){
+        if (increment && this.defaultEspresso.getMilk() < DrinkLimits.MAX_MILK){
             this.defaultEspresso.plusMilk();
         }
-        else{
+        else if (!increment && this.defaultEspresso.getMilk() > DrinkLimits.MIN_MILK) {
             this.defaultEspresso.minusMilk();
         }
         this.view.setMilk(this.defaultEspresso.getMilk());
     }
 
     public void changeCups(boolean increment){
-        if (increment){
+        if (increment && this.defaultEspresso.getCups() < DrinkLimits.MAX_CUPS){
             this.defaultEspresso.plusCups();
         }
-        else{
+        else if (!increment && this.defaultEspresso.getCups() > DrinkLimits.MIN_CUPS){
             this.defaultEspresso.minusCups();
         }
         this.view.setCups(this.defaultEspresso.getCups());

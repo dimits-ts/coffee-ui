@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
+import com.auebds.coffeui.databinding.ActivityCreateChocolateBinding;
 import com.auebds.coffeui.databinding.ActivityCreateFrCoffeeBinding;
 import com.auebds.coffeui.util.Util;
 
@@ -20,19 +21,19 @@ public class CreateChocolateActivity extends AppCompatActivity {
     private final CreateChocolatePresenter presenter =
             new CreateChocolatePresenter(
                     new CreateChocolateView(this), DrinkDao.getInstance());
-    private ActivityCreateFrCoffeeBinding binding;
+    private ActivityCreateChocolateBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCreateFrCoffeeBinding.inflate(getLayoutInflater());
+        binding = ActivityCreateChocolateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         this.assignBackButtonListener();
         this.attachListeners();
         this.attachRadioButtonListeners();
 
-        Button saveButton = binding.goButton2;
+        Button saveButton = binding.goButton;
         saveButton.setOnClickListener(view -> this.presenter.save());
 
         presenter.loadLastPreset();
@@ -52,8 +53,14 @@ public class CreateChocolateActivity extends AppCompatActivity {
     }
 
     void toMenu() {
-        Intent menuIntent = new Intent(CreateChocolateActivity.this, MainMenuActivity.class);
-        startActivity(menuIntent);
+        this.finish();
+    }
+
+    void toMenuWithMessage(String message) {
+        Intent menuIntent = new Intent();
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, message);
+        this.setResult(RESULT_OK, menuIntent);
+        this.finish();
     }
 
     private void attachListeners() {

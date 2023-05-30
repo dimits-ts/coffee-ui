@@ -36,7 +36,8 @@ import java.util.Map;
 public class CreateScheduleActivity extends AppCompatActivity {
 
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
-            new CreateSchedulePresenter(new CreateScheduleView(this), new DebugScheduleDao());
+            new CreateSchedulePresenter(new CreateScheduleView(this),
+                    DebugScheduleDao.getInstance());
 
     private ActivityCreateScheduleBinding binding;
     private Map<Day, Button> dayButtonHashMap;

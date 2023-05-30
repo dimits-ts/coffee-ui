@@ -18,7 +18,8 @@ import com.auebds.coffeui.util.Util;
 public class CreateChocolateActivity extends AppCompatActivity {
 
     private final CreateChocolatePresenter presenter =
-            new CreateChocolatePresenter(new CreateChocolateView(this), new DrinkDao());
+            new CreateChocolatePresenter(
+                    new CreateChocolateView(this), DrinkDao.getInstance());
     private ActivityCreateFrCoffeeBinding binding;
 
     @Override

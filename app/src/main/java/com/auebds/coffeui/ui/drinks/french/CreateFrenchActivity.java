@@ -18,7 +18,7 @@ import com.auebds.coffeui.util.Util;
 public class CreateFrenchActivity extends AppCompatActivity {
 
     private final CreateFrenchPresenter presenter =
-            new CreateFrenchPresenter(new CreateFrenchView(this), new DrinkDao());
+            new CreateFrenchPresenter(new CreateFrenchView(this), DrinkDao.getInstance());
     private ActivityCreateFrCoffeeBinding binding;
 
 

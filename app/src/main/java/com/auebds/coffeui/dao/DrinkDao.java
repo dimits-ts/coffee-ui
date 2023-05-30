@@ -6,19 +6,30 @@ import com.auebds.coffeui.entity.French;
 import com.auebds.coffeui.entity.Tea;
 
 public class DrinkDao {
+
+    /**
+     * Get the active instance of the DrinkDao.
+     * @return the dao
+     */
+    public static DrinkDao getInstance() {
+        return DrinkDao.dao;
+    }
+
+    private static final DrinkDao dao = new DrinkDao();
+
     private Chocolate chocolate;
     private Tea tea;
     private French french;
     private Espresso espresso;
 
-    public DrinkDao(Chocolate chocolate, Tea tea, French french, Espresso espresso){
+    private DrinkDao(Chocolate chocolate, Tea tea, French french, Espresso espresso){
         this.chocolate=chocolate;
         this.tea=tea;
         this.french=french;
         this.espresso=espresso;
     }
 
-    public DrinkDao(){
+    private DrinkDao(){
         this.chocolate=null;
         this.tea=null;
         this.french=null;

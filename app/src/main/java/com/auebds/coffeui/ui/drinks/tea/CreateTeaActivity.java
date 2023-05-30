@@ -17,7 +17,7 @@ import com.auebds.coffeui.util.Util;
 public class CreateTeaActivity extends AppCompatActivity {
 
     private final CreateTeaPresenter presenter =
-            new CreateTeaPresenter(new CreateTeaView(this), new DrinkDao());
+            new CreateTeaPresenter(new CreateTeaView(this), DrinkDao.getInstance());
 
     private ActivityCreateTeaBinding binding;
 

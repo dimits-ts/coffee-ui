@@ -18,7 +18,7 @@ import com.auebds.coffeui.util.Util;
 public class CreateEspressoActivity extends AppCompatActivity {
 
     private final CreateEspressoPresenter presenter =
-            new CreateEspressoPresenter(new CreateEspressoView(this), new DrinkDao());
+            new CreateEspressoPresenter(new CreateEspressoView(this), DrinkDao.getInstance());
 
     private ActivityCreateEspressoBinding binding;
 

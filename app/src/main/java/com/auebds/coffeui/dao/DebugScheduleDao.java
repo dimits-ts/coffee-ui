@@ -20,9 +20,19 @@ import java.util.Map;
  */
 public class DebugScheduleDao implements ScheduleDao {
 
+    /**
+     * Get the active instance of the ScheduleDao.
+     * @return the dao
+     */
+    public static DebugScheduleDao getInstance() {
+        return DebugScheduleDao.dao;
+    }
+
+    private static final DebugScheduleDao dao = new DebugScheduleDao();
+
     private final Map<String, Schedule> schedules = new HashMap<>();
 
-    public DebugScheduleDao() {
+    private DebugScheduleDao() {
         LinkedList<Day> dayList = new LinkedList<>();
         dayList.add(Day.MONDAY);
         dayList.add(Day.SUNDAY);

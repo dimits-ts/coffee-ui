@@ -28,7 +28,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
     public ManageScheduleActivity() {
         this.presenter = new ManageSchedulePresenter(
-                new ManageScheduleView(this), new DebugScheduleDao());
+                new ManageScheduleView(this), DebugScheduleDao.getInstance());
     }
 
     @Override

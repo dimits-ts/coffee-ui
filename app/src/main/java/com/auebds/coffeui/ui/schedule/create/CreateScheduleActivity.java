@@ -3,7 +3,6 @@ package com.auebds.coffeui.ui.schedule.create;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,6 +20,7 @@ import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
+import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -60,6 +60,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         binding.timePicker.setIs24HourView(true); // because of user feedback
     }
+
 
     String getName() {
         return binding.scheduleNameField.getText().toString();
@@ -150,6 +151,13 @@ public class CreateScheduleActivity extends AppCompatActivity {
     void toMenu() {
         Intent menuIntent = new Intent(CreateScheduleActivity.this, MainMenuActivity.class);
         startActivity(menuIntent);
+    }
+
+    void toMenuWithMessage(String message) {
+        Intent menuIntent = new Intent();
+        menuIntent.putExtra(ManageScheduleActivity.ARG_MESSAGE, message);
+        this.setResult(RESULT_OK, menuIntent);
+        this.finish();
     }
 
     String getStringRes(@StringRes int stringId, String... args) {

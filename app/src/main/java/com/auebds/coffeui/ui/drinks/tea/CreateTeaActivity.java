@@ -2,7 +2,6 @@ package com.auebds.coffeui.ui.drinks.tea;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
@@ -36,10 +35,6 @@ public class CreateTeaActivity extends AppCompatActivity {
         saveButton.setOnClickListener(view -> this.presenter.save());
 
         presenter.loadLastPreset();
-    }
-
-    View getRootView() {
-        return getWindow().getDecorView().getRootView();
     }
 
 

@@ -24,6 +24,7 @@ import java.util.Map;
  */
 class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     private final static int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
+
     private final CreateScheduleActivity activity;
     private final HashMap<Day, Boolean> selectedDaysMap;
     private boolean isRepeatable;
@@ -89,7 +90,7 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     @Override
     public void displaySuccess(Schedule schedule) {
         String message = this.activity.getStringRes(R.string.schedule_success_message, schedule.getName());
-        Snackbar.make(this.activity.getRootView(), message, SNACKBAR_DURATION).show();
+        this.activity.toMenuWithMessage(message);
     }
 
     @Override

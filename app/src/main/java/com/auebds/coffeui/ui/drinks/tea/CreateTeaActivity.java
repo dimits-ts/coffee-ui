@@ -51,10 +51,15 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     void toMenu() {
-        Intent menuIntent = new Intent(CreateTeaActivity.this, MainMenuActivity.class);
-        startActivity(menuIntent);
+        this.finish();
     }
 
+    void toMenuWithMessage() {
+        Intent menuIntent = new Intent();
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, "Tea Template Successfully Saved");
+        this.setResult(RESULT_OK, menuIntent);
+        this.finish();
+    }
     private void attachListeners() {
         binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
         binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));

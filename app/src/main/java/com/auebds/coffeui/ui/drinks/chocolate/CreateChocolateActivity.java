@@ -13,7 +13,6 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateChocolateBinding;
-import com.auebds.coffeui.databinding.ActivityCreateFrCoffeeBinding;
 import com.auebds.coffeui.util.Util;
 
 public class CreateChocolateActivity extends AppCompatActivity {
@@ -56,9 +55,9 @@ public class CreateChocolateActivity extends AppCompatActivity {
         this.finish();
     }
 
-    void toMenuWithMessage(String message) {
+    void toMenuWithMessage() {
         Intent menuIntent = new Intent();
-        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, message);
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, "Chocolate Template Successfully Saved");
         this.setResult(RESULT_OK, menuIntent);
         this.finish();
     }

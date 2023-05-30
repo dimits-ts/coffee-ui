@@ -52,8 +52,14 @@ public class CreateEspressoActivity extends AppCompatActivity {
     }
 
     void toMenu() {
-        Intent menuIntent = new Intent(CreateEspressoActivity.this, MainMenuActivity.class);
-        startActivity(menuIntent);
+        this.finish();
+    }
+
+    void toMenuWithMessage() {
+        Intent menuIntent = new Intent();
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, "Espresso Template Successfully Saved");
+        this.setResult(RESULT_OK, menuIntent);
+        this.finish();
     }
 
     private void attachListeners() {

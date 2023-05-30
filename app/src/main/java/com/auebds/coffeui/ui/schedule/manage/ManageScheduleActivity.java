@@ -54,8 +54,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
     }
 
     void toMenuActivity() {
-        Intent createIntent = new Intent(ManageScheduleActivity.this, MainMenuActivity.class);
-        startActivity(createIntent);
+        this.finish();
     }
 
     String getStringRes(@StringRes int stringId, String... args) {

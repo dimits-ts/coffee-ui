@@ -1,7 +1,6 @@
 package com.auebds.coffeui.ui.drinks.chocolate;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 
 public class CreateChocolateView {
 
@@ -14,7 +13,7 @@ public class CreateChocolateView {
     }
 
     public void displaySuccess() {
-        Snackbar.make(this.activity.getRootView(), "Chocolate Template Successfully Saved", SNACKBAR_DURATION).show();
+        this.activity.toMenuWithMessage();
     }
 
     public void toMenu() {

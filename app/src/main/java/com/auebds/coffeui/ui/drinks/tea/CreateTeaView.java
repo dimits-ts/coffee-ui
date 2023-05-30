@@ -14,7 +14,7 @@ public class CreateTeaView {
     }
 
     public void displaySuccess() {
-        Snackbar.make(this.activity.getRootView(), "Tea Template Successfully Saved", SNACKBAR_DURATION).show();
+        this.activity.toMenuWithMessage();
     }
 
     public void toMenu() {

@@ -14,7 +14,7 @@ public class CreateFrenchView {
     }
 
     public void displaySuccess() {
-        Snackbar.make(this.activity.getRootView(), "Americano Template Successfully Saved", SNACKBAR_DURATION).show();
+        this.activity.toMenuWithMessage();
     }
 
     public void toMenu() {

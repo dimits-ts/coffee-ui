@@ -14,7 +14,7 @@ public class CreateEspressoView {
     }
 
     public void displaySuccess() {
-        Snackbar.make(this.activity.getRootView(), "Espresso Template Successfully Saved", SNACKBAR_DURATION).show();
+        this.activity.toMenuWithMessage();
     }
 
     public void toMenu() {

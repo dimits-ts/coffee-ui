@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.auebds.coffeui.MainMenuActivity;
@@ -57,7 +58,7 @@ public class CreateChocolateActivity extends AppCompatActivity {
 
     void toMenuWithMessage() {
         Intent menuIntent = new Intent();
-        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, "Chocolate Template Successfully Saved");
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, getString(R.string.preparing_chocolate));
         this.setResult(RESULT_OK, menuIntent);
         this.finish();
     }

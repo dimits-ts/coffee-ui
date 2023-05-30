@@ -57,7 +57,7 @@ public class CreateEspressoActivity extends AppCompatActivity {
 
     void toMenuWithMessage() {
         Intent menuIntent = new Intent();
-        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, "Espresso Template Successfully Saved");
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, getString(R.string.preparing_espresso));
         this.setResult(RESULT_OK, menuIntent);
         this.finish();
     }

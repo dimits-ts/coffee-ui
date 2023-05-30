@@ -51,7 +51,7 @@ public class CreateTeaActivity extends AppCompatActivity {
 
     void toMenuWithMessage() {
         Intent menuIntent = new Intent();
-        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, "Tea Template Successfully Saved");
+        menuIntent.putExtra(MainMenuActivity.ARG_MESSAGE, getString(R.string.preparing_tea));
         this.setResult(RESULT_OK, menuIntent);
         this.finish();
     }

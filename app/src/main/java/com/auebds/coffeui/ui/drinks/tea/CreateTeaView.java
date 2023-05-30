@@ -1,13 +1,8 @@
 package com.auebds.coffeui.ui.drinks.tea;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-
 public class CreateTeaView {
 
     private final CreateTeaActivity activity;
-
-    private final static int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
 
     public CreateTeaView(CreateTeaActivity activity) {
         this.activity = activity;

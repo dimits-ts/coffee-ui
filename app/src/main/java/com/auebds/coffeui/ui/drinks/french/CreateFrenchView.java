@@ -1,13 +1,8 @@
 package com.auebds.coffeui.ui.drinks.french;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-
 public class CreateFrenchView {
 
     private final CreateFrenchActivity activity;
-
-    private final static int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
 
     public CreateFrenchView(CreateFrenchActivity activity) {
         this.activity = activity;

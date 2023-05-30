@@ -89,15 +89,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
-        android:layout_width="978dp"
-        android:layout_height="437dp"
+        android:layout_width="@dimen/drink_menu_width"
+        android:layout_height="@dimen/drink_menu_height"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.271">
+        app:layout_constraintVertical_bias="0.084">
 
         <TextView
             android:id="@+id/sugarAmount"
@@ -166,7 +166,7 @@
             android:layout_width="61dp"
             android:layout_height="67dp"
             android:background="@drawable/rounded_outline"
-            android:text="+"
+            android:text="@string/plus"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
             app:layout_constraintBottom_toBottomOf="@+id/minusbuttoncups"
@@ -256,7 +256,7 @@
             android:layout_width="61dp"
             android:layout_height="67dp"
             android:background="@drawable/rounded_outline"
-            android:text="+"
+            android:text="@string/plus"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
             app:layout_constraintBottom_toBottomOf="@+id/minusbuttonmilk"
@@ -300,7 +300,7 @@
             android:layout_width="61dp"
             android:layout_height="67dp"
             android:background="@drawable/rounded_outline"
-            android:text="+"
+            android:text="@string/plus"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
             app:layout_constraintBottom_toBottomOf="@+id/minusbuttonsugar"
@@ -332,7 +332,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+        app:layout_constraintVertical_bias="0.278" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,7 @@
     <dimen name="main_menu_drink_button_width">570dp</dimen>
     <dimen name="main_menu_drink_button_height">195dp</dimen>
     <dimen name="main_menu_text_size">45sp</dimen>
+
+    <dimen name="drink_menu_width">1040dp</dimen>
+    <dimen name="drink_menu_height">360dp</dimen>
 </resources>

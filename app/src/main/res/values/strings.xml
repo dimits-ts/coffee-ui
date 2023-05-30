@@ -92,4 +92,5 @@
 
     <string name="new_schedule_button_prompt">Create a new schedule</string>
     <string name="to_menu_button_prompt">Back to main menu</string>
+    <string name="plus">+</string>
 </resources>

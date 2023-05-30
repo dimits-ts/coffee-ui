@@ -33,10 +33,10 @@
     <string name="attr_cold"> Cold </string>
     <string name="attr_latte"> Latte </string>
     <string name="go"> GO </string>
-    <string name="amount_small"> 1 </string>
-    <string name="amount_olga"> 2 </string>
-    <string name="amount_big"> 3 </string>
-    <string name="amount_gkiwnhs"> 4</string>
+    <string name="amount_small"> A little </string>
+    <string name="amount_olga"> Some </string>
+    <string name="amount_big"> More </string>
+    <string name="amount_gkiwnhs">A lot</string>
     <string name="attr_frothed"> Frothed </string>
     <string name="minus_sign"> - </string>
     <string name="attr_chocolate"> Chocolate </string>

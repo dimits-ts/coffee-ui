@@ -111,9 +111,9 @@
 
             <RadioButton
                 android:id="@+id/amount1"
-                android:layout_width="105dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="50dp"
+                android:layout_width="@dimen/drink_menu_button_width"
+                android:layout_height="@dimen/drink_menu_button_height"
+                android:layout_marginStart="0dp"
                 android:background="@drawable/radio_button_background"
                 android:text="@string/amount_small"
                 android:textAllCaps="false"
@@ -121,9 +121,9 @@
 
             <RadioButton
                 android:id="@+id/amount2"
-                android:layout_width="105dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="50dp"
+                android:layout_width="@dimen/drink_menu_button_width"
+                android:layout_height="@dimen/drink_menu_button_height"
+                android:layout_marginStart="@dimen/drink_menu_button_margin"
                 android:background="@drawable/radio_button_background"
                 android:text="@string/amount_olga"
                 android:textAllCaps="false"
@@ -131,9 +131,9 @@
 
             <RadioButton
                 android:id="@+id/amount3"
-                android:layout_width="105dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="50dp"
+                android:layout_width="@dimen/drink_menu_button_width"
+                android:layout_height="@dimen/drink_menu_button_height"
+                android:layout_marginStart="@dimen/drink_menu_button_margin"
                 android:background="@drawable/radio_button_background"
                 android:text="@string/amount_big"
                 android:textAllCaps="false"
@@ -141,9 +141,9 @@
 
             <RadioButton
                 android:id="@+id/amount4"
-                android:layout_width="105dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="50dp"
+                android:layout_width="@dimen/drink_menu_button_width"
+                android:layout_height="@dimen/drink_menu_button_height"
+                android:layout_marginStart="@dimen/drink_menu_button_margin"
                 android:background="@drawable/radio_button_background"
                 android:text="@string/amount_gkiwnhs"
                 android:textAllCaps="false"

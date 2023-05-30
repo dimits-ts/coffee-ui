@@ -102,16 +102,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
-        android:layout_width="294dp"
-        android:layout_height="433dp"
+        android:layout_width="330dp"
+        android:layout_height="427dp"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.421">
+        app:layout_constraintVertical_bias="0.214">
 
         <Button
             android:id="@+id/listNewScheduleButton"
@@ -123,12 +123,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:layout_constraintVertical_bias="0.537" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="287dp"
-            android:layout_height="341dp"
+            android:layout_width="314dp"
+            android:layout_height="297dp"
             android:background="@drawable/rounded_outline"
             android:backgroundTint="@color/primary_white"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

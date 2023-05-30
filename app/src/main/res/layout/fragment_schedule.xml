@@ -7,8 +7,8 @@
     tools:context=".ui.schedule.manage.ScheduleFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="745dp"
-        android:layout_height="472dp"
+        android:layout_width="721dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
@@ -31,10 +31,10 @@
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintHorizontal_bias="0.096"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056" />
+            app:layout_constraintVertical_bias="0.047" />
 
         <TextView
             android:id="@+id/textView9"
@@ -47,9 +47,10 @@
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/scheduleNameLabel"
-            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/scheduleNameLabel"
-            app:layout_constraintTop_toBottomOf="@+id/scheduleNameLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/scheduleNameLabel"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView10"

@@ -98,4 +98,6 @@
     <string name="preparing_tea"> Preparing your tea…</string>
     <string name="preparing_chocolate"> Preparing your chocolate…</string>
     <string name="preparing_french"> Preparing your Americano…</string>
+    <string name="current_time">Current time</string>
+    <string name="current_date">Current date</string>
 </resources>

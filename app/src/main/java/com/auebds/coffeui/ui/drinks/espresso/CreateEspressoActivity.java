@@ -72,10 +72,7 @@ public class CreateEspressoActivity extends AppCompatActivity {
     }
 
     private void attachRadioButtonListeners() {
-        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
-        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
-        binding.buttonfrothed.setOnClickListener(view -> presenter.changeMilkType(true));
-        binding.buttonlatte.setOnClickListener(view -> presenter.changeMilkType(false));
+        binding.temperatureSwitch.setOnCheckedChangeListener((c, b) -> presenter.changeTemperature(b));
         binding.amount1.setOnClickListener(view -> presenter.changeCoffee(1));
         binding.amount2.setOnClickListener(view -> presenter.changeCoffee(2));
         binding.amount3.setOnClickListener(view -> presenter.changeCoffee(3));
@@ -122,13 +119,11 @@ public class CreateEspressoActivity extends AppCompatActivity {
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setChecked(true);}
-        else    {binding.buttoncold.setChecked(true);}
+        binding.temperatureSwitch.setChecked(temp);
     }
 
     public void setMilkType(boolean type){
-        if (type) {binding.buttonfrothed.setChecked(true);}
-        else      {binding.buttonlatte.setChecked(true);}
+        binding.milkSwitch.setChecked(type);
     }
 
     public int getSugar() {

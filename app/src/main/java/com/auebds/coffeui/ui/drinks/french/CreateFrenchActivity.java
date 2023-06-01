@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
@@ -72,10 +73,14 @@ public class CreateFrenchActivity extends AppCompatActivity {
     }
 
     private void attachRadioButtonListeners() {
-        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
-        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
-        binding.buttonfrothed.setOnClickListener(view -> presenter.changeMilkType(true));
-        binding.buttonlatte.setOnClickListener(view -> presenter.changeMilkType(false));
+        binding.temperatureSwitch.setOnCheckedChangeListener(
+                (CompoundButton buttonView, boolean isChecked)
+                        -> presenter.changeTemperature(isChecked));
+
+        binding.milkSwitch.setOnCheckedChangeListener(
+                (CompoundButton buttonView, boolean isChecked)
+                        -> presenter.changeMilkType(isChecked));
+
         binding.amount1.setOnClickListener(view -> presenter.changeCoffee(1));
         binding.amount2.setOnClickListener(view -> presenter.changeCoffee(2));
         binding.amount3.setOnClickListener(view -> presenter.changeCoffee(3));
@@ -122,13 +127,11 @@ public class CreateFrenchActivity extends AppCompatActivity {
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setChecked(true);}
-        else    {binding.buttoncold.setChecked(true);}
+        binding.temperatureSwitch.setChecked(temp);
     }
 
     public void setMilkType(boolean type){
-        if (type) {binding.buttonfrothed.setChecked(true);}
-        else      {binding.buttonlatte.setChecked(true);}
+        binding.milkSwitch.setChecked(type);
     }
 
     public int getSugar() {

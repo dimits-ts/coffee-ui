@@ -3,6 +3,7 @@ package com.auebds.coffeui.ui.drinks.tea;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,8 +66,9 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     private void attachRadioButtonListeners() {
-        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
-        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
+        binding.temperatureSwitch.setOnCheckedChangeListener(
+                (CompoundButton buttonView, boolean isChecked)
+                        -> presenter.changeTemperature(isChecked));
     }
 
     public void setSugar(int amount){
@@ -82,8 +84,7 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setChecked(true);}
-        else    {binding.buttoncold.setChecked(true);}
+        binding.temperatureSwitch.setChecked(temp);
     }
 
     public int getSugar() {

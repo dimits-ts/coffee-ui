@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.auebds.coffeui.MainMenuActivity;
@@ -73,9 +72,8 @@ public class CreateChocolateActivity extends AppCompatActivity {
     }
 
     private void attachRadioButtonListeners() {
-        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
-        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
-        binding.amount1.setOnClickListener(view -> presenter.changeChocolate(1));
+        binding.temperatureSwitch.setOnCheckedChangeListener(
+                (compoundButton, b) -> presenter.changeTemperature(b));
         binding.amount2.setOnClickListener(view -> presenter.changeChocolate(2));
         binding.amount3.setOnClickListener(view -> presenter.changeChocolate(3));
         binding.amount4.setOnClickListener(view -> presenter.changeChocolate(4));
@@ -121,8 +119,7 @@ public class CreateChocolateActivity extends AppCompatActivity {
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setChecked(true);}
-        else    {binding.buttoncold.setChecked(true);}
+        binding.temperatureSwitch.setChecked(temp);
     }
 
     public int getSugar() {

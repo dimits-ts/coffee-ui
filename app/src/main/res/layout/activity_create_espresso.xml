@@ -96,73 +96,55 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.271">
 
-        <RadioGroup
-            android:id="@+id/MilkRadioGroup"
-            android:layout_width="442dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="144dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/TempRadioGroup"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/TempRadioGroup"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RadioButton
-                android:id="@+id/buttonfrothed"
-                android:layout_width="wrap_content"
-                android:layout_height="84dp"
-                android:layout_marginStart="35dp"
-                android:background="@drawable/radio_button_background"
-                android:text="@string/attr_frothed"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
-
-            <RadioButton
-                android:id="@+id/buttonlatte"
-                android:layout_width="137dp"
-                android:layout_height="84dp"
-                android:layout_marginStart="60dp"
-                android:background="@drawable/radio_button_background"
-                android:checked="false"
-                android:text="@string/attr_latte"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/TempRadioGroup"
-            android:layout_width="442dp"
-            android:layout_height="93dp"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal"
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:text="@string/attr_latte"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/milkSwitch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/temperatureSwitch"
+            app:layout_constraintTop_toTopOf="@+id/milkSwitch"
+            app:layout_constraintVertical_bias="0.681" />
 
-            <RadioButton
-                android:id="@+id/buttoncold"
-                android:layout_width="wrap_content"
-                android:layout_height="84dp"
-                android:layout_marginStart="60dp"
-                android:background="@drawable/radio_button_background"
-                android:checked="false"
-                android:text="@string/attr_cold"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/milkSwitch"
+            android:layout_width="57dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="144dp"
+            android:checked="true"
+            android:scaleX="2.5"
+            android:scaleY="2.5"
+            android:textScaleX="0"
+            android:thumbTint="@color/button_selected"
+            android:trackTint="@color/button_selected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.197" />
 
-            <RadioButton
-                android:id="@+id/hotbutton"
-                android:layout_width="137dp"
-                android:layout_height="84dp"
-                android:layout_marginStart="60dp"
-                android:background="@drawable/radio_button_background"
-                android:text="@string/attr_hot"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
-        </RadioGroup>
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="162dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="44dp"
+            android:text="@string/attr_frothed"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/milkSwitch"
+            app:layout_constraintEnd_toStartOf="@+id/temperatureSwitch"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/milkSwitch"
+            app:layout_constraintVertical_bias="1.0" />
 
         <RadioGroup
+            android:id="@+id/radioGroup4"
             android:layout_width="643dp"
             android:layout_height="68dp"
             android:orientation="horizontal"
@@ -419,6 +401,48 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/attr_hot"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/temperatureSwitch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/temperatureSwitch"
+            app:layout_constraintTop_toTopOf="@+id/temperatureSwitch" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="96dp"
+            android:layout_height="50dp"
+            android:text="@string/attr_cold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/temperatureSwitch"
+            app:layout_constraintEnd_toStartOf="@+id/temperatureSwitch"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/temperatureSwitch" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/temperatureSwitch"
+            android:layout_width="57dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="128dp"
+            android:checked="true"
+            android:scaleX="2.5"
+            android:scaleY="2.5"
+            android:textScaleX="0"
+            android:thumbTint="@color/button_selected"
+            android:trackTint="@color/button_selected"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.745"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.148" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

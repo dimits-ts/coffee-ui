@@ -1,0 +1,17 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="schedule_list_view_height">64dp</dimen>
+    <dimen name="schedule_list_view_width">264dp</dimen>
+    <dimen name="schedule_list_view_text">24sp</dimen>
+
+    <dimen name="main_menu_drink_button_width">570dp</dimen>
+    <dimen name="main_menu_drink_button_height">195dp</dimen>
+    <dimen name="main_menu_text_size">45sp</dimen>
+
+    <dimen name="drink_menu_width">1040dp</dimen>
+    <dimen name="drink_menu_height">360dp</dimen>
+    <dimen name="drink_menu_button_margin">20dp</dimen>
+    <dimen name="drink_menu_button_width">145dp</dimen>
+    <dimen name="drink_menu_button_height">60dp</dimen>
+</resources>

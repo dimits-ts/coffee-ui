@@ -1,3 +1,101 @@
 <resources>
-    <string name="app_name">CoffeUI</string>
+    <string name="app_name">Marine Coffee</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="help_button">\"Help\"</string>
+    <string name="button_language">Select language</string>
+    <string name="button_off">Shut off the device</string>
+    <string name="status_string_ready">Ready</string>
+    <string name="status_machine_ready">Machine ready</string>
+    <string name="drink_espresso">Espresso</string>
+    <string name="drink_french">French (Americano)</string>
+    <string name="drink_tea">Tea</string>
+    <string name="drink_chocolate">Chocolate</string>
+    <string name="placeholder_date">Feb 30th</string>
+    <string name="to_schedules">Schedules</string>
+    <string name="label_warnings">Warnings</string>
+    <string name="back_button">Go to main menu</string>
+    <string name="new_schedule_label">New Schedule</string>
+    <string name="schedule_icon">schedule icon</string>
+    <string name="default_schedule_name">Schedule Name</string>
+    <string name="select_drink_prompt">Select drink…</string>
+    <string name="attr_cups"> Cups </string>
+    <string name="attr_milk"> Milk </string>
+    <string name="attr_sugar"> Sugar </string>
+    <string name="attr_coffee"> Coffee </string>
+    <string name="default_attr_value"> -1 </string>
+    <string name="attr_hot"> Hot </string>
+    <string name="attr_cold"> Cold </string>
+    <string name="attr_latte"> Latte </string>
+    <string name="go"> GO </string>
+    <string name="amount_small"> A little </string>
+    <string name="amount_olga"> Some </string>
+    <string name="amount_big"> More </string>
+    <string name="amount_gkiwnhs">A lot</string>
+    <string name="attr_frothed"> Frothed </string>
+    <string name="minus_sign"> - </string>
+    <string name="attr_chocolate"> Chocolate </string>
+    <string name="repeat_once">Once</string>
+    <string name="repeat_daily">Daily</string>
+    <string name="repeat_weekday">Monday-Friday</string>
+    <string name="repeat_weekend">Weekend</string>
+    <string name="repeat_custom">Custom</string>
+
+    <string name="monday">MON</string>
+    <string name="tuesday">TUE</string>
+    <string name="wednesday">WED</string>
+    <string name="thursday">THU</string>
+    <string name="friday">FRI</string>
+    <string name="saturday">SAT</string>
+    <string name="sunday">SUN</string>
+    <string name="save_button">Save</string>
+    <string name="filter_warning">device low on filters</string>
+    <string name="water_warning">device low on water</string>
+    <string name="ingredients_warning">device low on some ingredients</string>
+
+    <string name="schedule_success_message">Schedule %1$s created successfully</string>
+    <string name="schedule_name_error_message">Error: Name %1$s is already used for a schedule</string>
+    <string name="schedule_error_message">Error: %1$s</string>
+
+    <!-- IDs from DrinkType.java for conversion from string to DrinkType-->
+    <string-array name="drinks_array">
+        <item>1. Espresso</item>
+        <item>2. French Coffee</item>
+        <item>3. Tea</item>
+        <item>4. Hot Chocolate</item>
+    </string-array>
+
+    <string name="label_drink">Drink:</string>
+    <string name="label_frequency">Frequency:</string>
+    <string name="label_time">Time:</string>
+    <string name="label_status">Status:</string>
+    <string name="label_edit_schedule">Edit Schedule</string>
+    <string name="label_delete_schedule">Delete Schedule</string>
+    <string name="label_default"><![CDATA[<default>]]></string>
+    <string name="manage_schedule_title">Schedules</string>
+    <string name="manage_schedules_on_button_description">Activate \ Deactivate schedule</string>
+
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="status_active">Active</string>
+    <string name="status_not_active">Disabled</string>
+
+    <string name="no_schedules_message">There seem to be no schedules yet!</string>
+    <string name="schedule_delete_success_message">Schedule %1$s deleted successfully</string>
+
+    <string name="new_schedule_button_prompt">Create a new schedule</string>
+    <string name="to_menu_button_prompt">Back to main menu</string>
+    <string name="plus">+</string>
+
+    <string name="preparing_espresso"> Preparing your Espresso…</string>
+    <string name="preparing_tea"> Preparing your tea…</string>
+    <string name="preparing_chocolate"> Preparing your chocolate…</string>
+    <string name="preparing_french"> Preparing your Americano…</string>
 </resources>

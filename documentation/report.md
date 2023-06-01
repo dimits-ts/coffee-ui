@@ -120,6 +120,77 @@ A full list of our final designs can be found in [Addendum#Mock-ups](#mock-ups).
 ![](images/mockups/Espresso_New.png)
 <br>*New drink creation screen*
 
+## 2nd Cycle
+
+
+### Goals
+The goals of the 2nd cycle were:
+- Design the prototype in Android
+- Implement basic functionality
+- Export the prototype to an Android device to allow realistic user verification
+
+### Target Audience
+Our target audience remains the same in this cycle.
+
+### Functional Requirements
+Our overall functional requirements remain the same. In this cycle we attempt to implement all basic
+functions, including:
+
+- Schedule creation and management
+- Drink creation screens
+- Saving and loading the last drink configuration for each drink
+
+### Non-functional Requirements
+Our overall non-functional requirements remain the same, and are used to guide our Android
+implementation.
+
+### Verification
+We used two forms of verification for the 2nd development cycle:
+
+#### Questionnaires
+Used to verify functional requirements considered for the 3rd development cycle and general design 
+choices. <!--TODO: complete this after survey-->
+
+### Talking subjects
+Testers were given a copy of the prototype running in an actual Android device and were instructed
+to explore the application with the following goals, while communicating their thought process 
+with the test supervisor:
+
+1. Create four drinks of different types
+2. Create a new schedule
+3. Delete the default schedules
+
+The testing revealed both strong and weak points of the prototype:
+
+##### Pros:
+- The application was very easy to navigate
+- The general design of the application was remarked as being "quite enjoyable"
+- There were no issues with user confusion or hesitation
+
+##### Cons:
+- The drink creation screen was seen as ambiguous in its phrasing ("Cups", arbitrary quantities for
+chocolate, sugar)
+- The binary buttons in the drink creation screen were seen as confusing
+- The button design in general, in its current implementation was supported poorly by the device
+and thus was a constant source of complaints 
+
+### Results
+![](images/2nd_cycle/main_menu.PNG)
+<br>*The main menu screen*
+
+![](images/2nd_cycle/espresso.PNG)
+<br>*One of the drink creation screens*
+
+![](images/2nd_cycle/manage_schedules.PNG)
+<br>*The manage schedules screen*
+
+![](images/2nd_cycle/new_schedule.PNG)
+<br>*The schedule creation screen*
+
+<!--### Target Audience
+We expanded our target audience to include middle-aged and elderly people. These groups are more 
+familiar with making drinks, and accustomed to exact quantities of ingredients -->
+
 ## Addendum
 
 ### Questionnaire findings

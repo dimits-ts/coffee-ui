@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_grey"
+    tools:context=".MainMenuActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="1283dp"
+        android:layout_height="188dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="1289dp"
+            android:layout_height="182dp"
+            android:background="@color/primary_white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/helpButton"
+            android:layout_width="162dp"
+            android:layout_height="127dp"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/help_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.013"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/help_icon" />
+
+        <ImageButton
+            android:id="@+id/languageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/button_language"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toEndOf="@+id/helpButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.493"
+            app:srcCompat="@drawable/language_icon" />
+
+        <ImageButton
+            android:id="@+id/offButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/button_off"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.97"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/off_button_icon" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:text="@string/label_warnings"
+            android:textColor="#A1887F"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/waterWarningIcon"
+            app:layout_constraintEnd_toEndOf="@+id/ingredientWarningIcon"
+            app:layout_constraintStart_toStartOf="@+id/filterWarningIcon"
+            app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+        <ImageView
+            android:id="@+id/filterWarningIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="152dp"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/languageButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/filter_icon"
+            android:contentDescription="@string/filter_warning" />
+
+        <ImageView
+            android:id="@+id/waterWarningIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="@+id/filterWarningIcon"
+            app:layout_constraintStart_toEndOf="@+id/filterWarningIcon"
+            app:layout_constraintTop_toTopOf="@+id/filterWarningIcon"
+            app:layout_constraintVertical_bias="0.181"
+            app:srcCompat="@drawable/drop_icon"
+            android:contentDescription="@string/water_warning"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="198dp"
+            android:layout_height="51dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/offButton"
+            app:layout_constraintHorizontal_bias="0.953"
+            app:layout_constraintStart_toEndOf="@+id/languageButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.714">
+
+            <TextView
+                android:id="@+id/statusMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status_string_ready"
+                android:textColor="@color/status_ok"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.872"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.521" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/status_machine_ready"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/statusMessage"
+                app:layout_constraintHorizontal_bias="0.275"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.47"
+                app:srcCompat="@drawable/status_light_ok" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/ingredientWarningIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="@+id/waterWarningIcon"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintStart_toEndOf="@+id/waterWarningIcon"
+            app:layout_constraintTop_toTopOf="@+id/waterWarningIcon"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/mug_icon"
+            android:contentDescription="@string/ingredients_warning"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="1280dp"
+        android:layout_height="429dp"
+        android:background="@color/primary_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/espressoButton"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
+            android:backgroundTint="@color/primary_white"
+            android:drawableTop="@drawable/espresso_icon"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/drink_espresso"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.103" />
+
+        <Button
+            android:id="@+id/frenchButton"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
+            android:backgroundTint="@color/primary_white"
+            android:drawableTop="@drawable/french_coffee_icon"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/drink_french"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.548"
+            app:layout_constraintStart_toEndOf="@+id/espressoButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.104" />
+
+        <Button
+            android:id="@+id/teaButton"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
+            android:backgroundTint="@color/primary_white"
+            android:drawableTop="@drawable/tea_icon"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/drink_tea"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/espressoButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/espressoButton"
+            app:layout_constraintTop_toBottomOf="@+id/espressoButton"
+            app:layout_constraintVertical_bias="0.415" />
+
+        <Button
+            android:id="@+id/chocolateButton"
+            android:layout_width="@dimen/main_menu_drink_button_width"
+            android:layout_height="@dimen/main_menu_drink_button_height"
+            android:backgroundTint="@color/primary_white"
+            android:drawableTop="@drawable/chocolate_icon"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/drink_chocolate"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/teaButton"
+            app:layout_constraintEnd_toEndOf="@+id/frenchButton"
+            app:layout_constraintHorizontal_bias="0.893"
+            app:layout_constraintStart_toStartOf="@+id/frenchButton"
+            app:layout_constraintTop_toTopOf="@+id/teaButton"
+            app:layout_constraintVertical_bias="0.421" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="1277dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="195dp"
+            android:layout_height="84dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textDate"
+            app:layout_constraintEnd_toStartOf="@+id/schedulesButton"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toEndOf="@+id/textDate"
+            app:layout_constraintTop_toTopOf="@+id/textDate"
+            app:layout_constraintVertical_bias="0.514" />
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="185dp"
+            android:layout_height="49dp"
+            android:text="@string/placeholder_date"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.014"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.337" />
+
+        <Button
+            android:id="@+id/schedulesButton"
+            android:layout_width="469dp"
+            android:layout_height="78dp"
+            android:backgroundTint="@color/primary_white"
+            android:drawableLeft="@drawable/timer_icon"
+            android:drawableTint="@color/black"
+            android:text="@string/to_schedules"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toEndOf="@+id/textDate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.156" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

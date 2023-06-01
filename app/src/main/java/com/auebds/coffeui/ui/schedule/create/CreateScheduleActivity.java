@@ -2,13 +2,17 @@ package com.auebds.coffeui.ui.schedule.create;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,8 +27,10 @@ import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -34,6 +40,7 @@ import java.util.Map;
  * @author Dimitris Tsirmpas
  */
 public class CreateScheduleActivity extends AppCompatActivity {
+    private static final int TIME_PICKER_MIN_INTERVAL = 5;
 
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
             new CreateSchedulePresenter(new CreateScheduleView(this),
@@ -59,6 +66,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         saveButton.setOnClickListener(view -> this.presenter.save());
 
         binding.timePicker.setIs24HourView(true); // because of user feedback
+        setTimePickerInterval(binding.timePicker);
     }
 
 
@@ -232,6 +240,22 @@ public class CreateScheduleActivity extends AppCompatActivity {
         assert map.get(Day.MONDAY) != null;
 
         return map;
+    }
+
+    private void setTimePickerInterval(TimePicker timePicker) {
+        try {
+            NumberPicker minutePicker = timePicker.findViewById(Resources.getSystem().getIdentifier(
+                    "minute", "id", "android"));
+            minutePicker.setMinValue(0);
+            minutePicker.setMaxValue((60 / TIME_PICKER_MIN_INTERVAL) - 1);
+            List<String> displayedValues = new ArrayList<>();
+            for (int i = 0; i < 60; i += TIME_PICKER_MIN_INTERVAL) {
+                displayedValues.add(String.format(Locale.getDefault(), "%02d", i));
+            }
+            minutePicker.setDisplayedValues(displayedValues.toArray(new String[0]));
+        } catch (Exception e) {
+            Log.e("CREATE_SCHEDULE", e.getLocalizedMessage(), e);
+        }
     }
 
 }

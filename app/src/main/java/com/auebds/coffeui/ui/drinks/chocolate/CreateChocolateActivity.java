@@ -2,7 +2,6 @@ package com.auebds.coffeui.ui.drinks.chocolate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -38,11 +37,6 @@ public class CreateChocolateActivity extends AppCompatActivity {
         presenter.loadLastPreset();
     }
 
-    View getRootView() {
-        return getWindow().getDecorView().getRootView();
-    }
-
-
     /**
      * Make the back button go to the main menu when pressed.
      */
@@ -77,16 +71,6 @@ public class CreateChocolateActivity extends AppCompatActivity {
         binding.amount2.setOnClickListener(view -> presenter.changeChocolate(2));
         binding.amount3.setOnClickListener(view -> presenter.changeChocolate(3));
         binding.amount4.setOnClickListener(view -> presenter.changeChocolate(4));
-    }
-
-
-    public int getChocolate() {
-        Button button;
-        RadioGroup radioGroup = findViewById(R.id.radioGroup);
-        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-        button = findViewById(selectedRadioButtonId);
-        String text = button.getText().toString();
-        return Integer.parseInt(text);
     }
 
     public void setSugar(int amount){

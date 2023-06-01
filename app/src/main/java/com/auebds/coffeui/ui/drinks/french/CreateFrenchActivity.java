@@ -2,7 +2,6 @@ package com.auebds.coffeui.ui.drinks.french;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -37,10 +36,6 @@ public class CreateFrenchActivity extends AppCompatActivity {
         saveButton.setOnClickListener(view -> this.presenter.save());
 
         presenter.loadLastPreset();
-    }
-
-    View getRootView() {
-        return getWindow().getDecorView().getRootView();
     }
 
 
@@ -85,16 +80,6 @@ public class CreateFrenchActivity extends AppCompatActivity {
         binding.amount2.setOnClickListener(view -> presenter.changeCoffee(2));
         binding.amount3.setOnClickListener(view -> presenter.changeCoffee(3));
         binding.amount4.setOnClickListener(view -> presenter.changeCoffee(4));
-    }
-
-
-    public int getCoffee() {
-        Button button;
-        RadioGroup radioGroup = findViewById(R.id.radioGroup);
-        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-        button = findViewById(selectedRadioButtonId);
-        String text = button.getText().toString();
-        return Integer.parseInt(text);
     }
 
     public void setSugar(int amount){

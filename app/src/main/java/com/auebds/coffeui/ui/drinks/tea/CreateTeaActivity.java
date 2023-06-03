@@ -57,8 +57,8 @@ public class CreateTeaActivity extends AppCompatActivity {
         this.finish();
     }
     private void attachListeners() {
-        binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
-        binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));
+        binding.plusbuttonwater.setOnClickListener(view -> presenter.changeWater(true));
+        binding.minusbuttonwater.setOnClickListener(view -> presenter.changeWater(false));
         binding.plusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(true));
         binding.minusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(false));
         binding.plusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(true));
@@ -79,8 +79,8 @@ public class CreateTeaActivity extends AppCompatActivity {
         binding.milkAmount.setText(Util.localizedToString(amount));
     }
 
-    public void setCups(int amount){
-        binding.cupsAmount.setText(Util.localizedToString(amount));
+    public void setWater(int amount){
+        binding.waterAmount.setText(Util.localizedToString(amount));
     }
 
     public void setTemperature(boolean temp) {
@@ -95,8 +95,8 @@ public class CreateTeaActivity extends AppCompatActivity {
         return Integer.parseInt(binding.milkAmount.getText().toString());
     }
 
-    public int getCups() {
-        return Integer.parseInt(binding.cupsAmount.getText().toString());
+    public int getWater() {
+        return Integer.parseInt(binding.waterAmount.getText().toString());
     }
 
     public boolean getTemp() {

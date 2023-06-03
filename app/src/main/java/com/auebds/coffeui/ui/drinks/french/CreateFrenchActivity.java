@@ -59,12 +59,14 @@ public class CreateFrenchActivity extends AppCompatActivity {
     }
 
     private void attachListeners() {
-        binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
-        binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));
+        binding.plusbuttonwater.setOnClickListener(view -> presenter.changeWater(true));
+        binding.minusbuttonwater.setOnClickListener(view -> presenter.changeWater(false));
         binding.plusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(true));
         binding.minusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(false));
         binding.plusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(true));
         binding.minusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(false));
+        binding.minusbuttoncoffee.setOnClickListener(view -> presenter.changeCoffee(false));
+        binding.plusbuttoncoffee.setOnClickListener(view -> presenter.changeCoffee(true));
     }
 
     private void attachRadioButtonListeners() {
@@ -75,11 +77,6 @@ public class CreateFrenchActivity extends AppCompatActivity {
         binding.milkSwitch.setOnCheckedChangeListener(
                 (CompoundButton buttonView, boolean isChecked)
                         -> presenter.changeMilkType(isChecked));
-
-        binding.amount1.setOnClickListener(view -> presenter.changeCoffee(1));
-        binding.amount2.setOnClickListener(view -> presenter.changeCoffee(2));
-        binding.amount3.setOnClickListener(view -> presenter.changeCoffee(3));
-        binding.amount4.setOnClickListener(view -> presenter.changeCoffee(4));
     }
 
     public void setSugar(int amount){
@@ -90,26 +87,11 @@ public class CreateFrenchActivity extends AppCompatActivity {
         binding.milkAmount.setText(Util.localizedToString(amount));
     }
 
-    public void setCups(int amount){
-        binding.cupsAmount.setText(Util.localizedToString(amount));
+    public void setWater(int amount){
+        binding.waterAmount.setText(Util.localizedToString(amount));
     }
 
-    public void setCoffee(int amount) {
-        switch(amount){
-            case 1:
-                binding.amount1.setChecked(true);
-                break;
-            case 2:
-                binding.amount2.setChecked(true);
-                break;
-            case 3:
-                binding.amount3.setChecked(true);
-                break;
-            case 4:
-                binding.amount4.setChecked(true);
-                break;
-        }
-    }
+    public void setCoffee(int amount) {binding.coffeeAmount.setText(Util.localizedToString(amount));}
 
     public void setTemperature(boolean temp) {
         binding.temperatureSwitch.setChecked(temp);
@@ -127,8 +109,8 @@ public class CreateFrenchActivity extends AppCompatActivity {
         return Integer.parseInt(binding.milkAmount.getText().toString());
     }
 
-    public int getCups() {
-        return Integer.parseInt(binding.cupsAmount.getText().toString());
+    public int getWater() {
+        return Integer.parseInt(binding.waterAmount.getText().toString());
     }
 
     public boolean getTemp() {

@@ -19,14 +19,14 @@ public class CreateEspressoPresenter {
             this.defaultEspresso = this.dao.getEspresso();
         }
         else{
-            this.defaultEspresso = new Espresso(1,2,2,2,true, true);
+            this.defaultEspresso = new Espresso(250,2,2,2,true, true);
         }
     }
 
     public void loadLastPreset() {
         this.view.setMilk(this.defaultEspresso.getMilk());
         this.view.setSugar(this.defaultEspresso.getSugar());
-        this.view.setCups(this.defaultEspresso.getCups());
+        this.view.setWater(this.defaultEspresso.getWater());
         this.view.setCoffee(this.defaultEspresso.getCoffee());
         this.view.setTemperature(this.defaultEspresso.getTemp());
         this.view.setMilkType(this.defaultEspresso.getMilkType());
@@ -52,19 +52,24 @@ public class CreateEspressoPresenter {
         this.view.setMilk(this.defaultEspresso.getMilk());
     }
 
-    public void changeCups(boolean increment){
-        if (increment && this.defaultEspresso.getCups() < DrinkLimits.MAX_CUPS){
-            this.defaultEspresso.plusCups();
+    public void changeWater(boolean increment){
+        if (increment && this.defaultEspresso.getWater() < DrinkLimits.MAX_WATER){
+            this.defaultEspresso.plusWater();
         }
-        else if (!increment && this.defaultEspresso.getCups() > DrinkLimits.MIN_CUPS){
-            this.defaultEspresso.minusCups();
+        else if (!increment && this.defaultEspresso.getWater() > DrinkLimits.MIN_WATER){
+            this.defaultEspresso.minusWater();
         }
-        this.view.setCups(this.defaultEspresso.getCups());
+        this.view.setWater(this.defaultEspresso.getWater());
     }
 
-    public void changeCoffee(int amount){
-        this.defaultEspresso.setCoffee(amount);
-        this.view.setCoffee(amount);
+    public void changeCoffee(boolean increment){
+        if (increment && this.defaultEspresso.getCoffee() < DrinkLimits.MAX_INGREDIENT){
+            this.defaultEspresso.plusCoffee();
+        }
+        else if (!increment && this.defaultEspresso.getCoffee() > DrinkLimits.MIN_INGREDIENT){
+            this.defaultEspresso.minusCoffee();
+        }
+        this.view.setCoffee(this.defaultEspresso.getCoffee());
     }
 
     public void changeTemperature(boolean temp){

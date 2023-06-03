@@ -19,14 +19,14 @@ public class CreateTeaPresenter {
             this.defaultTea = this.dao.getTea();
         }
         else{
-            this.defaultTea = new Tea(1,2,2,true);
+            this.defaultTea = new Tea(150,2,2,true);
         }
     }
 
     public void loadLastPreset() {
         this.view.setMilk(this.defaultTea.getMilk());
         this.view.setSugar(this.defaultTea.getSugar());
-        this.view.setCups(this.defaultTea.getCups());
+        this.view.setWater(this.defaultTea.getWater());
         this.view.setTemperature(this.defaultTea.getTemp());
     }
 
@@ -51,14 +51,14 @@ public class CreateTeaPresenter {
         this.view.setMilk(this.defaultTea.getMilk());
     }
 
-    public void changeCups(boolean increment){
-        if (increment && this.defaultTea.getCups() < DrinkLimits.MAX_CUPS){
-            this.defaultTea.plusCups();
+    public void changeWater(boolean increment){
+        if (increment && this.defaultTea.getWater() < DrinkLimits.MAX_WATER){
+            this.defaultTea.plusWater();
         }
-        else if (!increment && this.defaultTea.getCups() > DrinkLimits.MIN_CUPS){
-            this.defaultTea.minusCups();
+        else if (!increment && this.defaultTea.getWater() > DrinkLimits.MIN_WATER){
+            this.defaultTea.minusWater();
         }
-        this.view.setCups(this.defaultTea.getCups());
+        this.view.setWater(this.defaultTea.getWater());
     }
 
     public void changeTemperature(boolean temp){

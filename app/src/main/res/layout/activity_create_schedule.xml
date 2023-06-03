@@ -102,8 +102,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
-        android:layout_width="1051dp"
-        android:layout_height="436dp"
+        android:layout_width="1053dp"
+        android:layout_height="386dp"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,21 +111,23 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.265">
+        app:layout_constraintVertical_bias="0.092">
 
         <TimePicker
             android:id="@+id/timePicker"
-            android:layout_width="283dp"
-            android:layout_height="229dp"
+            android:layout_width="278dp"
+            android:layout_height="214dp"
             android:background="@drawable/rounded_outline"
-            android:backgroundTint="@color/light_gray"
+            android:backgroundTint="@color/primary_grey"
+            android:numbersInnerTextColor="@color/white"
+            android:numbersTextColor="@color/primary_white"
             android:timePickerMode="spinner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.001"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.154" />
+            app:layout_constraintVertical_bias="0.033" />
 
         <EditText
             android:id="@+id/scheduleNameField"
@@ -133,11 +135,12 @@
             android:layout_height="wrap_content"
             android:autofillHints="@string/default_schedule_name"
             android:background="@drawable/rounded_outline"
-            android:backgroundTint="@color/light_gray"
+            android:backgroundTint="@color/primary_grey"
             android:ems="10"
             android:hint="@string/default_schedule_name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColorHint="@color/white"
             android:textSize="48sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -151,85 +154,87 @@
             android:layout_width="399dp"
             android:layout_height="88dp"
             android:background="@drawable/rounded_outline"
-            android:backgroundTint="@color/light_gray"
+            android:backgroundTint="@color/primary_grey"
             android:contentDescription="@string/select_drink_prompt"
             android:prompt="@string/select_drink_prompt"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.088"
+            app:layout_constraintHorizontal_bias="0.111"
             app:layout_constraintStart_toEndOf="@+id/timePicker"
             app:layout_constraintTop_toBottomOf="@+id/scheduleNameField"
-            app:layout_constraintVertical_bias="0.232" />
+            app:layout_constraintVertical_bias="0.1" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            android:layout_width="998dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="280dp"
+            android:layout_width="1011dp"
+            android:layout_height="@dimen/create_schedule_group_height"
             android:layoutDirection="ltr"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.377"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/selectDrinkSpinner"
+            app:layout_constraintVertical_bias="0.185">
 
             <RadioButton
                 android:id="@+id/buttonRepeatOnce"
-                android:layout_width="114dp"
-                android:layout_height="52dp"
+                android:layout_width="@dimen/create_schedule_button_width"
+                android:layout_height="@dimen/create_schedule_button_height"
                 android:background="@drawable/radio_button_background"
                 android:backgroundTint="@color/primary_grey"
                 android:checked="true"
                 android:text="@string/repeat_once" />
 
             <Space
-                android:layout_width="20dp"
+                android:layout_width="@dimen/create_schedule_space_width"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/buttonRepeatDaily"
-                android:layout_width="114dp"
-                android:layout_height="52dp"
+                android:layout_width="@dimen/create_schedule_button_width"
+                android:layout_height="@dimen/create_schedule_button_height"
                 android:background="@drawable/radio_button_background"
                 android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_daily" />
 
             <Space
-                android:layout_width="20dp"
+                android:layout_width="@dimen/create_schedule_space_width"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/buttonRepeatWeekday"
-                android:layout_width="164dp"
-                android:layout_height="58dp"
+                android:layout_width="@dimen/create_schedule_button_width"
+                android:layout_height="@dimen/create_schedule_button_height"
                 android:background="@drawable/radio_button_background"
                 android:backgroundTint="@color/primary_grey"
-                android:text="@string/repeat_weekday" />
+                android:text="@string/repeat_weekday"
+                android:textSize="14sp" />
 
             <Space
-                android:layout_width="20dp"
+                android:layout_width="@dimen/create_schedule_space_width"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/buttonRepeatWeekend"
-                android:layout_width="130dp"
-                android:layout_height="52dp"
+                android:layout_width="@dimen/create_schedule_button_width"
+                android:layout_height="@dimen/create_schedule_button_height"
                 android:background="@drawable/radio_button_background"
                 android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_weekend" />
 
             <Space
-                android:layout_width="20dp"
+                android:layout_width="@dimen/create_schedule_space_width"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/buttonRepeatCustom"
-                android:layout_width="123dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/create_schedule_button_width"
+                android:layout_height="@dimen/create_schedule_button_height"
                 android:background="@drawable/radio_button_background"
                 android:backgroundTint="@color/primary_grey"
                 android:text="@string/repeat_custom" />
@@ -242,7 +247,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintVertical_bias="0.266">
 
             <Button
                 android:id="@+id/buttonTuesday"
@@ -337,6 +343,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -349,6 +362,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        app:layout_constraintVertical_bias="0.122" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

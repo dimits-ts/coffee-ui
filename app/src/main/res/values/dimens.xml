@@ -16,4 +16,9 @@
     <dimen name="drink_menu_button_margin">20dp</dimen>
     <dimen name="drink_menu_button_width">145dp</dimen>
     <dimen name="drink_menu_button_height">60dp</dimen>
+
+    <dimen name="create_schedule_button_width">140dp</dimen>
+    <dimen name="create_schedule_button_height">55dp</dimen>
+    <dimen name="create_schedule_space_width">5dp</dimen>
+    <dimen name="create_schedule_group_height">60dp</dimen>
 </resources>

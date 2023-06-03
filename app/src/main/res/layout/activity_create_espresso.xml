@@ -86,15 +86,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout8"
-        android:layout_width="1038dp"
-        android:layout_height="416dp"
+        android:layout_width="@dimen/drink_menu_width"
+        android:layout_height="@dimen/drink_menu_height"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.271">
+        app:layout_constraintVertical_bias="0.083">
 
         <TextView
             android:id="@+id/textView23"
@@ -115,18 +116,17 @@
             android:id="@+id/milkSwitch"
             android:layout_width="57dp"
             android:layout_height="39dp"
-            android:layout_marginTop="144dp"
             android:checked="true"
             android:scaleX="2.5"
             android:scaleY="2.5"
             android:textScaleX="0"
             android:thumbTint="@color/button_selected"
             android:trackTint="@color/button_selected"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.197" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView24"
@@ -231,7 +231,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView20"
             app:layout_constraintTop_toBottomOf="@+id/textView20"
-            app:layout_constraintVertical_bias="0.21" />
+            app:layout_constraintVertical_bias="0.112" />
 
         <TextView
             android:id="@+id/milkAmount"
@@ -273,10 +273,10 @@
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView21"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="@+id/textView21"
             app:layout_constraintTop_toBottomOf="@+id/textView21"
-            app:layout_constraintVertical_bias="0.32" />
+            app:layout_constraintVertical_bias="0.202" />
 
         <TextView
             android:id="@+id/textView4"
@@ -291,7 +291,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView22"
             app:layout_constraintTop_toBottomOf="@+id/textView22"
-            app:layout_constraintVertical_bias="0.761" />
+            app:layout_constraintVertical_bias="0.36" />
 
         <TextView
             android:id="@+id/sugarAmount"
@@ -442,11 +442,14 @@
         android:id="@+id/goButton3"
         android:layout_width="153dp"
         android:layout_height="91dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/rounded_outline"
         android:text="@string/go"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
+        app:layout_constraintVertical_bias="0.195" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

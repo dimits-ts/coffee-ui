@@ -41,6 +41,9 @@ public class MainMenuActivity extends AppCompatActivity {
         String month = capitalize(today.getMonth().toString());
         binding.textDate.setText(String.format(Locale.ROOT, "%s %d", month, today.getDayOfMonth()));
 
+        // on click exit application
+        binding.offButton.setOnClickListener(view -> this.finishAndRemoveTask());
+
         Intent chocolateIntent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
         ActivityResultLauncher<Void> chocolateLauncher = getDrinkLauncher(rootView, chocolateIntent);
 

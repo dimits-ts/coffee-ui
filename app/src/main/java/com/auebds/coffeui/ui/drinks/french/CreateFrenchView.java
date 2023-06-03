@@ -20,8 +20,8 @@ public class CreateFrenchView {
         this.activity.setSugar(amount);
     }
 
-    public void setCups(int amount){
-        this.activity.setCups(amount);
+    public void setWater(int amount){
+        this.activity.setWater(amount);
     }
 
     public void setMilk(int amount){

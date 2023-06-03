@@ -32,9 +32,9 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:contentDescription="@string/drink_french"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/drink_french"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView5"
             app:layout_constraintHorizontal_bias="0.88"
@@ -88,8 +88,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout8"
-        android:layout_width="@dimen/drink_menu_width"
-        android:layout_height="@dimen/drink_menu_height"
+        android:layout_width="1038dp"
+        android:layout_height="416dp"
         android:background="@drawable/rounded_outline"
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,85 +98,81 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.271">
 
-        <RadioGroup
-            android:id="@+id/radioGroup2"
-            android:layout_width="643dp"
-            android:layout_height="68dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:text="@string/attr_latte"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/milkSwitch"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/minusbuttonsugar">
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/temperatureSwitch"
+            app:layout_constraintTop_toTopOf="@+id/milkSwitch"
+            app:layout_constraintVertical_bias="0.681" />
 
-            <RadioButton
-                android:id="@+id/amount1"
-                android:layout_width="@dimen/drink_menu_button_width"
-                android:layout_height="@dimen/drink_menu_button_height"
-                android:layout_marginStart="0dp"
-                android:background="@drawable/radio_button_background"
-                android:text="@string/amount_small"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/milkSwitch"
+            android:layout_width="57dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="144dp"
+            android:checked="true"
+            android:scaleX="2.5"
+            android:scaleY="2.5"
+            android:textScaleX="0"
+            android:thumbTint="@color/button_selected"
+            android:trackTint="@color/button_selected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.197" />
 
-            <RadioButton
-                android:id="@+id/amount2"
-                android:layout_width="@dimen/drink_menu_button_width"
-                android:layout_height="@dimen/drink_menu_button_height"
-                android:layout_marginStart="@dimen/drink_menu_button_margin"
-                android:background="@drawable/radio_button_background"
-                android:text="@string/amount_olga"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
-
-            <RadioButton
-                android:id="@+id/amount3"
-                android:layout_width="@dimen/drink_menu_button_width"
-                android:layout_height="@dimen/drink_menu_button_height"
-                android:layout_marginStart="@dimen/drink_menu_button_margin"
-                android:background="@drawable/radio_button_background"
-                android:text="@string/amount_big"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
-
-            <RadioButton
-                android:id="@+id/amount4"
-                android:layout_width="@dimen/drink_menu_button_width"
-                android:layout_height="@dimen/drink_menu_button_height"
-                android:layout_marginStart="@dimen/drink_menu_button_margin"
-                android:background="@drawable/radio_button_background"
-                android:text="@string/amount_gkiwnhs"
-                android:textAllCaps="false"
-                android:textSize="25sp" />
-        </RadioGroup>
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="173dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="44dp"
+            android:text="@string/attr_frothed"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/milkSwitch"
+            app:layout_constraintEnd_toStartOf="@+id/temperatureSwitch"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/milkSwitch"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/minusbuttoncups"
+            android:id="@+id/minusbuttonwater"
             android:layout_width="61dp"
             android:layout_height="67dp"
             android:background="@drawable/rounded_outline"
             android:text="@string/minus_sign"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
-            app:layout_constraintBottom_toBottomOf="@+id/cupsAmount"
+            app:layout_constraintBottom_toBottomOf="@+id/waterAmount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.327"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cupsAmount"
+            app:layout_constraintTop_toTopOf="@+id/waterAmount"
             app:layout_constraintVertical_bias="0.101" />
 
         <Button
-            android:id="@+id/plusbuttoncups"
+            android:id="@+id/plusbuttonwater"
             android:layout_width="61dp"
             android:layout_height="67dp"
             android:background="@drawable/rounded_outline"
             android:text="@string/plus"
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
-            app:layout_constraintBottom_toBottomOf="@+id/minusbuttoncups"
+            app:layout_constraintBottom_toBottomOf="@+id/minusbuttonwater"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.42"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/minusbuttoncups"
+            app:layout_constraintTop_toTopOf="@+id/minusbuttonwater"
             app:layout_constraintVertical_bias="0.101" />
 
         <TextView
@@ -195,7 +191,7 @@
             app:layout_constraintVertical_bias="0.041" />
 
         <TextView
-            android:id="@+id/cupsAmount"
+            android:id="@+id/waterAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
@@ -218,9 +214,9 @@
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
             app:layout_constraintBottom_toBottomOf="@+id/milkAmount"
-            app:layout_constraintEnd_toEndOf="@+id/minusbuttoncups"
+            app:layout_constraintEnd_toEndOf="@+id/minusbuttonwater"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/minusbuttoncups"
+            app:layout_constraintStart_toStartOf="@+id/minusbuttonwater"
             app:layout_constraintTop_toTopOf="@+id/milkAmount"
             app:layout_constraintVertical_bias="0.166" />
 
@@ -248,9 +244,9 @@
             android:textColor="@color/black"
             android:textSize="50sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView21"
-            app:layout_constraintEnd_toEndOf="@+id/cupsAmount"
+            app:layout_constraintEnd_toEndOf="@+id/waterAmount"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cupsAmount"
+            app:layout_constraintStart_toStartOf="@+id/waterAmount"
             app:layout_constraintTop_toTopOf="@+id/textView21"
             app:layout_constraintVertical_bias="0.151" />
 
@@ -263,9 +259,9 @@
             android:textSize="30sp"
             app:backgroundTint="@color/primary_grey"
             app:layout_constraintBottom_toBottomOf="@+id/minusbuttonmilk"
-            app:layout_constraintEnd_toEndOf="@+id/plusbuttoncups"
+            app:layout_constraintEnd_toEndOf="@+id/plusbuttonwater"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/plusbuttoncups"
+            app:layout_constraintStart_toStartOf="@+id/plusbuttonwater"
             app:layout_constraintTop_toTopOf="@+id/minusbuttonmilk"
             app:layout_constraintVertical_bias="0.166" />
 
@@ -297,7 +293,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView22"
             app:layout_constraintTop_toBottomOf="@+id/textView22"
-            app:layout_constraintVertical_bias="0.794" />
+            app:layout_constraintVertical_bias="0.761" />
 
         <TextView
             android:id="@+id/sugarAmount"
@@ -313,6 +309,36 @@
             app:layout_constraintStart_toStartOf="@+id/milkAmount"
             app:layout_constraintTop_toTopOf="@+id/textView22"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/coffeeAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/default_attr_value"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="@+id/sugarAmount"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/sugarAmount"
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/minusbuttoncoffee"
+            android:layout_width="61dp"
+            android:layout_height="67dp"
+            android:background="@drawable/rounded_outline"
+            android:text="@string/minus_sign"
+            android:textSize="30sp"
+            app:backgroundTint="@color/primary_grey"
+            app:layout_constraintBottom_toBottomOf="@+id/coffeeAmount"
+            app:layout_constraintEnd_toEndOf="@+id/minusbuttonsugar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/minusbuttonsugar"
+            app:layout_constraintTop_toTopOf="@+id/coffeeAmount"
+            app:layout_constraintVertical_bias="0.253" />
 
         <Button
             android:id="@+id/minusbuttonsugar"
@@ -344,6 +370,21 @@
             app:layout_constraintTop_toTopOf="@+id/minusbuttonsugar"
             app:layout_constraintVertical_bias="0.253" />
 
+        <Button
+            android:id="@+id/plusbuttoncoffee"
+            android:layout_width="61dp"
+            android:layout_height="67dp"
+            android:background="@drawable/rounded_outline"
+            android:text="@string/plus"
+            android:textSize="30sp"
+            app:backgroundTint="@color/primary_grey"
+            app:layout_constraintBottom_toBottomOf="@+id/minusbuttoncoffee"
+            app:layout_constraintEnd_toEndOf="@+id/plusbuttonsugar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/plusbuttonsugar"
+            app:layout_constraintTop_toTopOf="@+id/minusbuttoncoffee"
+            app:layout_constraintVertical_bias="1.0" />
+
         <View
             android:id="@+id/divider"
             android:layout_width="1dp"
@@ -355,37 +396,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/temperatureSwitch"
-            android:layout_width="57dp"
-            android:layout_height="39dp"
-            android:checked="true"
-            android:scaleX="2.5"
-            android:scaleY="2.5"
-            android:textScaleX="0"
-            android:thumbTint="@color/button_selected"
-            android:trackTint="@color/button_selected"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.508"
-            app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.112" />
-
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="96dp"
-            android:layout_height="50dp"
-            android:text="@string/attr_cold"
-            android:textColor="@color/black"
-            android:textSize="@dimen/main_menu_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/temperatureSwitch"
-            app:layout_constraintEnd_toStartOf="@+id/temperatureSwitch"
-            app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toTopOf="@+id/temperatureSwitch" />
-
-        <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/attr_hot"
@@ -396,48 +408,35 @@
             app:layout_constraintStart_toEndOf="@+id/temperatureSwitch"
             app:layout_constraintTop_toTopOf="@+id/temperatureSwitch" />
 
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="106dp"
+            android:layout_height="53dp"
+            android:text="@string/attr_cold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_menu_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/temperatureSwitch"
+            app:layout_constraintEnd_toStartOf="@+id/temperatureSwitch"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/temperatureSwitch" />
+
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/milkSwitch"
+            android:id="@+id/temperatureSwitch"
             android:layout_width="57dp"
             android:layout_height="39dp"
+            android:layout_marginEnd="128dp"
             android:checked="true"
             android:scaleX="2.5"
             android:scaleY="2.5"
             android:textScaleX="0"
             android:thumbTint="@color/button_selected"
             android:trackTint="@color/button_selected"
-            app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.745"
             app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toBottomOf="@+id/temperatureSwitch" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/attr_frothed"
-            android:textColor="@color/black"
-            android:textSize="@dimen/main_menu_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/milkSwitch"
-            app:layout_constraintEnd_toStartOf="@+id/milkSwitch"
-            app:layout_constraintHorizontal_bias="0.45"
-            app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toTopOf="@+id/milkSwitch"
-            app:layout_constraintVertical_bias="0.272" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="117dp"
-            android:layout_height="48dp"
-            android:text="@string/attr_latte"
-            android:textColor="@color/black"
-            android:textSize="@dimen/main_menu_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/milkSwitch"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.576"
-            app:layout_constraintStart_toEndOf="@+id/milkSwitch"
-            app:layout_constraintTop_toTopOf="@+id/milkSwitch"
-            app:layout_constraintVertical_bias="0.666" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.148" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -450,6 +449,5 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

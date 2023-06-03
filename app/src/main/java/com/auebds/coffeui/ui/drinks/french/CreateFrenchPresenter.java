@@ -19,14 +19,14 @@ public class CreateFrenchPresenter {
             this.defaultFrench = this.dao.getFrench();
         }
         else{
-            this.defaultFrench = new French(1,2,2,2,true, true);
+            this.defaultFrench = new French(200,2,2,2,true, true);
         }
     }
 
     public void loadLastPreset() {
         this.view.setMilk(this.defaultFrench.getMilk());
         this.view.setSugar(this.defaultFrench.getSugar());
-        this.view.setCups(this.defaultFrench.getCups());
+        this.view.setWater(this.defaultFrench.getWater());
         this.view.setCoffee(this.defaultFrench.getCoffee());
         this.view.setTemperature(this.defaultFrench.getTemp());
         this.view.setMilkType(this.defaultFrench.getMilkType());
@@ -52,19 +52,24 @@ public class CreateFrenchPresenter {
         this.view.setMilk(this.defaultFrench.getMilk());
     }
 
-    public void changeCups(boolean increment){
-        if (increment && this.defaultFrench.getCups() < DrinkLimits.MAX_CUPS){
-            this.defaultFrench.plusCups();
+    public void changeWater(boolean increment){
+        if (increment && this.defaultFrench.getWater() < DrinkLimits.MAX_WATER){
+            this.defaultFrench.plusWater();
         }
-        else if (!increment && this.defaultFrench.getCups() > DrinkLimits.MIN_CUPS){
-            this.defaultFrench.minusCups();
+        else if (!increment && this.defaultFrench.getWater() > DrinkLimits.MIN_WATER){
+            this.defaultFrench.minusWater();
         }
-        this.view.setCups(this.defaultFrench.getCups());
+        this.view.setWater(this.defaultFrench.getWater());
     }
 
-    public void changeCoffee(int amount){
-        this.defaultFrench.setCoffee(amount);
-        this.view.setCoffee(amount);
+    public void changeCoffee(boolean increment){
+        if (increment && this.defaultFrench.getCoffee() < DrinkLimits.MAX_INGREDIENT){
+            this.defaultFrench.plusCoffee();
+        }
+        else if (!increment && this.defaultFrench.getCoffee() > DrinkLimits.MIN_INGREDIENT){
+            this.defaultFrench.minusCoffee();
+        }
+        this.view.setCoffee(this.defaultFrench.getCoffee());
     }
 
     public void changeTemperature(boolean temp){

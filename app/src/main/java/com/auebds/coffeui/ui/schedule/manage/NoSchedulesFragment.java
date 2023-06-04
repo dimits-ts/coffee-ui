@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.auebds.coffeui.R;
 import com.auebds.coffeui.databinding.FragmentNoSchedulesBinding;
 
 /**

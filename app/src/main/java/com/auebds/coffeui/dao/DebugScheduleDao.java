@@ -3,12 +3,10 @@ import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.entity.Schedule;
 
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 

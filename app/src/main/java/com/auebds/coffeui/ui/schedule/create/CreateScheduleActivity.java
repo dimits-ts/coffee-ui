@@ -21,10 +21,12 @@ import androidx.core.content.ContextCompat;
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
 import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
+import com.auebds.coffeui.util.SingletonTTS;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -49,6 +51,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
     private ActivityCreateScheduleBinding binding;
     private Map<Day, Button> dayButtonHashMap;
 
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +70,10 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         binding.timePicker.setIs24HourView(true); // because of user feedback
         setTimePickerInterval(binding.timePicker);
+
+        SingletonTTS.getInstance(getApplicationContext(),
+                SettingsDao.getInstance(getApplicationContext()))
+                .speakSentence(getString(R.string.tts_create_schedules));
     }
 
 

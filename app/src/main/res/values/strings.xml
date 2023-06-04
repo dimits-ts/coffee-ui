@@ -81,7 +81,6 @@
     <string name="manage_schedule_title">Schedules</string>
     <string name="manage_schedules_on_button_description">Activate \ Deactivate schedule</string>
 
-
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
@@ -101,4 +100,9 @@
     <string name="preparing_french"> Preparing your Americano…</string>
     <string name="current_time">Current time</string>
     <string name="current_date">Current date</string>
+
+    <string name="tts_welcome">Welcome to Coffee Marine</string>
+    <string name="tts_manage_schedules">Here you can see and add or delete your automatic drink
+        schedules</string>
+    <string name="tts_create_schedules">Select when you want your drink to be ready</string>
 </resources>

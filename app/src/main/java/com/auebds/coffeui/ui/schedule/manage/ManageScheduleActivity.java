@@ -17,9 +17,11 @@ import androidx.core.content.ContextCompat;
 
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityManageScheduleBinding;
 import com.auebds.coffeui.entity.Schedule;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
+import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -43,6 +45,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
                 new ManageScheduleView(this), DebugScheduleDao.getInstance());
     }
 
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +90,10 @@ public class ManageScheduleActivity extends AppCompatActivity {
         this.resultLauncher = registerForActivityResult(contract, callback);
 
         binding.listNewScheduleButton.setOnClickListener(view -> toCreateScheduleActivity());
+
+        SingletonTTS.getInstance(getApplicationContext(),
+                        SettingsDao.getInstance(getApplicationContext()))
+                        .speakSentence(getString(R.string.tts_manage_schedules));
     }
 
     @Override

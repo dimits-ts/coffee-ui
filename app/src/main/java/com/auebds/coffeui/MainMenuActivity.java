@@ -20,6 +20,7 @@ import com.auebds.coffeui.ui.drinks.espresso.CreateEspressoActivity;
 import com.auebds.coffeui.ui.drinks.french.CreateFrenchActivity;
 import com.auebds.coffeui.ui.drinks.tea.CreateTeaActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
+import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -48,9 +49,11 @@ public class MainMenuActivity extends AppCompatActivity {
         // on click exit application
         binding.offButton.setOnClickListener(view -> this.finishAndRemoveTask());
 
-        SettingsDao settings = SettingsDao.getInstance(getBaseContext());
+        SettingsDao settings = SettingsDao.getInstance(getApplicationContext());
         settings.isVoiceOn().subscribe(this::setSoundIcon);
         binding.soundButton.setOnClickListener(v -> settings.switchVoice());
+
+        SingletonTTS tts = SingletonTTS.getInstance(this.getApplicationContext(), settings, getString(R.string.tts_welcome));
 
         Intent chocolateIntent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
         ActivityResultLauncher<Void> chocolateLauncher = getDrinkLauncher(rootView, chocolateIntent);
@@ -71,11 +74,8 @@ public class MainMenuActivity extends AppCompatActivity {
         });
 
         binding.chocolateButton.setOnClickListener(view -> chocolateLauncher.launch(null));
-
         binding.frenchButton.setOnClickListener(view -> frenchLauncher.launch(null));
-
         binding.teaButton.setOnClickListener(view -> teaLauncher.launch(null));
-
         binding.espressoButton.setOnClickListener(view ->espressoLauncher.launch(null));
     }
 

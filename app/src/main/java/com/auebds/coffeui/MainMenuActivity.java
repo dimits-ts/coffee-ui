@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityMainMenuBinding;
 import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
 import com.auebds.coffeui.ui.drinks.espresso.CreateEspressoActivity;
@@ -27,12 +28,15 @@ import java.util.Locale;
 
 public class MainMenuActivity extends AppCompatActivity {
     public static final String ARG_MESSAGE = "MESSAGE";
-    private final static int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
+    private static final int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
 
+    private ActivityMainMenuBinding binding;
+
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainMenuBinding binding = ActivityMainMenuBinding.inflate(getLayoutInflater());
+        binding = ActivityMainMenuBinding.inflate(getLayoutInflater());
 
         View rootView = binding.getRoot();
         setContentView(rootView);
@@ -43,6 +47,10 @@ public class MainMenuActivity extends AppCompatActivity {
 
         // on click exit application
         binding.offButton.setOnClickListener(view -> this.finishAndRemoveTask());
+
+        SettingsDao settings = SettingsDao.getInstance(getBaseContext());
+        settings.isVoiceOn().subscribe(this::setSoundIcon);
+        binding.soundButton.setOnClickListener(v -> settings.switchVoice());
 
         Intent chocolateIntent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
         ActivityResultLauncher<Void> chocolateLauncher = getDrinkLauncher(rootView, chocolateIntent);
@@ -103,6 +111,16 @@ public class MainMenuActivity extends AppCompatActivity {
         };
 
         return registerForActivityResult(contract, callback);
+    }
+
+    private void setSoundIcon(boolean voiceIsActivated) {
+        runOnUiThread(() -> {
+            if(voiceIsActivated) {
+                binding.soundButton.setImageResource(R.drawable.sound_on);
+            } else {
+                binding.soundButton.setImageResource(R.drawable.sound_off);
+            }
+        });
     }
 
     private String capitalize(String str){

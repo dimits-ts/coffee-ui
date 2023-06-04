@@ -46,17 +46,19 @@
             app:srcCompat="@drawable/help_icon" />
 
         <ImageButton
-            android:id="@+id/languageButton"
+            android:id="@+id/soundButton"
             android:layout_width="136dp"
             android:layout_height="121dp"
+            android:adjustViewBounds="true"
             android:background="?android:selectableItemBackground"
             android:contentDescription="@string/button_language"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="@+id/helpButton"
             app:layout_constraintEnd_toStartOf="@+id/helpButton"
             app:layout_constraintHorizontal_bias="0.225"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/helpButton"
-            app:srcCompat="@drawable/language_icon" />
+            app:srcCompat="@drawable/sound_on" />
 
         <ImageButton
             android:id="@+id/offButton"
@@ -117,7 +119,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/offButton"
             app:layout_constraintHorizontal_bias="0.953"
-            app:layout_constraintStart_toEndOf="@+id/languageButton"
+            app:layout_constraintStart_toEndOf="@+id/soundButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.714">
 

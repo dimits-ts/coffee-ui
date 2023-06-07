@@ -105,4 +105,5 @@
     <string name="tts_manage_schedules">Here you can see and add or delete your automatic drink
         schedules</string>
     <string name="tts_create_schedules">Select when you want your drink to be ready</string>
+    <string name="water_note">One cup = 175 ml</string>
 </resources>

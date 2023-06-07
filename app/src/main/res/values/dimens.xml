@@ -21,4 +21,6 @@
     <dimen name="create_schedule_button_height">55dp</dimen>
     <dimen name="create_schedule_space_width">5dp</dimen>
     <dimen name="create_schedule_group_height">60dp</dimen>
+
+    <dimen name="small_text">25sp</dimen>
 </resources>

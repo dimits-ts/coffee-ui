@@ -15,11 +15,11 @@ public class Tea {
     }
 
     public void plusWater() {
-        this.water +=25;
+        this.water += DrinkLimits.WATER_CHANGE_INTERVAL;
     }
 
     public void minusWater(){
-        this.water -=25;
+        this.water -= DrinkLimits.WATER_CHANGE_INTERVAL;
     }
 
     public void plusMilk() {

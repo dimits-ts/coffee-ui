@@ -17,4 +17,5 @@ public class DrinkLimits {
     public static final int MIN_MILK = 0;
     public static final int MAX_SUGAR = 4;
     public static final int MIN_SUGAR = 0;
+    public static final int WATER_CHANGE_INTERVAL = 50;
 }

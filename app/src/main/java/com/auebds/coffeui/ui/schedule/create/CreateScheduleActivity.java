@@ -18,7 +18,6 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.dao.SettingsDao;
@@ -164,8 +163,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
     }
 
     void toMenu() {
-        Intent menuIntent = new Intent(CreateScheduleActivity.this, MainMenuActivity.class);
-        startActivity(menuIntent);
+        this.finish();
     }
 
     void toMenuWithMessage(String message) {

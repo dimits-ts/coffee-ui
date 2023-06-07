@@ -73,7 +73,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         SingletonTTS.getInstance(getApplicationContext(),
                 SettingsDao.getInstance(getApplicationContext()))
-                .speakSentence(getString(R.string.tts_create_schedules));
+                .speakOnce(getString(R.string.tts_create_schedules));
     }
 
 

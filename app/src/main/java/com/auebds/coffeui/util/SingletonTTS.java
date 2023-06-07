@@ -5,7 +5,9 @@ import android.speech.tts.TextToSpeech;
 
 import com.auebds.coffeui.dao.SettingsDao;
 
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * A singleton wrapper around a TTS device, made to circumvent its long initialization times.
@@ -16,22 +18,14 @@ public class SingletonTTS {
 
     private final SettingsDao settings;
     private final TextToSpeech mTTS;
-
-    @kotlinx.coroutines.ExperimentalCoroutinesApi
-    private SingletonTTS(Context context, SettingsDao settings, String initialMessage) {
-        this.mTTS = new TextToSpeech(context, i -> {
-            configTTS();
-
-            if(initialMessage != null) {
-                speakSentence(initialMessage);
-            }
-        });
-       this.settings = settings;
-    }
+    private final Set<String> alreadySpokenSentences = new HashSet<>();
 
     /**
      * Get the active instance of the SingletonTTS device.
      * @param context the base application context
+     * @param settings a settings object to determine if voice activation is enabled
+     * @param initialMessage a message to be spoken after initialization is complete. Uses
+     *                       {@link SingletonTTS#speakOnce(String)}.
      * @return the active TTS object
      */
     @kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -46,6 +40,7 @@ public class SingletonTTS {
     /**
      * Get the active instance of the SingletonTTS device.
      * @param context the base application context
+     * @param settings a settings object to determine if voice activation is enabled
      * @return the active TTS object
      */
     @kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -53,6 +48,17 @@ public class SingletonTTS {
         return SingletonTTS.getInstance(context, settings, null);
     }
 
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
+    private SingletonTTS(Context context, SettingsDao settings, String initialMessage) {
+        this.mTTS = new TextToSpeech(context, i -> {
+            configTTS();
+
+            if(initialMessage != null) {
+                speakOnce(initialMessage);
+            }
+        });
+        this.settings = settings;
+    }
 
     /**
      * Instruct the TTS device to speak a sentence, if voice activation is enabled.
@@ -62,10 +68,24 @@ public class SingletonTTS {
     public void speakSentence(String sentence){
         settings.isVoiceOn().subscribe(isVoiceAllowed -> {
             if (isVoiceAllowed) {
-                mTTS.speak(sentence, TextToSpeech.QUEUE_ADD, null, null);
+                mTTS.speak(sentence, TextToSpeech.QUEUE_FLUSH, null, null);
             }
         });
 
+    }
+
+    /**
+     * Instruct the TTS device to speak a sentence if the sentence was not already spoken, and
+     * if voice activation is enabled.
+     * Sentences spoken by {@link SingletonTTS#speakSentence(String)} are not counted as "already spoken".
+     * @param sentence the sentence to be spoken
+     */
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
+    public void speakOnce(String sentence) {
+        if(!alreadySpokenSentences.contains(sentence)) {
+            speakSentence(sentence);
+            this.alreadySpokenSentences.add(sentence);
+        }
     }
 
     private void configTTS() {

@@ -31,6 +31,7 @@ public class MainMenuActivity extends AppCompatActivity {
     public static final String ARG_MESSAGE = "MESSAGE";
     private static final int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
 
+    private SingletonTTS tts;
     private ActivityMainMenuBinding binding;
 
     @kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -53,7 +54,9 @@ public class MainMenuActivity extends AppCompatActivity {
         settings.isVoiceOn().subscribe(this::setSoundIcon);
         binding.soundButton.setOnClickListener(v -> settings.switchVoice());
 
-        SingletonTTS tts = SingletonTTS.getInstance(this.getApplicationContext(), settings, getString(R.string.tts_welcome));
+        // initialize global tts device
+        this.tts = SingletonTTS.getInstance(
+                this.getApplicationContext(), settings, getString(R.string.tts_welcome));
 
         Intent chocolateIntent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
         ActivityResultLauncher<Void> chocolateLauncher = getDrinkLauncher(rootView, chocolateIntent);
@@ -86,6 +89,7 @@ public class MainMenuActivity extends AppCompatActivity {
      * @param intent the intent which will start the next activity
      * @return the launcher which will exeucute the startActivityForResult call
      */
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     private ActivityResultLauncher<Void> getDrinkLauncher(View rootView, Intent intent) {
 
         ActivityResultContract<Void, String> contract = new ActivityResultContract<Void, String>() {
@@ -107,6 +111,7 @@ public class MainMenuActivity extends AppCompatActivity {
         ActivityResultCallback<String> callback = message -> {
             if(message != null) {
                 Snackbar.make(rootView, message, SNACKBAR_DURATION).show();
+                this.tts.speakSentence(getString(R.string.tts_drink_creation));
             }
         };
 

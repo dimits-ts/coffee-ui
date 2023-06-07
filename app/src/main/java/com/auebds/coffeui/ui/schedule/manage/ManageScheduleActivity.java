@@ -93,7 +93,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
         SingletonTTS.getInstance(getApplicationContext(),
                         SettingsDao.getInstance(getApplicationContext()))
-                        .speakSentence(getString(R.string.tts_manage_schedules));
+                        .speakOnce(getString(R.string.tts_manage_schedules));
     }
 
     @Override

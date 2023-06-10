@@ -4,6 +4,7 @@ import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.entity.Schedule;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Collection;
 
@@ -90,7 +91,7 @@ interface CreateScheduleMvp {
      * The Presenter part of the MVP contract for creating schedules.
      * @author Dimitris Tsirmpas
      */
-    interface CreateSchedulePresenter {
+    interface CreateSchedulePresenter extends Serializable {
 
         /**
          * Save the current schedule.
@@ -109,5 +110,17 @@ interface CreateScheduleMvp {
          * @param day the selected day
          */
         void daySelected(Day day);
+
+        /**
+         * Notify the presenter to change the schedule's name.
+         * @param name the selected name.
+         */
+        void setName(String name);
+
+        /**
+         * Notify the presenter to change the schedule's drink type.
+         * @param type the selected drink type.
+         */
+        void setDrinkType(DrinkType type);
     }
 }

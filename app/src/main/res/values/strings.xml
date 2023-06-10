@@ -20,10 +20,13 @@
     <string name="to_schedules">Schedules</string>
     <string name="label_warnings">Warnings</string>
     <string name="back_button">Go to main menu</string>
+    <string name="previous_option_button">Back</string>
+
     <string name="new_schedule_label">New Schedule</string>
     <string name="schedule_icon">schedule icon</string>
     <string name="default_schedule_name">Schedule Name</string>
     <string name="select_drink_prompt">Select drink…</string>
+
     <string name="attr_cups"> Water(ml) </string>
     <string name="attr_water"> Water </string>
     <string name="attr_milk"> Milk </string>
@@ -108,4 +111,9 @@
     <string name="tts_drink_creation">Your drink will be ready in a minute!</string>
 
     <string name="water_note">One cup = 175 ml</string>
+    <string name="navbar_day">Choose the day(s)</string>
+    <string name="navbar_time">Choose the time</string>
+    <string name="navbar_done">Done!</string>
+    <string name="navbar_name">Select name</string>
+    <string name="navbar_drink">Select Drink</string>
 </resources>

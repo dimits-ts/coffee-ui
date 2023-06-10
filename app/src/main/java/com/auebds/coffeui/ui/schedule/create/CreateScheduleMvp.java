@@ -57,34 +57,10 @@ interface CreateScheduleMvp {
         void toMenu();
 
         /**
-         * Get the selected schedule days from the UI.
-         * @return an iterable containing the selected days
-         */
-        Collection<Day> getDays();
-
-        /**
-         * Get the time (hour, minutes) when the schedule is scheduled to start.
-         * @return the time (with timezone information)
-         */
-        LocalTime getTime();
-
-        /**
-         * Get the user-defined name of the schedule.
-         * @return the name of the schedule
-         */
-        String getName();
-
-        /**
          * Get whether or not the schedule must be repeated more than once.
          * @return true if the schedule is repeatable
          */
         boolean isRepeatable();
-
-        /**
-         * Get the schedule's selected drink type.
-         * @return the selected drink type, null if invalid
-         */
-        DrinkType getSelectedDrink();
     }
 
     /**
@@ -128,5 +104,6 @@ interface CreateScheduleMvp {
          * @param time the selected time.
          */
         void setTime(LocalTime time);
+
     }
 }

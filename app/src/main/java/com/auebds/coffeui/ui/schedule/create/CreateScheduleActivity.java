@@ -1,54 +1,34 @@
 package com.auebds.coffeui.ui.schedule.create;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.NumberPicker;
-import android.widget.Spinner;
-import android.widget.TimePicker;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
-import com.auebds.coffeui.entity.Day;
-import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 /**
  * The Activity that manages the creation of a schedule.
  *
  * @author Dimitris Tsirmpas
  */
-public class CreateScheduleActivity extends AppCompatActivity implements DayManager {
-    private static final int TIME_PICKER_MIN_INTERVAL = 5;
-
+public class CreateScheduleActivity extends AppCompatActivity {
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
-            new CreateSchedulePresenter(new CreateScheduleView(this, this),
+            new CreateSchedulePresenter(new CreateScheduleView(this),
                     DebugScheduleDao.getInstance());
 
+    private ArrayList<SwitchableFragment> fragmentList;
     private ActivityCreateScheduleBinding binding;
-    private Map<Day, Button> dayButtonHashMap;
 
     @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
@@ -57,95 +37,18 @@ public class CreateScheduleActivity extends AppCompatActivity implements DayMana
         binding = ActivityCreateScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        this.dayButtonHashMap = this.createDayButtonMap();
+        fragmentList = new ArrayList<>();
+        fragmentList.add(ScheduleNameFragment.newInstance(presenter));
+        fragmentList.add(ScheduleDrinkFragment.newInstance(presenter));
+        fragmentList.add(TimePickerFragment.newInstance(presenter));
+        fragmentList.add(ScheduleDayFragment.newInstance(presenter));
 
-        this.attachRadioButtonListeners();
-        this.assignDayButtonListeners();
-        this.assignBackButtonListener();
-        this.setUpSpinner();
-
-        Button saveButton = binding.editScheduleButton;
-        saveButton.setOnClickListener(view -> this.presenter.save());
-
-        binding.timePicker.setIs24HourView(true); // because of user feedback
-        setTimePickerInterval(binding.timePicker);
 
         SingletonTTS.getInstance(getApplicationContext(),
                 SettingsDao.getInstance(getApplicationContext()))
                 .speakOnce(getString(R.string.tts_create_schedules));
     }
 
-
-    String getName() {
-        return binding.scheduleNameField.getText().toString();
-    }
-
-    /**
-     * Get the drink selected by the user.
-     * @return the selected DrinkType
-     * @throws IllegalArgumentException if the id used in the spinner does not correspond to
-     * any drink type.
-     * @implNote The id is selected from the first character of the spinner. This means that
-     * any translation must include it as a first character, in the 1-4 range.
-     */
-    DrinkType getSelectedDrink() throws IllegalArgumentException {
-        String drinkName = (String) binding.selectDrinkSpinner.getSelectedItem();
-        int drinkId = Character.getNumericValue(drinkName.trim().charAt(0));
-
-        if(drinkId < 0) {
-            throw new IllegalArgumentException(String.format(Locale.getDefault(),
-                    "No id for drink type found in spinner value %s. See @implNote", drinkName));
-        }
-
-        return Arrays.stream(DrinkType.values())
-                .filter(drinkType -> drinkType.getId() == drinkId)
-                .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(String.format(Locale.getDefault(),
-                        "Id %d not valid for any drink type. See @implNote", drinkId)));
-                // we don't care about app locale since this is a programming error
-    }
-
-    /**
-     * Get the user-selected scheduled time.
-     * @return a LocalTime object containing the time or null if the time is invalid
-     */
-    LocalTime getTime() {
-        if(binding.timePicker.validateInput())
-            return LocalTime.of(binding.timePicker.getHour(), binding.timePicker.getMinute());
-        else
-            return null;
-    }
-
-    @Override
-    public void makeClickable(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setEnabled(true);
-    }
-
-
-    @Override
-    public void makeUnclickable(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setEnabled(false);
-    }
-
-    @Override
-    public void markSelected(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                R.color.button_selected));
-    }
-
-    @Override
-    public void markUnselected(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                R.color.primary_grey));
-    }
 
     View getRootView() {
         return getWindow().getDecorView().getRootView();
@@ -166,90 +69,8 @@ public class CreateScheduleActivity extends AppCompatActivity implements DayMana
         return getString(stringId, (Object []) args);
     }
 
-    private void setUpSpinner() {
-        Spinner spinner = binding.selectDrinkSpinner;
+    private void switchFragments(Fragment fragment) {
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.drinks_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
-        spinner.setSelection(0);
-    }
-
-    /**
-     * Make the back button go to the main menu when pressed.
-     */
-    private void assignBackButtonListener() {
-        ImageView backButton = binding.buttonBack;
-        backButton.setOnClickListener(view -> toMenu());
-    }
-
-
-    @SuppressLint("ClickableViewAccessibility") //TODO: subclass buttons?
-    private void assignDayButtonListeners() {
-        for(Map.Entry<Day, Button> entry: this.dayButtonHashMap.entrySet()){
-            entry.getValue().setOnTouchListener((view, event) -> {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    //view.performClick();
-                    this.presenter.daySelected(entry.getKey());
-                }
-                return false; // don't need this event for anything else
-            });
-        }
-    }
-
-    /**
-     * Notify the presenter if any of the choices are selected.
-     */
-    private void attachRadioButtonListeners() {
-        binding.buttonRepeatOnce.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.ONCE));
-        binding.buttonRepeatDaily.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.DAILY));
-        binding.buttonRepeatWeekday.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.WEEKDAY));
-        binding.buttonRepeatWeekend.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.WEEKEND));
-        binding.buttonRepeatCustom.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.CUSTOM));
-    }
-
-    /**
-     * Create the internal map mapping days to their toggle buttons.
-     * @return the filled map
-     */
-    private Map<Day, Button> createDayButtonMap() {
-        HashMap<Day, Button> map = new HashMap<>();
-
-        map.put(Day.MONDAY, binding.buttonMonday);
-        map.put(Day.TUESDAY, binding.buttonTuesday);
-        map.put(Day.WEDNESDAY, binding.buttonWendensday);
-        map.put(Day.THURSDAY, binding.buttonThursday);
-        map.put(Day.FRIDAY, binding.buttonFriday);
-        map.put(Day.SATURDAY, binding.buttonSaturday);
-        map.put(Day.SUNDAY, binding.buttonSunday);
-
-        // check if accessed before initialization
-        assert map.get(Day.MONDAY) != null;
-
-        return map;
-    }
-
-    private void setTimePickerInterval(TimePicker timePicker) {
-        try {
-            NumberPicker minutePicker = timePicker.findViewById(Resources.getSystem().getIdentifier(
-                    "minute", "id", "android"));
-            minutePicker.setMinValue(0);
-            minutePicker.setMaxValue((60 / TIME_PICKER_MIN_INTERVAL) - 1);
-            List<String> displayedValues = new ArrayList<>();
-            for (int i = 0; i < 60; i += TIME_PICKER_MIN_INTERVAL) {
-                displayedValues.add(String.format(Locale.getDefault(), "%02d", i));
-            }
-            minutePicker.setDisplayedValues(displayedValues.toArray(new String[0]));
-        } catch (Exception e) {
-            Log.e("CREATE_SCHEDULE", e.getLocalizedMessage(), e);
-        }
     }
 
 }

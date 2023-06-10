@@ -22,5 +22,7 @@
     <dimen name="create_schedule_space_width">5dp</dimen>
     <dimen name="create_schedule_group_height">60dp</dimen>
 
+    <dimen name="create_schedule_bar_height">90dp</dimen>
+
     <dimen name="small_text">25sp</dimen>
 </resources>

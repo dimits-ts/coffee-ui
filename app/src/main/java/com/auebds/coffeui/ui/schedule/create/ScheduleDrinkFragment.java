@@ -1,17 +1,16 @@
 package com.auebds.coffeui.ui.schedule.create;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.databinding.FragmentScheduleDrinkBinding;
-import com.auebds.coffeui.databinding.FragmentScheduleNameBinding;
 import com.auebds.coffeui.entity.DrinkType;
 
 import java.util.Arrays;
@@ -54,6 +53,14 @@ public class ScheduleDrinkFragment extends Fragment implements Switchable {
         if (getArguments() != null) {
             this.presenter = (CreateScheduleMvp.CreateSchedulePresenter) getArguments().getSerializable(ARG_PRESENTER);
         }
+
+        // set up spinner contents
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(),
+                R.array.drinks_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        binding.selectDrinkSpinner.setAdapter(adapter);
+        binding.selectDrinkSpinner.setSelection(0);
     }
 
     @Override

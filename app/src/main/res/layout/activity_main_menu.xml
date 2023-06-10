@@ -303,10 +303,10 @@
 
         <Button
             android:id="@+id/schedulesButton"
-            android:layout_width="469dp"
+            android:layout_width="447dp"
             android:layout_height="78dp"
             android:backgroundTint="@color/primary_white"
-            android:drawableStart="@drawable/timer_icon"
+            android:drawableLeft="@drawable/timer_icon"
             android:drawableTint="@color/black"
             android:text="@string/to_schedules"
             android:textAllCaps="false"

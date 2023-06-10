@@ -15,6 +15,8 @@ abstract class SwitchableFragment extends Fragment {
 
     /**
      * Instruct the fragment that it is about to be switched, and activate its intended action.
+     *
+     * @throws RuntimeException if any error occurs
      */
-    public abstract void onSwitch();
+    public abstract void onSwitch() throws RuntimeException;
 }

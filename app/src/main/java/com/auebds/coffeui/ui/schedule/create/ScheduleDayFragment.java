@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.auebds.coffeui.R;
@@ -57,10 +58,6 @@ public class ScheduleDayFragment extends SwitchableFragment implements DayManage
         if (getArguments() != null) {
             this.presenter = (CreateScheduleMvp.CreateSchedulePresenter) getArguments().getSerializable(ARG_PRESENTER);
         }
-
-        this.dayButtonHashMap = this.createDayButtonMap();
-        this.attachRadioButtonListeners();
-        this.assignDayButtonListeners();
     }
 
     @Override
@@ -71,6 +68,14 @@ public class ScheduleDayFragment extends SwitchableFragment implements DayManage
         return binding.getRoot();
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        this.dayButtonHashMap = this.createDayButtonMap();
+        this.attachRadioButtonListeners();
+        this.assignDayButtonListeners();
+    }
 
     @Override
     public void onSwitch() {

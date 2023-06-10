@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.NumberPicker;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.auebds.coffeui.databinding.FragmentTimePickerBinding;
@@ -58,6 +59,19 @@ public class TimePickerFragment extends SwitchableFragment {
         if (getArguments() != null) {
             this.presenter = (CreateScheduleMvp.CreateSchedulePresenter) getArguments().getSerializable(ARG_PRESENTER);
         }
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        binding = FragmentTimePickerBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         // set time picker interval
         try {
@@ -73,15 +87,6 @@ public class TimePickerFragment extends SwitchableFragment {
         } catch (Exception e) {
             Log.e("CREATE_SCHEDULE", e.getLocalizedMessage(), e);
         }
-
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        binding = FragmentTimePickerBinding.inflate(getLayoutInflater());
-        return binding.getRoot();
     }
 
     @Override

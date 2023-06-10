@@ -40,11 +40,11 @@ import java.util.Map;
  *
  * @author Dimitris Tsirmpas
  */
-public class CreateScheduleActivity extends AppCompatActivity {
+public class CreateScheduleActivity extends AppCompatActivity implements DayManager {
     private static final int TIME_PICKER_MIN_INTERVAL = 5;
 
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
-            new CreateSchedulePresenter(new CreateScheduleView(this),
+            new CreateSchedulePresenter(new CreateScheduleView(this, this),
                     DebugScheduleDao.getInstance());
 
     private ActivityCreateScheduleBinding binding;
@@ -116,42 +116,31 @@ public class CreateScheduleActivity extends AppCompatActivity {
             return null;
     }
 
-    /**
-     * Make the button corresponding to a specific day clickable.
-     * @param day the day whose button will be made clickable
-     */
-    void makeClickable(Day day) {
+    @Override
+    public void makeClickable(Day day) {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
         button.setEnabled(true);
     }
 
-    /**
-     * Make the button corresponding to a specific day un-clickable.
-     * @param day the day whose button will be made un-clickable
-     */
-    void makeUnclickable(Day day) {
+
+    @Override
+    public void makeUnclickable(Day day) {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
         button.setEnabled(false);
     }
 
-    /**
-     * Change the appearance of the button corresponding to a specific day to being selected.
-     * @param day the day whose button will be marked as selected
-     */
-    void markSelected(Day day) {
+    @Override
+    public void markSelected(Day day) {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
         button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
                 R.color.button_selected));
     }
 
-    /**
-     * Change the appearance of the button corresponding to a specific day to being un-selected.
-     * @param day the day whose button will be marked as un-selected
-     */
-    void markUnselected(Day day) {
+    @Override
+    public void markUnselected(Day day) {
         Button button = this.dayButtonHashMap.get(day);
         assert button != null;
         button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),

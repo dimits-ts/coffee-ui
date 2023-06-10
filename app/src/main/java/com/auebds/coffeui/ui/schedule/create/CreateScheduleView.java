@@ -27,10 +27,13 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
 
     private final CreateScheduleActivity activity;
     private final HashMap<Day, Boolean> selectedDaysMap;
+    private final DayManager dayManager;
+
     private boolean isRepeatable;
 
-    public CreateScheduleView(CreateScheduleActivity activity) {
+    public CreateScheduleView(CreateScheduleActivity activity, DayManager dayManager) {
         this.activity = activity;
+        this.dayManager = dayManager;
 
         this.selectedDaysMap = new HashMap<>();
         for(Day day: Day.values()) {
@@ -135,24 +138,24 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     private void markSelected(Day day) {
-        this.activity.markSelected(day);
+        this.dayManager.markSelected(day);
         this.selectedDaysMap.put(day, true);
     }
 
     private void markUnselected(Day day) {
-        this.activity.markUnselected(day);
+        this.dayManager.markUnselected(day);
         this.selectedDaysMap.put(day, false);
     }
 
     private void allClickable() {
         for(Day day: Day.values()){
-            this.activity.makeClickable(day);
+            this.dayManager.makeClickable(day);
         }
     }
 
     private void allUnclickable() {
         for(Day day: Day.values()){
-            this.activity.makeUnclickable(day);
+            this.dayManager.makeUnclickable(day);
         }
     }
 

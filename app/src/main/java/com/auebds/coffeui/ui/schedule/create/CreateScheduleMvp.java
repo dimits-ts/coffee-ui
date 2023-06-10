@@ -122,5 +122,11 @@ interface CreateScheduleMvp {
          * @param type the selected drink type.
          */
         void setDrinkType(DrinkType type);
+
+        /**
+         * Notify the presenter to change the schedule's time.
+         * @param time the selected time.
+         */
+        void setTime(LocalTime time);
     }
 }

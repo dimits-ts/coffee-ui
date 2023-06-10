@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Collection;
 
+import kotlin.NotImplementedError;
+
 /**
  * The concrete implementation of the schedule creation MVP Presenter.
  * @author Dimitris Tsirmpas
@@ -30,11 +32,13 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
 
     @Override
     public void save() {
-        String name = view.getName();
-        Collection<Day> days = view.getDays();
+        throw new NotImplementedError();
+        /*
+        String name = null;
+        Collection<Day> days = null;
         boolean isRepeatable = view.isRepeatable();
-        LocalTime time = view.getTime();
-        DrinkType type = this.view.getSelectedDrink();
+        LocalTime time = null;
+        DrinkType type = null;
 
 
         if(name.trim().isEmpty()) {
@@ -69,7 +73,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
             view.displayNameConflictError(name);
         } catch (IOException ioe) {
             view.displayError(ioe.getLocalizedMessage());
-        }
+        }*/
     }
 
     @Override
@@ -80,5 +84,20 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
     @Override
     public void daySelected(Day day) {
         view.daySelected(day);
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public void setDrinkType(DrinkType type) {
+
+    }
+
+    @Override
+    public void setTime(LocalTime time) {
+
     }
 }

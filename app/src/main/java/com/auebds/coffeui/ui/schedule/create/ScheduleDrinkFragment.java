@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.auebds.coffeui.R;
@@ -53,6 +54,12 @@ public class ScheduleDrinkFragment extends SwitchableFragment {
         if (getArguments() != null) {
             this.presenter = (CreateScheduleMvp.CreateSchedulePresenter) getArguments().getSerializable(ARG_PRESENTER);
         }
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         // set up spinner contents
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(),

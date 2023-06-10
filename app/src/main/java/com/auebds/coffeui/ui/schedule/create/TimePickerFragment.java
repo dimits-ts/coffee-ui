@@ -1,10 +1,12 @@
 package com.auebds.coffeui.ui.schedule.create;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.NumberPicker;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,9 @@ import androidx.fragment.app.Fragment;
 import com.auebds.coffeui.databinding.FragmentTimePickerBinding;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +26,8 @@ import java.time.LocalTime;
 public class TimePickerFragment extends Fragment implements Switchable {
 
     private static final String ARG_PRESENTER = "PRESENTER";
+    private static final int TIME_PICKER_MIN_INTERVAL = 5;
+
 
     private FragmentTimePickerBinding binding;
     private CreateScheduleMvp.CreateSchedulePresenter presenter;
@@ -50,6 +57,21 @@ public class TimePickerFragment extends Fragment implements Switchable {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             this.presenter = (CreateScheduleMvp.CreateSchedulePresenter) getArguments().getSerializable(ARG_PRESENTER);
+        }
+
+        // set time picker interval
+        try {
+            NumberPicker minutePicker = binding.timePicker.findViewById(Resources.getSystem().getIdentifier(
+                    "minute", "id", "android"));
+            minutePicker.setMinValue(0);
+            minutePicker.setMaxValue((60 / TIME_PICKER_MIN_INTERVAL) - 1);
+            List<String> displayedValues = new ArrayList<>();
+            for (int i = 0; i < 60; i += TIME_PICKER_MIN_INTERVAL) {
+                displayedValues.add(String.format(Locale.getDefault(), "%02d", i));
+            }
+            minutePicker.setDisplayedValues(displayedValues.toArray(new String[0]));
+        } catch (Exception e) {
+            Log.e("CREATE_SCHEDULE", e.getLocalizedMessage(), e);
         }
 
     }

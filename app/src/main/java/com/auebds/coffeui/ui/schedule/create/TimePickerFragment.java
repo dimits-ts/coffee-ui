@@ -44,8 +44,8 @@ public class TimePickerFragment extends SwitchableFragment {
      * @return A new instance of fragment ScheduleNameFragment.
      */
     @NonNull
-    public static ScheduleNameFragment newInstance(CreateScheduleMvp.CreateSchedulePresenter presenter) {
-        ScheduleNameFragment fragment = new ScheduleNameFragment();
+    public static TimePickerFragment newInstance(CreateScheduleMvp.CreateSchedulePresenter presenter) {
+        TimePickerFragment fragment = new TimePickerFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PRESENTER, presenter);
         fragment.setArguments(args);

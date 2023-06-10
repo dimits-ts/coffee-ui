@@ -12,10 +12,13 @@
         android:name="com.auebds.coffeui.ui.schedule.create.ScheduleNameFragment"
         android:layout_width="@dimen/drink_menu_width"
         android:layout_height="201dp"
+        android:background="@drawable/rounded_outline"
+        android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
@@ -28,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/fragmentView"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.578">
+        app:layout_constraintVertical_bias="0.365">
 
 
         <Button
@@ -47,6 +50,7 @@
             android:id="@+id/drinkButton"
             android:layout_width="124dp"
             android:layout_height="@dimen/create_schedule_bar_height"
+            android:backgroundTint="@color/primary_grey"
             android:text="@string/navbar_drink"
             app:layout_constraintBottom_toBottomOf="@+id/nameButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +63,7 @@
             android:id="@+id/timeButton"
             android:layout_width="124dp"
             android:layout_height="@dimen/create_schedule_bar_height"
+            android:backgroundTint="@color/primary_grey"
             android:text="@string/navbar_time"
             app:layout_constraintBottom_toBottomOf="@+id/nameButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +75,7 @@
             android:id="@+id/dayButton"
             android:layout_width="124dp"
             android:layout_height="@dimen/create_schedule_bar_height"
+            android:backgroundTint="@color/primary_grey"
             android:text="@string/navbar_day"
             app:layout_constraintBottom_toBottomOf="@+id/nameButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +84,7 @@
             app:layout_constraintTop_toTopOf="@+id/nameButton" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/doneButton"
             android:layout_width="124dp"
             android:layout_height="@dimen/create_schedule_bar_height"
             android:backgroundTint="@android:color/holo_green_dark"
@@ -93,52 +99,52 @@
             android:id="@+id/imageView9"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:contentDescription="@string/next"
             app:layout_constraintBottom_toBottomOf="@+id/dayButton"
-            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintEnd_toStartOf="@+id/doneButton"
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toEndOf="@+id/dayButton"
             app:layout_constraintTop_toTopOf="@+id/dayButton"
             app:layout_constraintVertical_bias="0.48"
-            app:srcCompat="@android:drawable/ic_media_play"
-            android:contentDescription="@string/next" />
+            app:srcCompat="@android:drawable/ic_media_play" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:contentDescription="@string/next"
             app:layout_constraintBottom_toBottomOf="@+id/nameButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.009"
             app:layout_constraintStart_toEndOf="@+id/nameButton"
             app:layout_constraintTop_toTopOf="@+id/nameButton"
             app:layout_constraintVertical_bias="0.48"
-            app:srcCompat="@android:drawable/ic_media_play"
-            android:contentDescription="@string/next"/>
+            app:srcCompat="@android:drawable/ic_media_play" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:contentDescription="@string/next"
             app:layout_constraintBottom_toBottomOf="@+id/nameButton"
             app:layout_constraintEnd_toStartOf="@+id/timeButton"
             app:layout_constraintStart_toEndOf="@+id/drinkButton"
             app:layout_constraintTop_toTopOf="@+id/nameButton"
             app:layout_constraintVertical_bias="0.48"
-            app:srcCompat="@android:drawable/ic_media_play"
-            android:contentDescription="@string/next"/>
+            app:srcCompat="@android:drawable/ic_media_play" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:contentDescription="@string/next"
             app:layout_constraintBottom_toBottomOf="@+id/timeButton"
             app:layout_constraintEnd_toStartOf="@+id/dayButton"
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toEndOf="@+id/timeButton"
             app:layout_constraintTop_toTopOf="@+id/timeButton"
             app:layout_constraintVertical_bias="0.48"
-            app:srcCompat="@android:drawable/ic_media_play"
-            android:contentDescription="@string/next"/>
+            app:srcCompat="@android:drawable/ic_media_play" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -228,15 +234,15 @@
         android:text="@string/next"
         android:textSize="34sp"
         app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/backButton"
+        app:layout_constraintBottom_toBottomOf="@+id/previousButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.76"
-        app:layout_constraintStart_toEndOf="@+id/backButton"
-        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintStart_toEndOf="@+id/previousButton"
+        app:layout_constraintTop_toTopOf="@+id/previousButton"
         app:layout_constraintVertical_bias="0.116" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/previousButton"
         android:layout_width="248dp"
         android:layout_height="67dp"
         android:text="@string/previous_option_button"

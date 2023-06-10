@@ -43,8 +43,8 @@ public class ScheduleDayFragment extends SwitchableFragment implements DayManage
      * @param presenter the MVP presenter
      * @return A new instance of fragment ScheduleNameFragment.
      */
-    public static ScheduleNameFragment newInstance(CreateScheduleMvp.CreateSchedulePresenter presenter) {
-        ScheduleNameFragment fragment = new ScheduleNameFragment();
+    public static ScheduleDayFragment newInstance(CreateScheduleMvp.CreateSchedulePresenter presenter) {
+        ScheduleDayFragment fragment = new ScheduleDayFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PRESENTER, presenter);
         fragment.setArguments(args);

@@ -21,7 +21,7 @@ import java.util.Locale;
  * Use the {@link ScheduleDrinkFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ScheduleDrinkFragment extends Fragment implements Switchable {
+public class ScheduleDrinkFragment extends SwitchableFragment {
 
     private static final String ARG_PRESENTER = "PRESENTER";
 

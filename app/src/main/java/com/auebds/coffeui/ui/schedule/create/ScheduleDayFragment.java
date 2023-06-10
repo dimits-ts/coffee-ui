@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.databinding.FragmentScheduleDayBinding;
@@ -24,7 +23,7 @@ import java.util.Map;
  *
  * @author Dimits Tsirmpas
  */
-public class ScheduleDayFragment extends Fragment implements Switchable, DayManager {
+public class ScheduleDayFragment extends SwitchableFragment implements DayManager {
 
     private static final String ARG_PRESENTER = "PRESENTER";
 

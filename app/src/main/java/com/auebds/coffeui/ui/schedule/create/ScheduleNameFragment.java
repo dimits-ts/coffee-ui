@@ -15,7 +15,7 @@ import com.auebds.coffeui.databinding.FragmentScheduleNameBinding;
  * Use the {@link ScheduleNameFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ScheduleNameFragment extends Fragment implements Switchable {
+public class ScheduleNameFragment extends SwitchableFragment {
 
     private static final String ARG_PRESENTER = "PRESENTER";
 

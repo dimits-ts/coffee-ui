@@ -23,7 +23,7 @@ import java.util.Locale;
  * Use the {@link TimePickerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TimePickerFragment extends Fragment implements Switchable {
+public class TimePickerFragment extends SwitchableFragment {
 
     private static final String ARG_PRESENTER = "PRESENTER";
     private static final int TIME_PICKER_MIN_INTERVAL = 5;

@@ -49,7 +49,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         fragmentList = new ArrayList<>();
         fragmentList.add(ScheduleNameFragment.newInstance(presenter));
         fragmentList.add(ScheduleDrinkFragment.newInstance(presenter));
-        fragmentList.add(TimePickerFragment.newInstance(presenter));
+        fragmentList.add(ScheduleTimeFragment.newInstance(presenter));
         fragmentList.add(dayFragment);
 
         navButtonList = new ArrayList<>();

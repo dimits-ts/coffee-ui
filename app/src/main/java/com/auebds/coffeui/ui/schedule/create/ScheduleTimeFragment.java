@@ -21,10 +21,10 @@ import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TimePickerFragment#newInstance} factory method to
+ * Use the {@link ScheduleTimeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TimePickerFragment extends SwitchableFragment {
+public class ScheduleTimeFragment extends SwitchableFragment {
 
     private static final String ARG_PRESENTER = "PRESENTER";
     private static final int TIME_PICKER_MIN_INTERVAL = 5;
@@ -33,7 +33,7 @@ public class TimePickerFragment extends SwitchableFragment {
     private FragmentTimePickerBinding binding;
     private CreateScheduleMvp.CreateSchedulePresenter presenter;
 
-    public TimePickerFragment() {
+    public ScheduleTimeFragment() {
         // Required empty public constructor
     }
 
@@ -45,8 +45,8 @@ public class TimePickerFragment extends SwitchableFragment {
      * @return A new instance of fragment ScheduleNameFragment.
      */
     @NonNull
-    public static TimePickerFragment newInstance(CreateScheduleMvp.CreateSchedulePresenter presenter) {
-        TimePickerFragment fragment = new TimePickerFragment();
+    public static ScheduleTimeFragment newInstance(CreateScheduleMvp.CreateSchedulePresenter presenter) {
+        ScheduleTimeFragment fragment = new ScheduleTimeFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PRESENTER, presenter);
         fragment.setArguments(args);

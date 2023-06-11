@@ -25,9 +25,11 @@ import java.util.ArrayList;
  * @author Dimitris Tsirmpas
  */
 public class CreateScheduleActivity extends AppCompatActivity {
+
+    private final CreateScheduleView view = new CreateScheduleView(this);
+
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
-            new CreateSchedulePresenter(new CreateScheduleView(this),
-                    DebugScheduleDao.getInstance());
+            new CreateSchedulePresenter(view, DebugScheduleDao.getInstance());
 
     private ArrayList<SwitchableFragment> fragmentList;
     private ArrayList<Button> navButtonList;
@@ -43,11 +45,12 @@ public class CreateScheduleActivity extends AppCompatActivity {
         binding = ActivityCreateScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        ScheduleDayFragment dayFragment = ScheduleDayFragment.newInstance(presenter);
         fragmentList = new ArrayList<>();
         fragmentList.add(ScheduleNameFragment.newInstance(presenter));
         fragmentList.add(ScheduleDrinkFragment.newInstance(presenter));
         fragmentList.add(TimePickerFragment.newInstance(presenter));
-        fragmentList.add(ScheduleDayFragment.newInstance(presenter));
+        fragmentList.add(dayFragment);
 
         navButtonList = new ArrayList<>();
         navButtonList.add(binding.nameButton);
@@ -62,6 +65,8 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         binding.previousButton.setOnClickListener(v -> switchFragments(currentFragmentIdx - 1));
         binding.nextButton.setOnClickListener(v -> switchFragments(currentFragmentIdx + 1));
+
+        this.view.setDayManager(dayFragment);
 
         SingletonTTS.getInstance(getApplicationContext(),
                 SettingsDao.getInstance(getApplicationContext()))

@@ -11,7 +11,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * The concrete implementation of the schedule creation MVP View.
@@ -109,9 +108,9 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     @Override
     public Collection<Day> getDays() {
         LinkedList<Day> ls = new LinkedList<>();
-        for(Map.Entry<Day, Boolean> entry: this.selectedDaysMap.entrySet()){
-            if(entry.getValue()) {
-                ls.add(entry.getKey());
+        for(Day day: Day.values()){
+            if(Boolean.TRUE.equals(this.selectedDaysMap.get(day))) {
+                ls.add(day);
             }
         }
         return ls;

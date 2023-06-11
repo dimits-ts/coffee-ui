@@ -33,17 +33,18 @@ public class DebugScheduleDao implements ScheduleDao {
     private DebugScheduleDao() {
         LinkedList<Day> dayList = new LinkedList<>();
         dayList.add(Day.MONDAY);
-        dayList.add(Day.SUNDAY);
         dayList.add(Day.SATURDAY);
+        dayList.add(Day.SUNDAY);
         Schedule demoSchedule = new Schedule("DemoSched", true,
                dayList, LocalTime.now(), DrinkType.ESPRESSO);
 
         LinkedList<Day> dayList2 = new LinkedList<>();
+        dayList2.add(Day.MONDAY);
         dayList2.add(Day.TUESDAY);
         dayList2.add(Day.WEDNESDAY);
-        dayList2.add(Day.SUNDAY);
-        dayList2.add(Day.MONDAY);
         dayList2.add(Day.THURSDAY);
+        dayList2.add(Day.SUNDAY);
+
         Schedule demoSchedule2 = new Schedule("DemoSched2", false, dayList2,
                 LocalTime.now(), DrinkType.HOT_CHOCOLATE);
 

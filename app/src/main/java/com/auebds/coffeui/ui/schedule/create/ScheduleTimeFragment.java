@@ -73,6 +73,8 @@ public class ScheduleTimeFragment extends SwitchableFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.timePicker.setIs24HourView(true); // from user feedback
+
         // set time picker interval
         try {
             NumberPicker minutePicker = binding.timePicker.findViewById(Resources.getSystem().getIdentifier(

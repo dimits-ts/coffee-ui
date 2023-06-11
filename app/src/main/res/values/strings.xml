@@ -116,4 +116,5 @@
     <string name="navbar_done">Done!</string>
     <string name="navbar_name">Select name</string>
     <string name="navbar_drink">Select Drink</string>
+    <string name="select_days_label">Select the days you would like your drink to be prepared:</string>
 </resources>

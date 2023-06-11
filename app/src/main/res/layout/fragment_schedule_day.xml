@@ -20,92 +20,103 @@
         app:layout_constraintVertical_bias="0.092">
 
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="1011dp"
-            android:layout_height="@dimen/create_schedule_group_height"
-            android:layoutDirection="ltr"
-            android:orientation="horizontal"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout9"
+            android:layout_width="1019dp"
+            android:layout_height="83dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.185">
+            app:layout_constraintVertical_bias="0.128">
 
-            <RadioButton
-                android:id="@+id/buttonRepeatOnce"
-                android:layout_width="@dimen/create_schedule_button_width"
-                android:layout_height="@dimen/create_schedule_button_height"
-                android:background="@drawable/radio_button_background"
-                android:backgroundTint="@color/primary_grey"
-                android:checked="true"
-                android:text="@string/repeat_once" />
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="980dp"
+                android:layout_height="@dimen/create_schedule_group_height"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
 
-            <Space
-                android:layout_width="@dimen/create_schedule_space_width"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <RadioButton
-                android:id="@+id/buttonRepeatDaily"
-                android:layout_width="@dimen/create_schedule_button_width"
-                android:layout_height="@dimen/create_schedule_button_height"
-                android:background="@drawable/radio_button_background"
-                android:backgroundTint="@color/primary_grey"
-                android:text="@string/repeat_daily" />
+                <RadioButton
+                    android:id="@+id/buttonRepeatOnce"
+                    android:layout_width="@dimen/create_schedule_button_width"
+                    android:layout_height="@dimen/create_schedule_button_height"
+                    android:background="@drawable/radio_button_background"
+                    android:backgroundTint="@color/primary_grey"
+                    android:checked="true"
+                    android:text="@string/repeat_once" />
 
-            <Space
-                android:layout_width="@dimen/create_schedule_space_width"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                <Space
+                    android:layout_width="@dimen/create_schedule_space_width"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
-            <RadioButton
-                android:id="@+id/buttonRepeatWeekday"
-                android:layout_width="@dimen/create_schedule_button_width"
-                android:layout_height="@dimen/create_schedule_button_height"
-                android:background="@drawable/radio_button_background"
-                android:backgroundTint="@color/primary_grey"
-                android:text="@string/repeat_weekday"
-                android:textSize="14sp" />
+                <RadioButton
+                    android:id="@+id/buttonRepeatDaily"
+                    android:layout_width="@dimen/create_schedule_button_width"
+                    android:layout_height="@dimen/create_schedule_button_height"
+                    android:background="@drawable/radio_button_background"
+                    android:backgroundTint="@color/primary_grey"
+                    android:text="@string/repeat_daily" />
 
-            <Space
-                android:layout_width="@dimen/create_schedule_space_width"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                <Space
+                    android:layout_width="@dimen/create_schedule_space_width"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
-            <RadioButton
-                android:id="@+id/buttonRepeatWeekend"
-                android:layout_width="@dimen/create_schedule_button_width"
-                android:layout_height="@dimen/create_schedule_button_height"
-                android:background="@drawable/radio_button_background"
-                android:backgroundTint="@color/primary_grey"
-                android:text="@string/repeat_weekend" />
+                <RadioButton
+                    android:id="@+id/buttonRepeatWeekday"
+                    android:layout_width="@dimen/create_schedule_button_width"
+                    android:layout_height="@dimen/create_schedule_button_height"
+                    android:background="@drawable/radio_button_background"
+                    android:backgroundTint="@color/primary_grey"
+                    android:text="@string/repeat_weekday"
+                    android:textSize="14sp" />
 
-            <Space
-                android:layout_width="@dimen/create_schedule_space_width"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                <Space
+                    android:layout_width="@dimen/create_schedule_space_width"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
-            <RadioButton
-                android:id="@+id/buttonRepeatCustom"
-                android:layout_width="@dimen/create_schedule_button_width"
-                android:layout_height="@dimen/create_schedule_button_height"
-                android:background="@drawable/radio_button_background"
-                android:backgroundTint="@color/primary_grey"
-                android:text="@string/repeat_custom" />
+                <RadioButton
+                    android:id="@+id/buttonRepeatWeekend"
+                    android:layout_width="@dimen/create_schedule_button_width"
+                    android:layout_height="@dimen/create_schedule_button_height"
+                    android:background="@drawable/radio_button_background"
+                    android:backgroundTint="@color/primary_grey"
+                    android:text="@string/repeat_weekend" />
 
-        </RadioGroup>
+                <Space
+                    android:layout_width="@dimen/create_schedule_space_width"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/buttonRepeatCustom"
+                    android:layout_width="@dimen/create_schedule_button_width"
+                    android:layout_height="@dimen/create_schedule_button_height"
+                    android:background="@drawable/radio_button_background"
+                    android:backgroundTint="@color/primary_grey"
+                    android:text="@string/repeat_custom" />
+
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="997dp"
             android:layout_height="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-            app:layout_constraintVertical_bias="0.428">
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout9"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout9"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9"
+            app:layout_constraintVertical_bias="0.019">
 
             <Button
                 android:id="@+id/buttonTuesday"
@@ -205,7 +216,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="1013dp" />
+            app:layout_constraintGuide_end="1037dp" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_days_label"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout9"
+            app:layout_constraintHorizontal_bias="0.433"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

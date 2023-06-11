@@ -49,7 +49,7 @@ interface CreateScheduleMvp {
          * Display a success message to the user.
          * @param schedule the created schedule
          */
-        void displaySuccess(Schedule schedule);
+        void success(Schedule schedule);
 
         /**
          * Close the create schedule screen and go back to the main menu.

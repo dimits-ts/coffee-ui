@@ -64,6 +64,10 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
         this.presenter.displayFirstSchedule();
 
+        SingletonTTS tts = SingletonTTS.getInstance(getApplicationContext(),
+                        SettingsDao.getInstance(getApplicationContext()));
+        tts.speakOnce(getString(R.string.tts_manage_schedules));
+
         // set up new schedule listener
         ActivityResultContract<Void, String> contract = new ActivityResultContract<Void, String>() {
             @NonNull
@@ -84,6 +88,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
         ActivityResultCallback<String> callback = message -> {
             if(message != null) {
                 Snackbar.make(this.getRootView(), message, SNACKBAR_DURATION).show();
+                tts.speakSentence(message);
             }
         };
 
@@ -91,9 +96,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
 
         binding.listNewScheduleButton.setOnClickListener(view -> toCreateScheduleActivity());
 
-        SingletonTTS.getInstance(getApplicationContext(),
-                        SettingsDao.getInstance(getApplicationContext()))
-                        .speakOnce(getString(R.string.tts_manage_schedules));
+
     }
 
     @Override

@@ -62,7 +62,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
         Schedule schedule = new Schedule(name,isRepeatable, days, time, type, true);
         try {
             scheduleDao.save(schedule);
-            view.displaySuccess(schedule);
+            view.success(schedule);
             view.toMenu();
         } catch (ScheduleNameException se) {
             view.displayNameConflictError(name);

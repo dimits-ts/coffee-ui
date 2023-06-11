@@ -91,7 +91,7 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public void displaySuccess(Schedule schedule) {
+    public void success(Schedule schedule) {
         String message = this.activity.getStringRes(R.string.schedule_success_message, schedule.getName());
         this.activity.toMenuWithMessage(message);
     }

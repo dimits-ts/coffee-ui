@@ -224,7 +224,7 @@
             android:layout_height="wrap_content"
             android:text="@string/select_days_label"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="@dimen/small_text"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
             app:layout_constraintEnd_toEndOf="@+id/constraintLayout9"
             app:layout_constraintHorizontal_bias="0.433"

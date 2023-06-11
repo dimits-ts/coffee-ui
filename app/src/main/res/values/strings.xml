@@ -117,4 +117,7 @@
     <string name="navbar_name">Select name</string>
     <string name="navbar_drink">Select Drink</string>
     <string name="select_days_label">Select the days you would like your drink to be prepared:</string>
+    <string name="create_schedule_select_name">Select a name for your new schedule:</string>
+    <string name="create_schedule_select_drink">Select which drink you would like to prepare:</string>
+    <string name="create_schedule_select_time">Select the time you would like your drink to be ready:</string>
 </resources>

@@ -12,8 +12,8 @@
 
         <EditText
             android:id="@+id/scheduleNameField"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/create_schedule_area_width"
+            android:layout_height="@dimen/create_schedule_area_height"
             android:autofillHints="@string/default_schedule_name"
             android:background="@drawable/rounded_outline"
             android:backgroundTint="@color/primary_grey"
@@ -22,12 +22,26 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColorHint="@color/black"
+            android:textSize="@dimen/small_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.445"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023" />
+            app:layout_constraintVertical_bias="0.42" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_schedule_select_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text"
+            app:layout_constraintBottom_toTopOf="@+id/scheduleNameField"
+            app:layout_constraintEnd_toEndOf="@+id/scheduleNameField"
+            app:layout_constraintStart_toStartOf="@+id/scheduleNameField"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.688" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -24,5 +24,8 @@
 
     <dimen name="create_schedule_bar_height">90dp</dimen>
 
+    <dimen name="create_schedule_area_width">400dp</dimen>
+    <dimen name="create_schedule_area_height">85dp</dimen>
+
     <dimen name="small_text">25sp</dimen>
 </resources>

@@ -59,7 +59,7 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
             return;
         }
 
-        Schedule schedule = new Schedule(name,isRepeatable, days, time, type, true);
+        Schedule schedule = new Schedule(name,isRepeatable, days, time, type);
         try {
             scheduleDao.save(schedule);
             view.success(schedule);

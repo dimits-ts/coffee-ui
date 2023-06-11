@@ -36,7 +36,7 @@ public class DebugScheduleDao implements ScheduleDao {
         dayList.add(Day.SUNDAY);
         dayList.add(Day.SATURDAY);
         Schedule demoSchedule = new Schedule("DemoSched", true,
-               dayList, LocalTime.now(), DrinkType.ESPRESSO, true);
+               dayList, LocalTime.now(), DrinkType.ESPRESSO);
 
         LinkedList<Day> dayList2 = new LinkedList<>();
         dayList2.add(Day.TUESDAY);
@@ -45,7 +45,7 @@ public class DebugScheduleDao implements ScheduleDao {
         dayList2.add(Day.MONDAY);
         dayList2.add(Day.THURSDAY);
         Schedule demoSchedule2 = new Schedule("DemoSched2", false, dayList2,
-                LocalTime.now(), DrinkType.HOT_CHOCOLATE, false);
+                LocalTime.now(), DrinkType.HOT_CHOCOLATE);
 
         this.schedules.put(demoSchedule.getName(), demoSchedule);
         this.schedules.put(demoSchedule2.getName(), demoSchedule2);

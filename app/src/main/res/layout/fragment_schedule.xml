@@ -64,35 +64,22 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9"
-            app:layout_constraintVertical_bias="0.084" />
+            app:layout_constraintVertical_bias="0.783" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="41dp"
             android:text="@string/label_time"
             android:textColor="@color/black"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView10"
             app:layout_constraintEnd_toEndOf="@+id/scheduleNameLabel"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
-            app:layout_constraintVertical_bias="0.095" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_status"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/scheduleDrinkTypeLabel"
@@ -110,17 +97,18 @@
 
         <TextView
             android:id="@+id/scheduleFrequencyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="461dp"
+            android:layout_height="102dp"
+            android:gravity="center"
             android:text="@string/label_default"
             android:textColor="@color/black"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView10"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.334"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toTopOf="@+id/textView10"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.395" />
 
         <TextView
             android:id="@+id/scheduleTimeLabel"
@@ -136,20 +124,6 @@
             app:layout_constraintTop_toTopOf="@+id/textView11"
             app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/scheduleLabelStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_default"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.145"
-            app:layout_constraintStart_toEndOf="@+id/textView12"
-            app:layout_constraintTop_toTopOf="@+id/textView12"
-            app:layout_constraintVertical_bias="0.0" />
-
         <Button
             android:id="@+id/deleteScheduleButton"
             android:layout_width="160dp"
@@ -161,27 +135,11 @@
             app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.893"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.909"
+            app:layout_constraintVertical_bias="0.361"
             tools:ignore="TextContrastCheck" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="71dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="34dp"
-            android:background="?android:selectableItemBackground"
-            android:contentDescription="@string/manage_schedules_on_button_description"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/ic_lock_power_off"
-            app:layout_constraintBottom_toBottomOf="@+id/scheduleLabelStatus"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.007"
-            app:layout_constraintStart_toEndOf="@+id/scheduleLabelStatus"
-            app:layout_constraintTop_toTopOf="@+id/scheduleLabelStatus"
-            app:layout_constraintVertical_bias="0.285" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

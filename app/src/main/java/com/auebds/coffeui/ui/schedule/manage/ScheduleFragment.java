@@ -108,10 +108,6 @@ public class ScheduleFragment extends Fragment {
         TextView timeView = binding.scheduleTimeLabel;
         timeView.setText(schedule.getTime().format(DateTimeFormatter.ofPattern("HH : mm")));
 
-        TextView activatedView = binding.scheduleLabelStatus;
-        int resCode =  schedule.isActive() ? R.string.status_active: R.string.status_not_active;
-        activatedView.setText(getString(resCode));
-
         Button deleteButton = binding.deleteScheduleButton;
         deleteButton.setOnClickListener(v -> this.deleteSchedule(schedule));
     }

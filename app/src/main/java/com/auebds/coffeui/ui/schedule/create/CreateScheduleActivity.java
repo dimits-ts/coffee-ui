@@ -2,6 +2,7 @@ package com.auebds.coffeui.ui.schedule.create;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -62,6 +63,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
         binding.drinkButton.setOnClickListener(v -> switchFragments(1));
         binding.timeButton.setOnClickListener(v -> switchFragments(2));
         binding.dayButton.setOnClickListener(v -> switchFragments(3));
+        binding.doneButton.setOnClickListener(v -> this.presenter.save());
 
         binding.previousButton.setOnClickListener(v -> switchFragments(currentFragmentIdx - 1));
         binding.nextButton.setOnClickListener(v -> switchFragments(currentFragmentIdx + 1));
@@ -103,17 +105,17 @@ public class CreateScheduleActivity extends AppCompatActivity {
             try {
                 ((SwitchableFragment) binding.fragmentView.getFragment()).onSwitch();
             } catch(RuntimeException e) {
-                //TODO: notify user
+                Log.e("CREATE_SCHEDULE", e.getLocalizedMessage(), e);
             }
 
-            // switch
+            // switch fragments
             FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentView, fragmentList.get(newIndex));
             transaction.addToBackStack(null);
             transaction.commit();
 
             // switch buttons appearance
-            for(int i=0; i<newIndex; i++) {
+            for(int i=0; i<=newIndex; i++) {
                 setCompletedColor(navButtonList.get(i));
             }
 
@@ -123,6 +125,11 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
             // update fragment pointer
             this.currentFragmentIdx = newIndex;
+        }
+
+        // if next on last panel, act like the DONE button was pressed
+        if(newIndex == this.navButtonList.size()) {
+            this.presenter.save();
         }
     }
 

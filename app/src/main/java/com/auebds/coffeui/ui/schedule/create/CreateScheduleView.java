@@ -8,7 +8,10 @@ import com.auebds.coffeui.entity.Schedule;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * The concrete implementation of the schedule creation MVP View.
@@ -103,6 +106,16 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
         return this.isRepeatable;
     }
 
+    @Override
+    public Collection<Day> getDays() {
+        LinkedList<Day> ls = new LinkedList<>();
+        for(Map.Entry<Day, Boolean> entry: this.selectedDaysMap.entrySet()){
+            if(entry.getValue()) {
+                ls.add(entry.getKey());
+            }
+        }
+        return ls;
+    }
 
     private void markSelected(Day day) {
         throwOnNoDayManager();

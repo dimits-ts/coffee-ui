@@ -34,7 +34,7 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
     private ArrayList<SwitchableFragment> fragmentList;
     private ArrayList<Button> navButtonList;
-    private int currentFragmentIdx = 0;
+    private int currentFragmentIdx = -1;
 
     private ActivityCreateScheduleBinding binding;
 
@@ -67,8 +67,11 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         binding.previousButton.setOnClickListener(v -> switchFragments(currentFragmentIdx - 1));
         binding.nextButton.setOnClickListener(v -> switchFragments(currentFragmentIdx + 1));
+        binding.buttonBack.setOnClickListener(v -> toMenu());
 
         this.view.setDayManager(dayFragment);
+
+        switchFragments(0);
 
         SingletonTTS.getInstance(getApplicationContext(),
                 SettingsDao.getInstance(getApplicationContext()))

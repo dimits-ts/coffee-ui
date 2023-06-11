@@ -61,6 +61,12 @@ interface CreateScheduleMvp {
          * @return true if the schedule is repeatable
          */
         boolean isRepeatable();
+
+        /**
+         * Get the days that have been selected.
+         * @return a collection of all selected days.
+         */
+        Collection<Day> getDays();
     }
 
     /**
@@ -104,6 +110,5 @@ interface CreateScheduleMvp {
          * @param time the selected time.
          */
         void setTime(LocalTime time);
-
     }
 }

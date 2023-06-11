@@ -28,4 +28,6 @@
     <dimen name="create_schedule_area_height">85dp</dimen>
 
     <dimen name="small_text">25sp</dimen>
+
+    <dimen name="icon_size">50dp</dimen>
 </resources>

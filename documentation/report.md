@@ -276,6 +276,15 @@ guarantee smooth navigation and convenient gestures (which are used by TalkBack 
 input).
 
 
+### Results
+![](images/3rd_cycle/main.PNG)
+<br>*The main menu screen*
+
+![](images/3rd_cycle/drink.PNG)
+<br>*One of the drink creation screens*
+
+![](images/3rd_cycle/create_schedule.PNG)
+<br>*The schedule creation screen*
 
 
 ## Addendum

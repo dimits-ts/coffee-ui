@@ -87,7 +87,7 @@ We used three forms of verification for the 1st development cycle;
 Used to verify functional requirements and to gather general feedback about our 
 design. Our questionnaire was given to 18 students, was comprised of 10 questions and was submitted 
 using Google Forms. Information about the results of the questionnaire and how it impacted our 
-decisions can be found in [Addendum#Questionnaire findings](#cycle-1-questionnaire-findings).
+decisions can be found in [Addendum#Cycle 1 Questionnaire findings](#cycle-1-questionnaire-findings).
 
 #### Interviews
 Participants were asked to suggest features and give us feedback
@@ -150,7 +150,8 @@ We used two forms of verification for the 2nd development cycle:
 
 #### Questionnaires
 Used to verify functional requirements considered for the 3rd development cycle and general design 
-choices. <!--TODO: complete this after survey-->
+choices. The questions, results and derived decisions can be found at 
+[Addendum#Cycle 2 Questionnaire findings](#cycle-2-questionnaire-findings).
 
 ### Talking subjects
 Testers were given a copy of the prototype running in an actual Android device and were instructed
@@ -187,10 +188,6 @@ and thus was a constant source of complaints
 
 ![](images/2nd_cycle/new_schedule.PNG)
 <br>*The schedule creation screen*
-
-<!--### Target Audience
-We expanded our target audience to include middle-aged and elderly people. These groups are more 
-familiar with making drinks, and accustomed to exact quantities of ingredients -->
 
 
 ## Third Cycle
@@ -337,6 +334,35 @@ questionnaire), concerned the font, images and background color used.
 
 
 ### Cycle 2 Questionnaire findings
+![](images/quest_2nd_cycle/voice_commands.PNG)
+*How many of our responders would like voice commands for their coffee machine*
+
+Even with a small sample size (N=9), this demonstrates the unwillingness of users with no
+visual impairments to use any form of voice commands, and was a principal argument for not 
+implementing our own, specialized A.I. solutions for this problem.
+
+![](images/quest_2nd_cycle/tts.PNG)
+*Whether our responders would appreciate a built-in TTS service*
+
+We note a slight indifference to the presence of a TTS system for our application. We go through with
+the system, in order to help new users and users with non-debilitating visual impairments.
+
+![](images/quest_2nd_cycle/ab_testing.PNG)
+*Whether our users would prefer using a continuous bar for ingredients instead of +/- buttons 
+(spliced with original image).*
+
+While the results direct us towards using a continuous bar for the ingredients (left image), 
+subsequent interviews revealed that the difference is slight, and even non-noticeable in many 
+instances. We kept the right design since it helped us improve the overall layout by freeing up 
+space.
+
+![](images/quest_2nd_cycle/presets.PNG)
+*What kind of drink presets users would be interested in.*
+
+Our data is not conclusive as to whether a complicated system of custom saved presets would be beneficial
+for our application overall. We hold off on implementing such a system, considering the multi-user,
+last-saved configuration, based on face-recognition outlined in Cycle 3.
+
 
 ### Mock-ups
 

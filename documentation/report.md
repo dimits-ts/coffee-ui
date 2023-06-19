@@ -22,7 +22,7 @@ This report is composed of 4 parts: The 1st, 2nd and 3rd development cycles of t
 addendum where we place additional files and images pertaining to various development stages.
 
 
-## 1st Cycle
+## First Cycle
 
 The goals of the 1st development cycle are:
 
@@ -87,7 +87,7 @@ We used three forms of verification for the 1st development cycle;
 Used to verify functional requirements and to gather general feedback about our 
 design. Our questionnaire was given to 18 students, was comprised of 10 questions and was submitted 
 using Google Forms. Information about the results of the questionnaire and how it impacted our 
-decisions can be found in [Addendum#Questionnaire findings](#questionnaire-findings).
+decisions can be found in [Addendum#Questionnaire findings](#cycle-1-questionnaire-findings).
 
 #### Interviews
 Participants were asked to suggest features and give us feedback
@@ -120,8 +120,9 @@ A full list of our final designs can be found in [Addendum#Mock-ups](#mock-ups).
 ![](images/mockups/Espresso_New.png)
 <br>*New drink creation screen*
 
-## 2nd Cycle
 
+
+## Second Cycle
 
 ### Goals
 The goals of the 2nd cycle were:
@@ -191,9 +192,95 @@ and thus was a constant source of complaints
 We expanded our target audience to include middle-aged and elderly people. These groups are more 
 familiar with making drinks, and accustomed to exact quantities of ingredients -->
 
+
+## Third Cycle
+
+### Goals
+The goals of the 3rd cycle were:
+- Add almost complete functionality in Android
+- Use A.I. solutions where desired by the users
+- Refactor UI screens according to user feedback
+- Implement quality-of-life (QoL) improvements in our main UI screens such as custom progress bars
+- Record and integrate video tutorials
+
+### Target Audience
+We shift our target audience from strictly young students and professionals to also including 
+the elderly. The elderly as a group have a greater difficulty in understanding and handling graphical
+user interfaces, while mostly suffering from low-to-mid visual impairments. Our app therefore will 
+need to address both of these concerns.
+
+This scope change also leads us to dropping the severely visually impaired from our core target group.
+We will instead rely on shared functionality with our core target groups (such as TTS services) and 
+optimising native Android utilities (such as implementing Android accessibility tips and facilities
+which are used for screen readers).
+
+More about our decision for this particular scope change can be found in the 
+[attached document](presentations/GUI%20για%20Αυτόματη%20Μηχανή%20Καφέ.pptx).
+
+### Functional Requirements
+In this cycle we attempt to additionally implement the following functions:
+
+- TTS service for user action confirmation and for helping navigation for the visually impaired.
+- Video tutorials for each screen.
+- User confirmation during drink creation, in the form of a blocking progress bar.
+- Refactoring the schedule creation screen to split the schedule details in distinct, progressive 
+phases, while respecting the non-functional requirements set in Cycle 1.
+- Implementing all the graphical changes outlined in the current verification cycle.
+
+### Non-functional Requirements
+We use this cycle to strictly enforce compliance with our existing non-functional requirements. This 
+is made more effective by using feedback from a variety of verification sources we have acquired so 
+far (group presentation, interviews, testing with the functional prototype and questionnaires). Our
+core non-functional requirements remain the same.
+
+
+### Verification
+We used two forms of verification for the 3rd development cycle:
+
+#### Group presentation
+As with Cycle 1, the prototype (shown via a commercially available Tablet device) and the 
+[previously linked presentation document](presentations/GUI%20για%20Αυτόματη%20Μηχανή%20Καφέ.pptx)
+were used to showcase the evolution, scope changes and decisions as well as the new 
+functionality of our prototype to a group of approximately 12 people. 
+
+The feedback acquired was instrumental in shaping our decisions for many minor and major changes. 
+The key points brought up by the audience were:
+
+- The wasted vertical space occupied by the 'GO' button in the drink creation screens, which forced
+the layout to be much more restricted, and led to a poor visual impression by the users.
+- A lack of progression bar when preparing drinks, giving little visual hint of when the device would
+be read for the next drink.
+- The extremely cluttered and confusing layout of the schedule creation screen.
+- Our application currently assumes it is handled by the same user, or users with similar needs. This
+assumption is reflected in our automatic drink loading, which always loads the last configuration for
+each drink, for user convenience. In order to make the application more useful in multi-user 
+environments, it was proposed that a face-recognition system could be built in, which would 
+automatically select the user's preferred drink with no further user intervention.
+
+
+#### Interviews
+Many post-hoc interviews were conducted after the key weaknesses of the application were revealed in
+the group presentation. These in-person interviews built upon the revealed problems and their 
+possible solutions. Some focused on the technical challenges, such as problems endemic to our 
+application's migration to the commercial device, others on the design and space management of our 
+layouts, and others on possible new features and functions.
+
+We also conducted an interview with a person knowledgeable about severe visual impairments and 
+the functions provided by Android devices for user suffering from them. Our attention was directed to the 
+[TalkBack](https://support.google.com/accessibility/android/answer/6283677)
+system, which is the default screen reader for Android devices. Our assumption so far was that if we
+programmatically implemented all accessibility tips and facilities the Android framework gives us 
+access to, it would translate to a decent experience by users with severe visual impairments. This 
+interview however highlighted the importance of testing the TalkBack system ourselves, in order to
+guarantee smooth navigation and convenient gestures (which are used by TalkBack as alternative user
+input).
+
+
+
+
 ## Addendum
 
-### Questionnaire findings
+### Cycle 1 Questionnaire findings
 
 Our original form can be found [here](https://forms.gle/RRxYVQZFafGN1ZDt6). Note that the stats
 presented below are not a comprehensive list of all the questions.
@@ -239,6 +326,8 @@ Our findings indicate that our responders feel that our main screens are well un
 are complaints about our general design. These (according to open answers given at the end of the
 questionnaire), concerned the font, images and background color used.
 
+
+### Cycle 2 Questionnaire findings
 
 ### Mock-ups
 

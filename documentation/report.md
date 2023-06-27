@@ -5,22 +5,30 @@
 
 ## Subject
 
-Our assignment is about developing a friendly User Interface (UI) for a common, commercial coffee 
-machine. The reasons that led us choosing this device are:
+In our assignment we will be attempting to develop a friendly User Interface (UI) for a common,
+commercial coffee machine. The reasons that led us choosing this type of device are:
 
 - Making drinks (e.g coffee, tea, hot chocolate) is a simple and repetitive task for most users.
-- Most commercially available machines do not support generally requested features such as having
+- Most commercially available machines do not support widely requested features such as having
     a drink ready at a certain time each day.
 - Machines that do, make use of a primitive and often counter-intuitive interfaces
 (e.g few, small buttons).
-- Most machines support poorly people with visual disabilities.
+- Most machines support people with visual disabilities poorly.
 
-Our project strives to offer an easy-to-use, accessible interface supporting advanced features such
+Our project thus strives to offer an easy-to-use, accessible interface supporting advanced features such
 as automatic drink creation.  
 
 This report is composed of 4 parts: The 1st, 2nd and 3rd development cycles of the project and an 
 addendum where we place additional files and images pertaining to various development stages.
 
+## Project information
+The project has been user tested in the following devices:
+- Samsung Galaxy Tab S6 Lite
+- Nexus 10 API 27 (AVD)
+
+The project assumes the device is a tablet with a screen roughly the size of 1200 x 800 dp.
+
+The application is targeted for devices operating Android 5 Lollipop (API level 21) and over.
 
 ## First Cycle
 
@@ -34,7 +42,7 @@ The goals of the 1st development cycle are:
 
 ### The model
 The model we are using is the KRUPS coffee machine. It's an old model which specializes in producing
-coffee and espresso. It can also technically produce hot chocolate and tea, so it fits our 
+french coffee and espresso. It can also technically produce hot chocolate and tea, so it fits our 
 requirements.
 
 This model is also notorious for its poor UI. All its functions are directed using a lever and 4 
@@ -68,15 +76,14 @@ is requested.
 - The system must support repeatable schedules where the user can request a drink be made at a 
 specific time, for a specific day.
 - The system must support viewing, activating, deactivating and deleting schedules.
-- The system must contain tutorials for each screen.
 
 
 ### Non-functional Requirements
 
 - Each screen must be non-scrollable.
-- For a given, ordinary task a maximum of 2 screens must be used.
-- The system must be usable for people with severe visual impairments
-- A new user should get accustomed to the basic features within 2 minutes
+- For a given, ordinary task a maximum of 2 screen changes must be used.
+- The system must be usable for people with visual impairments.
+- A new user should get accustomed to the basic features within 2 minutes.
 
 
 ### Verification
@@ -92,15 +99,18 @@ decisions can be found in [Addendum#Cycle 1 Questionnaire findings](#cycle-1-que
 #### Interviews
 Participants were asked to suggest features and give us feedback
 about specific design decisions. The interviews were kept mostly open and unstructured as to allow
-more general suggestions since the design was still in its early stages.
+more general suggestions since the design was still in its early stages. Most interviews concerned 
+students from the 19-22 age group, as well as a professional designer, since we felt that input on 
+our design decisions was insufficient up to that point.
 
 #### Group verification
 The project was presented to an audience of 15-20 people where many design aspects were discussed.
-The original presentation can be found [here](presentations/cycle1_presentation_gr.pptx).
+The original presentation can be found [here](presentations/cycle1_presentation_gr.pptx). 
+Participants were quick to criticize key design decisions such as the way values were selected in 
+the drink creation screens and the difficulty in discerning system warnings in the main screen.
 
 
 ### Results
-
 Besides adapting our functional requirements, the feedback we received helped us adapt the general
 design of our application. Below are two before-and-after pictures demonstrating the changes we made.
 A full list of our final designs can be found in [Addendum#Mock-ups](#mock-ups).
@@ -126,9 +136,9 @@ A full list of our final designs can be found in [Addendum#Mock-ups](#mock-ups).
 
 ### Goals
 The goals of the 2nd cycle were:
-- Design the prototype in Android
-- Implement basic functionality
-- Export the prototype to an Android device to allow realistic user verification
+- Design the prototype in Android.
+- Implement basic functionality.
+- Export the prototype to an Android device to allow realistic user verification.
 
 ### Target Audience
 Our target audience remains the same in this cycle.
@@ -158,23 +168,23 @@ Testers were given a copy of the prototype running in an actual Android device a
 to explore the application with the following goals, while communicating their thought process 
 with the test supervisor:
 
-1. Create four drinks of different types
-2. Create a new schedule
-3. Delete the default schedules
+1. Create four drinks of different types.
+2. Create a new schedule.
+3. Delete the default schedules.
 
 The testing revealed both strong and weak points of the prototype:
 
 ##### Pros:
-- The application was very easy to navigate
-- The general design of the application was remarked as being "quite enjoyable"
-- There were no issues with user confusion or hesitation
+- The application was very easy to navigate.
+- The general design of the application was remarked as being "quite enjoyable".
+- There were no issues with user confusion or hesitation.
 
 ##### Cons:
 - The drink creation screen was seen as ambiguous in its phrasing ("Cups", arbitrary quantities for
-chocolate, sugar)
-- The binary buttons in the drink creation screen were seen as confusing
+chocolate, sugar).
+- The binary buttons in the drink creation screen were seen as confusing.
 - The button design in general, in its current implementation was supported poorly by the device
-and thus was a constant source of complaints 
+and thus was a constant source of complaints.
 
 ### Results
 ![](images/2nd_cycle/main_menu.PNG)
@@ -194,11 +204,11 @@ and thus was a constant source of complaints
 
 ### Goals
 The goals of the 3rd cycle were:
-- Add almost complete functionality in Android
-- Use A.I. solutions where desired by the users
-- Refactor UI screens according to user feedback
-- Implement quality-of-life (QoL) improvements in our main UI screens such as custom progress bars
-- Record and integrate video tutorials
+- Add almost complete functionality in Android.
+- Use A.I. solutions where desired by the users.
+- Refactor UI screens according to user feedback.
+- Implement quality-of-life (QoL) improvements in our main UI screens such as custom progress bars.
+- Record and integrate video tutorials.
 
 ### Target Audience
 We shift our target audience from strictly young students and professionals to also including 
@@ -224,11 +234,14 @@ In this cycle we attempt to additionally implement the following functions:
 phases, while respecting the non-functional requirements set in Cycle 1.
 - Implementing all the graphical changes outlined in the current verification cycle.
 
+By implementing video tutorials and by employing a TTS service in our application, we hope to 
+accommodate the elderly in particular, as both of these features are intuitive for new users, even
+those not familiar with technology.
+
 ### Non-functional Requirements
 We use this cycle to strictly enforce compliance with our existing non-functional requirements. This 
 is made more effective by using feedback from a variety of verification sources we have acquired so 
-far (group presentation, interviews, testing with the functional prototype and questionnaires). Our
-core non-functional requirements remain the same.
+far. Our core non-functional requirements remain the same.
 
 
 ### Verification
@@ -246,7 +259,7 @@ The key points brought up by the audience were:
 - The wasted vertical space occupied by the 'GO' button in the drink creation screens, which forced
 the layout to be much more restricted, and led to a poor visual impression by the users.
 - A lack of progression bar when preparing drinks, giving little visual hint of when the device would
-be read for the next drink.
+be ready for the next drink.
 - The extremely cluttered and confusing layout of the schedule creation screen.
 - Our application currently assumes it is handled by the same user, or users with similar needs. This
 assumption is reflected in our automatic drink loading, which always loads the last configuration for
@@ -282,6 +295,15 @@ input).
 
 ![](images/3rd_cycle/create_schedule.PNG)
 <br>*The schedule creation screen*
+
+### Future Work
+Future development cycles would be used to expand the functionality of our application. 
+
+- Extensive testing with the Android TalkBack framework must be performed to guarantee easy 
+navigation and functionality for the severely visually impaired.
+- Face recognition for user personalization should be explored. By using the device's camera and a 
+traditional, pretrained Convolutional Neural Network (CNN), our device should be capable of this task.
+Alternatively, traditional user verification methods such as finger print recognition could be used instead.
 
 
 ## Addendum
@@ -334,12 +356,15 @@ questionnaire), concerned the font, images and background color used.
 
 
 ### Cycle 2 Questionnaire findings
+Our original form for the 2nd cycle can be found [here](https://forms.gle/WkicWfT1VTkNNupj7).
+
 ![](images/quest_2nd_cycle/voice_commands.PNG)
+
 *How many of our responders would like voice commands for their coffee machine*
 
 Even with a small sample size (N=9), this demonstrates the unwillingness of users with no
 visual impairments to use any form of voice commands, and was a principal argument for not 
-implementing our own, specialized A.I. solutions for this problem.
+implementing our own, specialized A.I. solutions for this problem in this cycle.
 
 ![](images/quest_2nd_cycle/tts.PNG)
 *Whether our responders would appreciate a built-in TTS service*
@@ -352,8 +377,8 @@ the system, in order to help new users and users with non-debilitating visual im
 (spliced with original image).*
 
 While the results direct us towards using a continuous bar for the ingredients (left image), 
-subsequent interviews revealed that the difference is slight, and even non-noticeable in many 
-instances. We kept the right design since it helped us improve the overall layout by freeing up 
+subsequent interviews revealed that the difference is not normally noticeable in many 
+instances. We kept the design on the right, since it helped us improve the overall layout by freeing up 
 space.
 
 ![](images/quest_2nd_cycle/presets.PNG)
@@ -366,16 +391,11 @@ last-saved configuration, based on face-recognition outlined in Cycle 3.
 
 ### Mock-ups
 
-This section includes all the final mock-up screens developed during the 1st development cycle.
-
-![](images/mockups/Main_New.png)
-<br>*Main Menu*
+This section includes the rest of the final mock-up screens developed during the 1st development cycle.
+A full list of images for each development cycle can be found in the `documentation\images` directory.
 
 ![](images/mockups/French_New.png)
 <br>*French coffee creation screen*
-
-![](images/mockups/Espresso_New.png)
-<br>*Espresso creation screen*
 
 ![](images/mockups/Tea_New.png)
 <br>*Tea creation screen*

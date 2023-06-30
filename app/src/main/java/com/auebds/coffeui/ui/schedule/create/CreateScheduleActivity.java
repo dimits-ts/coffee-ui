@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
+import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
+import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 
@@ -68,6 +71,16 @@ public class CreateScheduleActivity extends AppCompatActivity {
         binding.previousButton.setOnClickListener(v -> switchFragments(currentFragmentIdx - 1));
         binding.nextButton.setOnClickListener(v -> switchFragments(currentFragmentIdx + 1));
         binding.buttonBack.setOnClickListener(v -> toMenu());
+
+        ImageButton helpButton = binding.helpButton;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(CreateScheduleActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_schedule);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
+        });
 
         this.view.setDayManager(dayFragment);
 

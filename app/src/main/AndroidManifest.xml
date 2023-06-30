@@ -27,6 +27,8 @@
             android:exported="false" />
         <activity android:name=".ui.drinks.tea.CreateTeaActivity"
             android:exported="false" />
+        <activity android:name=".ui.drinks.tutorial.TutorialActivity"
+            android:exported="false" />
         <activity
             android:name=".MainMenuActivity"
             android:exported="true"

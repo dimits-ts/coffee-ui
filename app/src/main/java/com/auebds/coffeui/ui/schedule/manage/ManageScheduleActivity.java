@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -20,6 +21,7 @@ import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityManageScheduleBinding;
 import com.auebds.coffeui.entity.Schedule;
+import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -67,6 +69,16 @@ public class ManageScheduleActivity extends AppCompatActivity {
         SingletonTTS tts = SingletonTTS.getInstance(getApplicationContext(),
                         SettingsDao.getInstance(getApplicationContext()));
         tts.speakOnce(getString(R.string.tts_manage_schedules));
+
+        ImageButton helpButton = binding.helpButton;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(ManageScheduleActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_manage_schedules);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
+        });
 
         // set up new schedule listener
         ActivityResultContract<Void, String> contract = new ActivityResultContract<Void, String>() {

@@ -2,7 +2,9 @@ package com.auebds.coffeui.ui.drinks.chocolate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
@@ -12,6 +14,7 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateChocolateBinding;
+import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
 import com.auebds.coffeui.util.Util;
 
 public class CreateChocolateActivity extends AppCompatActivity {
@@ -34,6 +37,16 @@ public class CreateChocolateActivity extends AppCompatActivity {
         Button saveButton = binding.goButton;
         saveButton.setOnClickListener(view -> this.presenter.save());
 
+        ImageButton helpButton = binding.helpButton5;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(CreateChocolateActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_chocolate);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
+        });
+
         presenter.loadLastPreset();
     }
 
@@ -44,6 +57,7 @@ public class CreateChocolateActivity extends AppCompatActivity {
         ImageView backButton = binding.buttonBack;
         backButton.setOnClickListener(view -> toMenu());
     }
+
 
     void toMenu() {
         this.finish();

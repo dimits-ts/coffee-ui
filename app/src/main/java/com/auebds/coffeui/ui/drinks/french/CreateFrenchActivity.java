@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
@@ -13,6 +14,8 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateFrCoffeeBinding;
+import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
+import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 import com.auebds.coffeui.util.Util;
 
 public class CreateFrenchActivity extends AppCompatActivity {
@@ -34,6 +37,16 @@ public class CreateFrenchActivity extends AppCompatActivity {
 
         Button saveButton = binding.goButton2;
         saveButton.setOnClickListener(view -> this.presenter.save());
+
+        ImageButton helpButton = binding.helpButton2;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(CreateFrenchActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_americano);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
+        });
 
         presenter.loadLastPreset();
     }

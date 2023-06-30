@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -19,6 +20,7 @@ import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
 import com.auebds.coffeui.ui.drinks.espresso.CreateEspressoActivity;
 import com.auebds.coffeui.ui.drinks.french.CreateFrenchActivity;
 import com.auebds.coffeui.ui.drinks.tea.CreateTeaActivity;
+import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -74,6 +76,16 @@ public class MainMenuActivity extends AppCompatActivity {
             // later switch this for schedule management activity
             Intent intent = new Intent(MainMenuActivity.this, ManageScheduleActivity.class);
             startActivity(intent);
+        });
+
+        ImageButton helpButton = binding.helpButton;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(MainMenuActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_main);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
         });
 
         binding.chocolateButton.setOnClickListener(view -> chocolateLauncher.launch(null));

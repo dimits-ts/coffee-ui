@@ -21,6 +21,12 @@ as automatic drink creation.
 This report is composed of 4 parts: The 1st, 2nd and 3rd development cycles of the project and an 
 addendum where we place additional files and images pertaining to various development stages.
 
+
+## Demo
+You can find a video demonstrating the final (as of now) product 
+[here](https://www.youtube.com/watch?v=Q7eJg7hRvqE).
+
+
 ## Project information
 The project has been user tested in the following devices:
 - Samsung Galaxy Tab S6 Lite

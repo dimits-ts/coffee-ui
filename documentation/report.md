@@ -207,7 +207,7 @@ The goals of the 3rd cycle were:
 - Add almost complete functionality in Android.
 - Use A.I. solutions where desired by the users.
 - Refactor UI screens according to user feedback.
-- Implement quality-of-life (QoL) improvements in our main UI screens such as custom progress bars.
+- Implement quality-of-life (QoL) improvements in our main UI screens
 - Record and integrate video tutorials.
 
 ### Target Audience
@@ -229,7 +229,6 @@ In this cycle we attempt to additionally implement the following functions:
 
 - TTS service for user action confirmation and for helping navigation for the visually impaired.
 - Video tutorials for each screen.
-- User confirmation during drink creation, in the form of a blocking progress bar.
 - Refactoring the schedule creation screen to split the schedule details in distinct, progressive 
 phases, while respecting the non-functional requirements set in Cycle 1.
 - Implementing all the graphical changes outlined in the current verification cycle.
@@ -245,7 +244,7 @@ far. Our core non-functional requirements remain the same.
 
 
 ### Verification
-We used two forms of verification for the 3rd development cycle:
+We used four forms of verification for the 3rd development cycle:
 
 #### Group presentation
 As with Cycle 1, the prototype (shown via a commercially available Tablet device) and the 
@@ -258,8 +257,6 @@ The key points brought up by the audience were:
 
 - The wasted vertical space occupied by the 'GO' button in the drink creation screens, which forced
 the layout to be much more restricted, and led to a poor visual impression by the users.
-- A lack of progression bar when preparing drinks, giving little visual hint of when the device would
-be ready for the next drink.
 - The extremely cluttered and confusing layout of the schedule creation screen.
 - Our application currently assumes it is handled by the same user, or users with similar needs. This
 assumption is reflected in our automatic drink loading, which always loads the last configuration for
@@ -284,6 +281,20 @@ access to, it would translate to a decent experience by users with severe visual
 interview however highlighted the importance of testing the TalkBack system ourselves, in order to
 guarantee smooth navigation and convenient gestures (which are used by TalkBack as alternative user
 input).
+
+
+#### Talking subjects
+
+We once again introduced our prototype to volunteers, following the same procedure as with the 2nd 
+cycle. Some issues were identified with the volume, placement and size of the tutorial videos, which
+were addressed. Comments were mostly positive otherwise, especially concerning the (improved) manage
+schedule screen.
+
+
+#### Usability inspection
+
+We introduced a design expert as well as long-time testers as evaluators. The evaluators were asked
+to use the application and then fill a [brief form](https://forms.gle/b1uAdSWcSg8iyCcz8).
 
 
 ### Results

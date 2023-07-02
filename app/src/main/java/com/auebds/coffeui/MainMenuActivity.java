@@ -20,7 +20,7 @@ import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
 import com.auebds.coffeui.ui.drinks.espresso.CreateEspressoActivity;
 import com.auebds.coffeui.ui.drinks.french.CreateFrenchActivity;
 import com.auebds.coffeui.ui.drinks.tea.CreateTeaActivity;
-import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;

@@ -2,7 +2,6 @@ package com.auebds.coffeui.ui.drinks.chocolate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,7 +13,7 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateChocolateBinding;
-import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.util.Util;
 
 public class CreateChocolateActivity extends AppCompatActivity {

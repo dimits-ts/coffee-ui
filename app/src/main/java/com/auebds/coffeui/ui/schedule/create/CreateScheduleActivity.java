@@ -16,8 +16,7 @@ import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
-import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
-import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 

@@ -13,8 +13,7 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateTeaBinding;
-import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
-import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.util.Util;
 
 public class CreateTeaActivity extends AppCompatActivity {

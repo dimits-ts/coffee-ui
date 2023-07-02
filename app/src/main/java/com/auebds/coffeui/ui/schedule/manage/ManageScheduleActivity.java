@@ -21,7 +21,7 @@ import com.auebds.coffeui.dao.DebugScheduleDao;
 import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityManageScheduleBinding;
 import com.auebds.coffeui.entity.Schedule;
-import com.auebds.coffeui.ui.drinks.tutorial.TutorialActivity;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
 import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;

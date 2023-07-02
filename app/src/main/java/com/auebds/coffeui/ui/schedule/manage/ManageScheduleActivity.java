@@ -77,7 +77,6 @@ public class ManageScheduleActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_manage_schedules);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         // set up new schedule listener

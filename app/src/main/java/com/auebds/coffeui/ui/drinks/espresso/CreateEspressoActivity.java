@@ -44,7 +44,6 @@ public class CreateEspressoActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_espresso);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         presenter.loadLastPreset();

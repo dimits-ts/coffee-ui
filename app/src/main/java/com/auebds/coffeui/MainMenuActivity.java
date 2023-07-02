@@ -85,7 +85,6 @@ public class MainMenuActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_main);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         binding.chocolateButton.setOnClickListener(view -> chocolateLauncher.launch(null));

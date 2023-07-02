@@ -43,7 +43,6 @@ public class CreateChocolateActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_chocolate);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         presenter.loadLastPreset();

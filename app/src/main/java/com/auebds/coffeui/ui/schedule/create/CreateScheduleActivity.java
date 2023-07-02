@@ -78,7 +78,6 @@ public class CreateScheduleActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_schedule);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         this.view.setDayManager(dayFragment);

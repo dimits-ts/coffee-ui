@@ -44,7 +44,6 @@ public class CreateFrenchActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_americano);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         presenter.loadLastPreset();

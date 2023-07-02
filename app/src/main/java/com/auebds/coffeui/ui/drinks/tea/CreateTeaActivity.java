@@ -44,7 +44,6 @@ public class CreateTeaActivity extends AppCompatActivity {
             b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_tea);
             intent.putExtras(b);
             startActivity(intent);
-            finish();
         });
 
         presenter.loadLastPreset();

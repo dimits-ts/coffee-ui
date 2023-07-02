@@ -235,7 +235,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView20"
             app:layout_constraintTop_toBottomOf="@+id/textView20"
-            app:layout_constraintVertical_bias="0.281" />
+            app:layout_constraintVertical_bias="0.258" />
 
         <TextView
             android:id="@+id/milkAmount"
@@ -277,10 +277,10 @@
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView21"
-            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView21"
             app:layout_constraintTop_toBottomOf="@+id/textView21"
-            app:layout_constraintVertical_bias="0.202" />
+            app:layout_constraintVertical_bias="0.2" />
 
         <TextView
             android:id="@+id/textView4"
@@ -295,7 +295,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView22"
             app:layout_constraintTop_toBottomOf="@+id/textView22"
-            app:layout_constraintVertical_bias="0.36" />
+            app:layout_constraintVertical_bias="0.6" />
 
         <TextView
             android:id="@+id/sugarAmount"
@@ -355,7 +355,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/minusbuttonmilk"
             app:layout_constraintTop_toTopOf="@+id/sugarAmount"
-            app:layout_constraintVertical_bias="0.253" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/plusbuttonsugar"

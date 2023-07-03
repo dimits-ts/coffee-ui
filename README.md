@@ -3,7 +3,7 @@
 An Android application aiming to provide a modern, accesible UI to a standard, commerical coffee machine. Supports ingredient selection, schedule creation and management, video tutorials and TTS for accessibility.
 Developed as part of the "Human-Computer Interaction" course of the Athens University of Economics and Business. 
 
-You can find a brief demo of the application [here](https://www.youtube.com/watch?v=Q7eJg7hRvqE).
+You can find a brief demo of the application [here](https://youtu.be/Cju-xMAUAUg).
 
 Developed using Agile methodology. The full development documentation can be found [here](documentation/report.md). Includes base idea, requirements, implementation and design decisions as well as prototype evolution and the verification techniques  used during each of the development cycles. 
 

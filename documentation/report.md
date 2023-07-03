@@ -3,6 +3,7 @@
 #### Ιωάννης Γκιώνης 3190044
 #### Τσίρμπας Δημήτρης 3190205
 
+
 ## Subject
 
 In our assignment we will be attempting to develop a friendly User Interface (UI) for a common,
@@ -23,8 +24,7 @@ addendum where we place additional files and images pertaining to various develo
 
 
 ## Demo
-You can find a video demonstrating the final (as of now) product 
-[here](https://www.youtube.com/watch?v=Q7eJg7hRvqE).
+You can find a video demonstrating the final (as of now) product [here](https://youtu.be/Cju-xMAUAUg).
 
 
 ## Project information
@@ -94,7 +94,7 @@ specific time, for a specific day.
 
 ### Verification
 
-We used three forms of verification for the 1st development cycle;
+We used two forms of verification for the 1st development cycle;
 
 #### Questionnaires
 Used to verify functional requirements and to gather general feedback about our 
@@ -102,12 +102,6 @@ design. Our questionnaire was given to 18 students, was comprised of 10 question
 using Google Forms. Information about the results of the questionnaire and how it impacted our 
 decisions can be found in [Addendum#Cycle 1 Questionnaire findings](#cycle-1-questionnaire-findings).
 
-#### Interviews
-Participants were asked to suggest features and give us feedback
-about specific design decisions. The interviews were kept mostly open and unstructured as to allow
-more general suggestions since the design was still in its early stages. Most interviews concerned 
-students from the 19-22 age group, as well as a professional designer, since we felt that input on 
-our design decisions was insufficient up to that point.
 
 #### Group verification
 The project was presented to an audience of 15-20 people where many design aspects were discussed.
@@ -162,14 +156,21 @@ Our overall non-functional requirements remain the same, and are used to guide o
 implementation.
 
 ### Verification
-We used two forms of verification for the 2nd development cycle:
+We used three forms of verification for the 2nd development cycle:
 
 #### Questionnaires
 Used to verify functional requirements considered for the 3rd development cycle and general design 
 choices. The questions, results and derived decisions can be found at 
 [Addendum#Cycle 2 Questionnaire findings](#cycle-2-questionnaire-findings).
 
-### Talking subjects
+#### Interviews
+Participants were asked to suggest features and give us feedback
+about specific design decisions. The interviews were kept mostly open and unstructured as to allow
+more general suggestions since the design was still in its early stages. Most interviews concerned
+students from the 19-22 age group, as well as a professional designer, since we felt that input on
+our design decisions was insufficient up to that point.
+
+#### Talking subjects
 Testers were given a copy of the prototype running in an actual Android device and were instructed
 to explore the application with the following goals, while communicating their thought process 
 with the test supervisor:
@@ -425,6 +426,3 @@ A full list of images for each development cycle can be found in the `documentat
 
 ![](images/mockups/Saved_Schedules_New.png)
 <br>*Schedule management screen*
-
-
-

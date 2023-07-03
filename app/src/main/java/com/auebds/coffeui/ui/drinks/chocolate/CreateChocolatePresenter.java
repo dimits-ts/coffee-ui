@@ -19,16 +19,16 @@ public class CreateChocolatePresenter {
             this.defaultChocolate = this.dao.getChocolate();
         }
         else{
-            this.defaultChocolate = new Chocolate(1,2,2,2,true);
+            this.defaultChocolate = new Chocolate(250,2,2,2,true);
         }
     }
 
     public void loadLastPreset() {
         this.view.setMilk(this.defaultChocolate.getMilk());
         this.view.setSugar(this.defaultChocolate.getSugar());
-        this.view.setCups(this.defaultChocolate.getCups());
+        this.view.setWater(this.defaultChocolate.getWater());
         this.view.setChocolate(this.defaultChocolate.getChocolate());
-        this.view.setCups(this.defaultChocolate.getCups());
+        this.view.setTemperature(this.defaultChocolate.getTemp());
     }
 
     public void changeSugar(boolean increment){
@@ -51,19 +51,24 @@ public class CreateChocolatePresenter {
         this.view.setMilk(this.defaultChocolate.getMilk());
     }
 
-    public void changeCups(boolean increment){
-        if (increment && this.defaultChocolate.getCups() < DrinkLimits.MAX_CUPS){
-            this.defaultChocolate.plusCups();
+    public void changeWater(boolean increment){
+        if (increment && this.defaultChocolate.getWater() < DrinkLimits.MAX_WATER){
+            this.defaultChocolate.plusWater();
         }
-        else if (!increment && this.defaultChocolate.getCups() > DrinkLimits.MIN_CUPS){
-            this.defaultChocolate.minusCups();
+        else if (!increment && this.defaultChocolate.getWater() > DrinkLimits.MIN_WATER){
+            this.defaultChocolate.minusWater();
         }
-        this.view.setCups(this.defaultChocolate.getCups());
+        this.view.setWater(this.defaultChocolate.getWater());
     }
 
-    public void changeChocolate(int amount){
-        this.defaultChocolate.setChocolate(amount);
-        this.view.setChocolate(amount);
+    public void changeChocolate(boolean increment){
+        if (increment && this.defaultChocolate.getChocolate() < DrinkLimits.MAX_INGREDIENT){
+            this.defaultChocolate.plusChocolate();
+        }
+        else if (!increment && this.defaultChocolate.getChocolate() > DrinkLimits.MIN_INGREDIENT){
+            this.defaultChocolate.minusChocolate();
+        }
+        this.view.setChocolate(this.defaultChocolate.getChocolate());
     }
 
     public void changeTemperature(boolean temp){

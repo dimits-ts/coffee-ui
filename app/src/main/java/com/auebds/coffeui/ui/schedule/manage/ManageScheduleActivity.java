@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,9 +18,12 @@ import androidx.core.content.ContextCompat;
 
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityManageScheduleBinding;
 import com.auebds.coffeui.entity.Schedule;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.create.CreateScheduleActivity;
+import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -43,6 +47,7 @@ public class ManageScheduleActivity extends AppCompatActivity {
                 new ManageScheduleView(this), DebugScheduleDao.getInstance());
     }
 
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,19 @@ public class ManageScheduleActivity extends AppCompatActivity {
         binding.buttonBack.setOnClickListener(view -> toMenuActivity());
 
         this.presenter.displayFirstSchedule();
+
+        SingletonTTS tts = SingletonTTS.getInstance(getApplicationContext(),
+                        SettingsDao.getInstance(getApplicationContext()));
+        tts.speakOnce(getString(R.string.tts_manage_schedules));
+
+        ImageButton helpButton = binding.helpButton;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(ManageScheduleActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_manage_schedules);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
 
         // set up new schedule listener
         ActivityResultContract<Void, String> contract = new ActivityResultContract<Void, String>() {
@@ -81,12 +99,15 @@ public class ManageScheduleActivity extends AppCompatActivity {
         ActivityResultCallback<String> callback = message -> {
             if(message != null) {
                 Snackbar.make(this.getRootView(), message, SNACKBAR_DURATION).show();
+                tts.speakSentence(message);
             }
         };
 
         this.resultLauncher = registerForActivityResult(contract, callback);
 
         binding.listNewScheduleButton.setOnClickListener(view -> toCreateScheduleActivity());
+
+
     }
 
     @Override

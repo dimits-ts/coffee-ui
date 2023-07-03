@@ -20,11 +20,15 @@
     <string name="to_schedules">Schedules</string>
     <string name="label_warnings">Warnings</string>
     <string name="back_button">Go to main menu</string>
+    <string name="previous_option_button">Back</string>
+
     <string name="new_schedule_label">New Schedule</string>
     <string name="schedule_icon">schedule icon</string>
     <string name="default_schedule_name">Schedule Name</string>
     <string name="select_drink_prompt">Select drink…</string>
-    <string name="attr_cups"> Cups </string>
+
+    <string name="attr_cups"> Water(ml) </string>
+    <string name="attr_water"> Water </string>
     <string name="attr_milk"> Milk </string>
     <string name="attr_sugar"> Sugar </string>
     <string name="attr_coffee"> Coffee </string>
@@ -80,7 +84,6 @@
     <string name="manage_schedule_title">Schedules</string>
     <string name="manage_schedules_on_button_description">Activate \ Deactivate schedule</string>
 
-
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
@@ -98,4 +101,23 @@
     <string name="preparing_tea"> Preparing your tea…</string>
     <string name="preparing_chocolate"> Preparing your chocolate…</string>
     <string name="preparing_french"> Preparing your Americano…</string>
+    <string name="current_time">Current time</string>
+    <string name="current_date">Current date</string>
+
+    <string name="tts_welcome">Good morning!</string>
+    <string name="tts_manage_schedules">Here you can see and add or delete your automatic drink
+        schedules</string>
+    <string name="tts_create_schedules">Select when you want your drink to be ready</string>
+    <string name="tts_drink_creation">Your drink will be ready in a minute!</string>
+
+    <string name="water_note">One cup = 175 ml</string>
+    <string name="navbar_day">Choose the day(s)</string>
+    <string name="navbar_time">Choose the time</string>
+    <string name="navbar_done">Done!</string>
+    <string name="navbar_name">Select name</string>
+    <string name="navbar_drink">Select Drink</string>
+    <string name="select_days_label">Select the days you would like your drink to be prepared:</string>
+    <string name="create_schedule_select_name">Select a name for your new schedule:</string>
+    <string name="create_schedule_select_drink">Select which drink you would like to prepare:</string>
+    <string name="create_schedule_select_time">Select the time you would like your drink to be ready:</string>
 </resources>

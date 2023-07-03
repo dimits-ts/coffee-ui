@@ -15,7 +15,6 @@ public class Schedule implements Serializable {
     private final Collection<Day> days;
     private final LocalTime time;
     private final DrinkType type;
-    private boolean isActive;
 
     /**
      * Create a new schedule.
@@ -26,13 +25,12 @@ public class Schedule implements Serializable {
      * @param drinkType the type of drink that will be dispensed when the schedule is activated
      */
     public Schedule(String name, boolean isRepeatable, Collection<Day> days, LocalTime time,
-                    DrinkType drinkType, boolean isActive) {
+                    DrinkType drinkType) {
         this.name = name;
         this.isRepeatable = isRepeatable;
         this.days = days;
         this.time = time;
         this.type = drinkType;
-        this.isActive = isActive;
     }
 
     public String getName() {
@@ -53,9 +51,4 @@ public class Schedule implements Serializable {
 
     public DrinkType getType() {return this.type;}
 
-    public boolean isActive() {return this.isActive;}
-
-    public void activate() {this.isActive = true;}
-
-    public void disactivate() {this.isActive = false;}
 }

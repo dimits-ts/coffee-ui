@@ -9,17 +9,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="1283dp"
+        android:layout_width="0dp"
         android:layout_height="188dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.004">
+        app:layout_constraintVertical_bias="0">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="1289dp"
+            android:layout_width="0dp"
             android:layout_height="182dp"
             android:background="@color/primary_white"
             android:minHeight="?attr/actionBarSize"
@@ -43,20 +43,6 @@
             app:layout_constraintTop_toTopOf="@+id/buttonBack"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/help_icon" />
-
-        <ImageButton
-            android:id="@+id/offButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:contentDescription="@string/button_off"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonBack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.97"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/buttonBack"
-            app:srcCompat="@drawable/off_button_icon"
-            tools:ignore="ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/buttonBack"
@@ -108,15 +94,15 @@
         android:backgroundTint="@color/primary_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.214">
+        app:layout_constraintVertical_bias="0.076">
 
         <Button
             android:id="@+id/listNewScheduleButton"
-            android:layout_width="262dp"
-            android:layout_height="66dp"
+            android:layout_width="224dp"
+            android:layout_height="86dp"
             android:background="@drawable/rounded_outline"
             android:text="@string/new_schedule_label"
             app:backgroundTint="@color/teal_700"
@@ -128,17 +114,17 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="314dp"
-            android:layout_height="297dp"
+            android:layout_width="317dp"
+            android:layout_height="299dp"
             android:background="@drawable/rounded_outline"
             android:backgroundTint="@color/primary_white"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.125" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

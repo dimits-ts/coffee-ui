@@ -18,6 +18,11 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
     private final CreateScheduleMvp.CreateScheduleView view;
     private final ScheduleDao scheduleDao;
 
+    // current schedule data
+    private LocalTime time;
+    private String name;
+    private DrinkType type;
+
     /**
      * Create a presenter for creating schedules.
      * @param view the UI view
@@ -30,19 +35,15 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
 
     @Override
     public void save() {
-        String name = view.getName();
-        Collection<Day> days = view.getDays();
         boolean isRepeatable = view.isRepeatable();
-        LocalTime time = view.getTime();
-        DrinkType type = this.view.getSelectedDrink();
+        Collection<Day> days = view.getDays();
 
-
-        if(name.trim().isEmpty()) {
+        if(name == null || name.trim().isEmpty()) {
             view.displayError("Please select a non-empty schedule name.");
             return;
         }
 
-        if(days.size() == 0){
+        if(days == null || days.size() == 0){
             view.displayError("Please select one or more days.");
             return;
         }
@@ -58,13 +59,11 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
             return;
         }
 
-        //TODO: make isActive dynamic
-        Schedule schedule = new Schedule(name,isRepeatable, days, time, type, true);
+        Schedule schedule = new Schedule(name,isRepeatable, days, time, type);
         try {
             scheduleDao.save(schedule);
-            view.displaySuccess(schedule);
-            // should we return automatically to the menu or would it be annoying?
-            //view.toMenu();
+            view.success(schedule);
+            view.toMenu();
         } catch (ScheduleNameException se) {
             view.displayNameConflictError(name);
         } catch (IOException ioe) {
@@ -80,5 +79,20 @@ class CreateSchedulePresenter implements CreateScheduleMvp.CreateSchedulePresent
     @Override
     public void daySelected(Day day) {
         view.daySelected(day);
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void setDrinkType(DrinkType type) {
+        this.type = type;
+    }
+
+    @Override
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 }

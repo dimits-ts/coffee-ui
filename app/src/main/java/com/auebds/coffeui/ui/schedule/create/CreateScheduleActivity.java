@@ -1,32 +1,26 @@
 package com.auebds.coffeui.ui.schedule.create;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.ImageButton;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DebugScheduleDao;
+import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityCreateScheduleBinding;
-import com.auebds.coffeui.entity.Day;
-import com.auebds.coffeui.entity.DrinkType;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
+import com.auebds.coffeui.util.SingletonTTS;
 
-import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * The Activity that manages the creation of a schedule.
@@ -35,122 +29,74 @@ import java.util.Map;
  */
 public class CreateScheduleActivity extends AppCompatActivity {
 
+    private final CreateScheduleView view = new CreateScheduleView(this);
+
     private final CreateScheduleMvp.CreateSchedulePresenter presenter =
-            new CreateSchedulePresenter(new CreateScheduleView(this),
-                    DebugScheduleDao.getInstance());
+            new CreateSchedulePresenter(view, DebugScheduleDao.getInstance());
+
+    private ArrayList<SwitchableFragment> fragmentList;
+    private ArrayList<Button> navButtonList;
+    private int currentFragmentIdx = -1;
 
     private ActivityCreateScheduleBinding binding;
-    private Map<Day, Button> dayButtonHashMap;
 
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityCreateScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        this.dayButtonHashMap = this.createDayButtonMap();
+        ScheduleDayFragment dayFragment = ScheduleDayFragment.newInstance(presenter);
+        fragmentList = new ArrayList<>();
+        fragmentList.add(ScheduleNameFragment.newInstance(presenter));
+        fragmentList.add(ScheduleDrinkFragment.newInstance(presenter));
+        fragmentList.add(ScheduleTimeFragment.newInstance(presenter));
+        fragmentList.add(dayFragment);
 
-        this.attachRadioButtonListeners();
-        this.assignDayButtonListeners();
-        this.assignBackButtonListener();
-        this.setUpSpinner();
+        navButtonList = new ArrayList<>();
+        navButtonList.add(binding.nameButton);
+        navButtonList.add(binding.drinkButton);
+        navButtonList.add(binding.timeButton);
+        navButtonList.add(binding.dayButton);
 
-        Button saveButton = binding.editScheduleButton;
-        saveButton.setOnClickListener(view -> this.presenter.save());
+        binding.nameButton.setOnClickListener(v -> switchFragments(0));
+        binding.drinkButton.setOnClickListener(v -> switchFragments(1));
+        binding.timeButton.setOnClickListener(v -> switchFragments(2));
+        binding.dayButton.setOnClickListener(v -> switchFragments(3));
+        binding.doneButton.setOnClickListener(v -> this.presenter.save());
 
-        binding.timePicker.setIs24HourView(true); // because of user feedback
+        binding.previousButton.setOnClickListener(v -> switchFragments(currentFragmentIdx - 1));
+        binding.nextButton.setOnClickListener(v -> switchFragments(currentFragmentIdx + 1));
+        binding.buttonBack.setOnClickListener(v -> toMenu());
+
+        ImageButton helpButton = binding.helpButton;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(CreateScheduleActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_schedule);
+            intent.putExtras(b);
+            startActivity(intent);
+            finish(); // lord forgive me for I have sinned
+        });
+
+        this.view.setDayManager(dayFragment);
+
+        switchFragments(0);
+
+        SingletonTTS.getInstance(getApplicationContext(),
+                SettingsDao.getInstance(getApplicationContext()))
+                .speakOnce(getString(R.string.tts_create_schedules));
     }
 
-
-    String getName() {
-        return binding.scheduleNameField.getText().toString();
-    }
-
-    /**
-     * Get the drink selected by the user.
-     * @return the selected DrinkType
-     * @throws IllegalArgumentException if the id used in the spinner does not correspond to
-     * any drink type.
-     * @implNote The id is selected from the first character of the spinner. This means that
-     * any translation must include it as a first character, in the 1-4 range.
-     */
-    DrinkType getSelectedDrink() throws IllegalArgumentException {
-        String drinkName = (String) binding.selectDrinkSpinner.getSelectedItem();
-        int drinkId = Character.getNumericValue(drinkName.trim().charAt(0));
-
-        if(drinkId < 0) {
-            throw new IllegalArgumentException(String.format(Locale.getDefault(),
-                    "No id for drink type found in spinner value %s. See @implNote", drinkName));
-        }
-
-        return Arrays.stream(DrinkType.values())
-                .filter(drinkType -> drinkType.getId() == drinkId)
-                .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(String.format(Locale.getDefault(),
-                        "Id %d not valid for any drink type. See @implNote", drinkId)));
-                // we don't care about app locale since this is a programming error
-    }
-
-    /**
-     * Get the user-selected scheduled time.
-     * @return a LocalTime object containing the time or null if the time is invalid
-     */
-    LocalTime getTime() {
-        if(binding.timePicker.validateInput())
-            return LocalTime.of(binding.timePicker.getHour(), binding.timePicker.getMinute());
-        else
-            return null;
-    }
-
-    /**
-     * Make the button corresponding to a specific day clickable.
-     * @param day the day whose button will be made clickable
-     */
-    void makeClickable(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setEnabled(true);
-    }
-
-    /**
-     * Make the button corresponding to a specific day un-clickable.
-     * @param day the day whose button will be made un-clickable
-     */
-    void makeUnclickable(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setEnabled(false);
-    }
-
-    /**
-     * Change the appearance of the button corresponding to a specific day to being selected.
-     * @param day the day whose button will be marked as selected
-     */
-    void markSelected(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                R.color.button_selected));
-    }
-
-    /**
-     * Change the appearance of the button corresponding to a specific day to being un-selected.
-     * @param day the day whose button will be marked as un-selected
-     */
-    void markUnselected(Day day) {
-        Button button = this.dayButtonHashMap.get(day);
-        assert button != null;
-        button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                R.color.primary_grey));
-    }
 
     View getRootView() {
         return getWindow().getDecorView().getRootView();
     }
 
     void toMenu() {
-        Intent menuIntent = new Intent(CreateScheduleActivity.this, MainMenuActivity.class);
-        startActivity(menuIntent);
+        this.finish();
     }
 
     void toMenuWithMessage(String message) {
@@ -164,74 +110,58 @@ public class CreateScheduleActivity extends AppCompatActivity {
         return getString(stringId, (Object []) args);
     }
 
-    private void setUpSpinner() {
-        Spinner spinner = binding.selectDrinkSpinner;
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.drinks_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
-        spinner.setSelection(0);
-    }
-
     /**
-     * Make the back button go to the main menu when pressed.
+     * Switch the fragment shown to a new one.
+     * @param newIndex the index of the new fragment
      */
-    private void assignBackButtonListener() {
-        ImageView backButton = binding.buttonBack;
-        backButton.setOnClickListener(view -> toMenu());
-    }
+    private void switchFragments(int newIndex) {
+        if(currentFragmentIdx != newIndex && newIndex >= 0 && newIndex < this.navButtonList.size()) {
+            // notify fragment
+            try {
+                ((SwitchableFragment) binding.fragmentView.getFragment()).onSwitch();
+            } catch(RuntimeException e) {
+                Log.e("CREATE_SCHEDULE", e.getLocalizedMessage(), e);
+            }
 
+            // switch fragments
+            FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentView, fragmentList.get(newIndex));
+            transaction.addToBackStack(null);
+            transaction.commit();
 
-    @SuppressLint("ClickableViewAccessibility") //TODO: subclass buttons?
-    private void assignDayButtonListeners() {
-        for(Map.Entry<Day, Button> entry: this.dayButtonHashMap.entrySet()){
-            entry.getValue().setOnTouchListener((view, event) -> {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    //view.performClick();
-                    this.presenter.daySelected(entry.getKey());
-                }
-                return false; // don't need this event for anything else
-            });
+            // switch buttons appearance
+            for(int i=0; i<=newIndex; i++) {
+                setCompletedColor(navButtonList.get(i));
+            }
+
+            for(int i=newIndex+1; i<navButtonList.size(); i++) {
+                setNotCompletedColor(navButtonList.get(i));
+            }
+
+            // update fragment pointer
+            this.currentFragmentIdx = newIndex;
+        }
+
+        // if next on last panel, act like the DONE button was pressed
+        if(newIndex == this.navButtonList.size()) {
+            this.presenter.save();
         }
     }
 
     /**
-     * Notify the presenter if any of the choices are selected.
+     * Set the button's background color to represent completion.
+     * @param b the button
      */
-    private void attachRadioButtonListeners() {
-        binding.buttonRepeatOnce.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.ONCE));
-        binding.buttonRepeatDaily.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.DAILY));
-        binding.buttonRepeatWeekday.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.WEEKDAY));
-        binding.buttonRepeatWeekend.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.WEEKEND));
-        binding.buttonRepeatCustom.setOnClickListener(view ->
-                presenter.groupSelected(RepetitionPeriod.CUSTOM));
+    private void setCompletedColor(Button b) {
+        b.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.button_selected));
     }
 
     /**
-     * Create the internal map mapping days to their toggle buttons.
-     * @return the filled map
+     * Set the button's background color to represent non-completion.
+     * @param b the button
      */
-    private Map<Day, Button> createDayButtonMap() {
-        HashMap<Day, Button> map = new HashMap<>();
-
-        map.put(Day.MONDAY, binding.buttonMonday);
-        map.put(Day.TUESDAY, binding.buttonTuesday);
-        map.put(Day.WEDNESDAY, binding.buttonWendensday);
-        map.put(Day.THURSDAY, binding.buttonThursday);
-        map.put(Day.FRIDAY, binding.buttonFriday);
-        map.put(Day.SATURDAY, binding.buttonSaturday);
-        map.put(Day.SUNDAY, binding.buttonSunday);
-
-        // check if accessed before initialization
-        assert map.get(Day.MONDAY) != null;
-
-        return map;
+    private void setNotCompletedColor(Button b) {
+        b.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_grey));
     }
 
 }

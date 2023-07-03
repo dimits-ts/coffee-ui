@@ -3,6 +3,8 @@ package com.auebds.coffeui.ui.drinks.tea;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateTeaBinding;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.util.Util;
 
 public class CreateTeaActivity extends AppCompatActivity {
@@ -34,6 +37,15 @@ public class CreateTeaActivity extends AppCompatActivity {
         Button saveButton = binding.goButton4;
         saveButton.setOnClickListener(view -> this.presenter.save());
 
+        ImageButton helpButton = binding.helpButton4;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(CreateTeaActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_tea);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
+
         presenter.loadLastPreset();
     }
 
@@ -56,8 +68,8 @@ public class CreateTeaActivity extends AppCompatActivity {
         this.finish();
     }
     private void attachListeners() {
-        binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
-        binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));
+        binding.plusbuttonwater.setOnClickListener(view -> presenter.changeWater(true));
+        binding.minusbuttonwater.setOnClickListener(view -> presenter.changeWater(false));
         binding.plusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(true));
         binding.minusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(false));
         binding.plusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(true));
@@ -65,8 +77,9 @@ public class CreateTeaActivity extends AppCompatActivity {
     }
 
     private void attachRadioButtonListeners() {
-        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
-        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
+        binding.temperatureSwitch.setOnCheckedChangeListener(
+                (CompoundButton buttonView, boolean isChecked)
+                        -> presenter.changeTemperature(isChecked));
     }
 
     public void setSugar(int amount){
@@ -77,13 +90,12 @@ public class CreateTeaActivity extends AppCompatActivity {
         binding.milkAmount.setText(Util.localizedToString(amount));
     }
 
-    public void setCups(int amount){
-        binding.cupsAmount.setText(Util.localizedToString(amount));
+    public void setWater(int amount){
+        binding.waterAmount.setText(Util.localizedToString(amount));
     }
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setChecked(true);}
-        else    {binding.buttoncold.setChecked(true);}
+        binding.temperatureSwitch.setChecked(temp);
     }
 
     public int getSugar() {
@@ -94,8 +106,8 @@ public class CreateTeaActivity extends AppCompatActivity {
         return Integer.parseInt(binding.milkAmount.getText().toString());
     }
 
-    public int getCups() {
-        return Integer.parseInt(binding.cupsAmount.getText().toString());
+    public int getWater() {
+        return Integer.parseInt(binding.waterAmount.getText().toString());
     }
 
     public boolean getTemp() {

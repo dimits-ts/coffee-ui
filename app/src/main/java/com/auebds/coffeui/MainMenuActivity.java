@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -13,12 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.auebds.coffeui.dao.SettingsDao;
 import com.auebds.coffeui.databinding.ActivityMainMenuBinding;
 import com.auebds.coffeui.ui.drinks.chocolate.CreateChocolateActivity;
 import com.auebds.coffeui.ui.drinks.espresso.CreateEspressoActivity;
 import com.auebds.coffeui.ui.drinks.french.CreateFrenchActivity;
 import com.auebds.coffeui.ui.drinks.tea.CreateTeaActivity;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.ui.schedule.manage.ManageScheduleActivity;
+import com.auebds.coffeui.util.SingletonTTS;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -27,12 +31,16 @@ import java.util.Locale;
 
 public class MainMenuActivity extends AppCompatActivity {
     public static final String ARG_MESSAGE = "MESSAGE";
-    private final static int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
+    private static final int SNACKBAR_DURATION = BaseTransientBottomBar.LENGTH_SHORT;
 
+    private SingletonTTS tts;
+    private ActivityMainMenuBinding binding;
+
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainMenuBinding binding = ActivityMainMenuBinding.inflate(getLayoutInflater());
+        binding = ActivityMainMenuBinding.inflate(getLayoutInflater());
 
         View rootView = binding.getRoot();
         setContentView(rootView);
@@ -40,6 +48,17 @@ public class MainMenuActivity extends AppCompatActivity {
         LocalDate today = LocalDate.now();
         String month = capitalize(today.getMonth().toString());
         binding.textDate.setText(String.format(Locale.ROOT, "%s %d", month, today.getDayOfMonth()));
+
+        // on click exit application
+        binding.offButton.setOnClickListener(view -> this.finishAndRemoveTask());
+
+        SettingsDao settings = SettingsDao.getInstance(getApplicationContext());
+        settings.isVoiceOn().subscribe(this::setSoundIcon);
+        binding.soundButton.setOnClickListener(v -> settings.switchVoice());
+
+        // initialize global tts device
+        this.tts = SingletonTTS.getInstance(
+                this.getApplicationContext(), settings, getString(R.string.tts_welcome));
 
         Intent chocolateIntent = new Intent(MainMenuActivity.this, CreateChocolateActivity.class);
         ActivityResultLauncher<Void> chocolateLauncher = getDrinkLauncher(rootView, chocolateIntent);
@@ -59,12 +78,18 @@ public class MainMenuActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageButton helpButton = binding.helpButton;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(MainMenuActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_main);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
+
         binding.chocolateButton.setOnClickListener(view -> chocolateLauncher.launch(null));
-
         binding.frenchButton.setOnClickListener(view -> frenchLauncher.launch(null));
-
         binding.teaButton.setOnClickListener(view -> teaLauncher.launch(null));
-
         binding.espressoButton.setOnClickListener(view ->espressoLauncher.launch(null));
     }
 
@@ -75,6 +100,7 @@ public class MainMenuActivity extends AppCompatActivity {
      * @param intent the intent which will start the next activity
      * @return the launcher which will exeucute the startActivityForResult call
      */
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
     private ActivityResultLauncher<Void> getDrinkLauncher(View rootView, Intent intent) {
 
         ActivityResultContract<Void, String> contract = new ActivityResultContract<Void, String>() {
@@ -96,10 +122,21 @@ public class MainMenuActivity extends AppCompatActivity {
         ActivityResultCallback<String> callback = message -> {
             if(message != null) {
                 Snackbar.make(rootView, message, SNACKBAR_DURATION).show();
+                this.tts.speakSentence(getString(R.string.tts_drink_creation));
             }
         };
 
         return registerForActivityResult(contract, callback);
+    }
+
+    private void setSoundIcon(boolean voiceIsActivated) {
+        runOnUiThread(() -> {
+            if(voiceIsActivated) {
+                binding.soundButton.setImageResource(R.drawable.sound_on);
+            } else {
+                binding.soundButton.setImageResource(R.drawable.sound_off);
+            }
+        });
     }
 
     private String capitalize(String str){

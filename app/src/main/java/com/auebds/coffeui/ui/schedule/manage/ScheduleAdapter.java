@@ -28,6 +28,7 @@ class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
     private ScheduleViewHolder selectedViewHolder;
     private Schedule[] schedules;
 
+    
     /**
      * Create a new list adapter containing the user-defined schedules.
      * @param presenter the presenter responsible for managing schedules

@@ -1,7 +1,7 @@
 package com.auebds.coffeui.entity;
 
 public class Chocolate {
-    private int cups;
+    private int water;
     private int milk;
     private int sugar;
     private int chocolate;
@@ -14,12 +14,12 @@ public class Chocolate {
         this.sugar -= 1;
     }
 
-    public void plusCups() {
-        this.cups +=1;
+    public void plusWater() {
+        this.water += DrinkLimits.WATER_CHANGE_INTERVAL;
     }
 
-    public void minusCups(){
-        this.cups -=1;
+    public void minusWater(){
+        this.water -= DrinkLimits.WATER_CHANGE_INTERVAL;
     }
 
     public void plusMilk() {
@@ -30,9 +30,11 @@ public class Chocolate {
         this.milk -= 1;
     }
 
-    public void setChocolate(int chocolate) {
-        this.chocolate = chocolate;
+    public void plusChocolate() {
+        this.chocolate +=1;
     }
+
+    public void minusChocolate(){ this.chocolate -=1; }
 
     public void setTemp(boolean temp) {
         this.temp = temp;
@@ -40,16 +42,16 @@ public class Chocolate {
 
     private boolean temp;
 
-    public Chocolate(int cups, int milk, int sugar, int chocolate, boolean temp){
-        this.cups=cups;
+    public Chocolate(int water, int milk, int sugar, int chocolate, boolean temp){
+        this.water=water;
         this.milk=milk;
         this.sugar=sugar;
         this.chocolate=chocolate;
         this.temp=temp;
     }
 
-    public int getCups(){
-        return this.cups;
+    public int getWater(){
+        return this.water;
     }
 
     public int getMilk(){

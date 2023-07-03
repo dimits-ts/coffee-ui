@@ -2,18 +2,18 @@ package com.auebds.coffeui.ui.drinks.chocolate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.auebds.coffeui.MainMenuActivity;
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.dao.DrinkDao;
 import com.auebds.coffeui.databinding.ActivityCreateChocolateBinding;
+import com.auebds.coffeui.ui.tutorial.TutorialActivity;
 import com.auebds.coffeui.util.Util;
 
 public class CreateChocolateActivity extends AppCompatActivity {
@@ -36,13 +36,17 @@ public class CreateChocolateActivity extends AppCompatActivity {
         Button saveButton = binding.goButton;
         saveButton.setOnClickListener(view -> this.presenter.save());
 
+        ImageButton helpButton = binding.helpButton5;
+        helpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(CreateChocolateActivity.this, TutorialActivity.class);
+            Bundle b = new Bundle();
+            b.putString("path", "android.resource://" + getPackageName() + "/" + R.raw.tutorial_create_chocolate);
+            intent.putExtras(b);
+            startActivity(intent);
+        });
+
         presenter.loadLastPreset();
     }
-
-    View getRootView() {
-        return getWindow().getDecorView().getRootView();
-    }
-
 
     /**
      * Make the back button go to the main menu when pressed.
@@ -51,6 +55,7 @@ public class CreateChocolateActivity extends AppCompatActivity {
         ImageView backButton = binding.buttonBack;
         backButton.setOnClickListener(view -> toMenu());
     }
+
 
     void toMenu() {
         this.finish();
@@ -64,8 +69,8 @@ public class CreateChocolateActivity extends AppCompatActivity {
     }
 
     private void attachListeners() {
-        binding.plusbuttoncups.setOnClickListener(view -> presenter.changeCups(true));
-        binding.minusbuttoncups.setOnClickListener(view -> presenter.changeCups(false));
+        binding.plusbuttonwater.setOnClickListener(view -> presenter.changeWater(true));
+        binding.minusbuttonwater.setOnClickListener(view -> presenter.changeWater(false));
         binding.plusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(true));
         binding.minusbuttonsugar.setOnClickListener(view -> presenter.changeSugar(false));
         binding.plusbuttonmilk.setOnClickListener(view -> presenter.changeMilk(true));
@@ -73,22 +78,8 @@ public class CreateChocolateActivity extends AppCompatActivity {
     }
 
     private void attachRadioButtonListeners() {
-        binding.hotbutton.setOnClickListener(view -> presenter.changeTemperature(true));
-        binding.buttoncold.setOnClickListener(view -> presenter.changeTemperature(false));
-        binding.amount1.setOnClickListener(view -> presenter.changeChocolate(1));
-        binding.amount2.setOnClickListener(view -> presenter.changeChocolate(2));
-        binding.amount3.setOnClickListener(view -> presenter.changeChocolate(3));
-        binding.amount4.setOnClickListener(view -> presenter.changeChocolate(4));
-    }
-
-
-    public int getChocolate() {
-        Button button;
-        RadioGroup radioGroup = findViewById(R.id.radioGroup);
-        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-        button = findViewById(selectedRadioButtonId);
-        String text = button.getText().toString();
-        return Integer.parseInt(text);
+        binding.temperatureSwitch.setOnCheckedChangeListener(
+                (compoundButton, b) -> presenter.changeTemperature(b));
     }
 
     public void setSugar(int amount){
@@ -99,30 +90,15 @@ public class CreateChocolateActivity extends AppCompatActivity {
         binding.milkAmount.setText(Util.localizedToString(amount));
     }
 
-    public void setCups(int amount){
-        binding.cupsAmount.setText(Util.localizedToString(amount));
+    public void setWater(int amount){
+        binding.waterAmount.setText(Util.localizedToString(amount));
     }
 
-    public void setChocolate(int amount) {
-        switch(amount){
-            case 1:
-                binding.amount1.setChecked(true);
-                break;
-            case 2:
-                binding.amount2.setChecked(true);
-                break;
-            case 3:
-                binding.amount3.setChecked(true);
-                break;
-            case 4:
-                binding.amount4.setChecked(true);
-                break;
-        }
-    }
+    public void setChocolate(int amount) {binding.chocolateAmount.setText(Util.localizedToString(amount));}
+
 
     public void setTemperature(boolean temp) {
-        if(temp){binding.hotbutton.setChecked(true);}
-        else    {binding.buttoncold.setChecked(true);}
+        binding.temperatureSwitch.setChecked(temp);
     }
 
     public int getSugar() {
@@ -133,8 +109,8 @@ public class CreateChocolateActivity extends AppCompatActivity {
         return Integer.parseInt(binding.milkAmount.getText().toString());
     }
 
-    public int getCups() {
-        return Integer.parseInt(binding.cupsAmount.getText().toString());
+    public int getWater() {
+        return Integer.parseInt(binding.waterAmount.getText().toString());
     }
 
     public boolean getTemp() {

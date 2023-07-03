@@ -1,21 +1,16 @@
 package com.auebds.coffeui.ui.schedule.create;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.auebds.coffeui.R;
 import com.auebds.coffeui.entity.Day;
-import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.entity.Schedule;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.time.LocalTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * The concrete implementation of the schedule creation MVP View.
@@ -27,15 +22,22 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
 
     private final CreateScheduleActivity activity;
     private final HashMap<Day, Boolean> selectedDaysMap;
+
+    private DayManager dayManager;
     private boolean isRepeatable;
 
     public CreateScheduleView(CreateScheduleActivity activity) {
         this.activity = activity;
+        this.dayManager = null;
 
         this.selectedDaysMap = new HashMap<>();
         for(Day day: Day.values()) {
             this.selectedDaysMap.put(day, false);
         }
+    }
+
+    public void setDayManager(DayManager dayManager) {
+        this.dayManager = dayManager;
     }
 
     @Override
@@ -88,7 +90,7 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public void displaySuccess(Schedule schedule) {
+    public void success(Schedule schedule) {
         String message = this.activity.getStringRes(R.string.schedule_success_message, schedule.getName());
         this.activity.toMenuWithMessage(message);
     }
@@ -99,60 +101,48 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
     }
 
     @Override
-    public Collection<Day> getDays() {
-        LinkedList<Day> ls = new LinkedList<>();
-        for(Map.Entry<Day, Boolean> entry: this.selectedDaysMap.entrySet()){
-            if(entry.getValue()) {
-                ls.add(entry.getKey());
-            }
-        }
-        return ls;
-    }
-
-    @Override
-    public LocalTime getTime() {
-        return this.activity.getTime();
-    }
-
-    @Override
-    public String getName() {
-        return this.activity.getName();
-    }
-
-    @Override
     public boolean isRepeatable() {
         return this.isRepeatable;
     }
 
     @Override
-    public DrinkType getSelectedDrink() {
-        try {
-            return activity.getSelectedDrink();
-        } catch (IllegalArgumentException iae) {
-            Log.e("CREATE_SCHEDULE", String.valueOf(iae));
-            return null;
+    public Collection<Day> getDays() {
+        LinkedList<Day> ls = new LinkedList<>();
+        for(Day day: Day.values()){
+            if(Boolean.TRUE.equals(this.selectedDaysMap.get(day))) {
+                ls.add(day);
+            }
         }
+        return ls;
     }
 
     private void markSelected(Day day) {
-        this.activity.markSelected(day);
+        throwOnNoDayManager();
+
+        this.dayManager.markSelected(day);
         this.selectedDaysMap.put(day, true);
     }
 
     private void markUnselected(Day day) {
-        this.activity.markUnselected(day);
+        throwOnNoDayManager();
+
+        this.dayManager.markUnselected(day);
         this.selectedDaysMap.put(day, false);
     }
 
     private void allClickable() {
+        throwOnNoDayManager();
+
         for(Day day: Day.values()){
-            this.activity.makeClickable(day);
+            this.dayManager.makeClickable(day);
         }
     }
 
     private void allUnclickable() {
+        throwOnNoDayManager();
+
         for(Day day: Day.values()){
-            this.activity.makeUnclickable(day);
+            this.dayManager.makeUnclickable(day);
         }
     }
 
@@ -168,4 +158,9 @@ class CreateScheduleView implements  CreateScheduleMvp.CreateScheduleView {
         }
     }
 
+    private void throwOnNoDayManager() {
+        if(this.dayManager == null) {
+            throw new IllegalStateException("No day manager set");
+        }
+    }
 }

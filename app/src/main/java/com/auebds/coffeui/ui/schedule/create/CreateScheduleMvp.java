@@ -4,6 +4,7 @@ import com.auebds.coffeui.entity.Day;
 import com.auebds.coffeui.entity.DrinkType;
 import com.auebds.coffeui.entity.Schedule;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Collection;
 
@@ -48,30 +49,12 @@ interface CreateScheduleMvp {
          * Display a success message to the user.
          * @param schedule the created schedule
          */
-        void displaySuccess(Schedule schedule);
+        void success(Schedule schedule);
 
         /**
          * Close the create schedule screen and go back to the main menu.
          */
         void toMenu();
-
-        /**
-         * Get the selected schedule days from the UI.
-         * @return an iterable containing the selected days
-         */
-        Collection<Day> getDays();
-
-        /**
-         * Get the time (hour, minutes) when the schedule is scheduled to start.
-         * @return the time (with timezone information)
-         */
-        LocalTime getTime();
-
-        /**
-         * Get the user-defined name of the schedule.
-         * @return the name of the schedule
-         */
-        String getName();
 
         /**
          * Get whether or not the schedule must be repeated more than once.
@@ -80,17 +63,17 @@ interface CreateScheduleMvp {
         boolean isRepeatable();
 
         /**
-         * Get the schedule's selected drink type.
-         * @return the selected drink type, null if invalid
+         * Get the days that have been selected.
+         * @return a collection of all selected days.
          */
-        DrinkType getSelectedDrink();
+        Collection<Day> getDays();
     }
 
     /**
      * The Presenter part of the MVP contract for creating schedules.
      * @author Dimitris Tsirmpas
      */
-    interface CreateSchedulePresenter {
+    interface CreateSchedulePresenter extends Serializable {
 
         /**
          * Save the current schedule.
@@ -109,5 +92,23 @@ interface CreateScheduleMvp {
          * @param day the selected day
          */
         void daySelected(Day day);
+
+        /**
+         * Notify the presenter to change the schedule's name.
+         * @param name the selected name.
+         */
+        void setName(String name);
+
+        /**
+         * Notify the presenter to change the schedule's drink type.
+         * @param type the selected drink type.
+         */
+        void setDrinkType(DrinkType type);
+
+        /**
+         * Notify the presenter to change the schedule's time.
+         * @param time the selected time.
+         */
+        void setTime(LocalTime time);
     }
 }
